@@ -1,0 +1,61 @@
+<!-- MENU-LOCATION=NONE -->
+<!DOCTYPE HTML SYSTEM "-//Adobe//DWExtension layout-engine 10.0// dialog"> <html xmlns="http://www.w3.org/1999/xhtml">
+<head> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<title>Senimandigital - Error Sistem Database</title>
+<SCRIPT SRC="../../Shared/Common/Scripts/dwscripts.js"></SCRIPT>
+<SCRIPT SRC="../../Shared/Common/Scripts/dwscriptsServer.js"></SCRIPT>
+<SCRIPT SRC="../../Shared/Common/Scripts/dwscriptsExtData.js"></SCRIPT>
+<SCRIPT SRC="../../Shared/Common/Scripts/ServerBehaviorClass.js"></SCRIPT>
+
+<SCRIPT SRC="../../Shared/Controls/Scripts/ConnectionMenu.js"></SCRIPT>
+<SCRIPT SRC="../../Shared/Common/Scripts/ListControlClass.js"></SCRIPT>
+
+<script type="text/javascript">
+var _ConnectionName = new ConnectionMenu("source_get_kurang.htm", "ConnectionName", "");
+
+function initializeUI()
+{
+  _ConnectionName.initializeUI();
+
+  elts = document.forms[0].elements;
+  if (elts && elts.length)
+    elts[0].focus();
+
+ var browser = document.getElementById("browser");
+     browser.openURL("http://senimandigital.kom/senimandigital-offline/dreamweaver/database_saran_sistem.php?LocalRootURL="+ site.getLocalRootURL(site.getCurrentSite()) +"&ConnectionName=" + document.getElementsByName('ConnectionName').options[document.getElementsByName('ConnectionName').selectedIndex].value);
+} 
+
+function updateUI(controlName, event)
+{
+  if (window["_" + controlName] != null)
+  {
+    var controlObj = window["_" + controlName];
+
+    var browser = document.getElementById("browser");
+        browser.openURL("http://senimandigital.kom/senimandigital-offline/dreamweaver/database_saran_sistem.php?LocalRootURL="+ site.getLocalRootURL(site.getCurrentSite()) +"&ConnectionName=" + document.getElementsByName('ConnectionName').options[document.getElementsByName('ConnectionName').selectedIndex].value);
+  }
+}
+
+function commandButtons(){
+  return new Array("Keluar",       "window.close()"
+);
+}
+</script> 
+</head>
+<body onLoad="initializeUI()" style="margin:0; background-color:#FFF">
+<form style="margin:0px;">
+<table>
+    <TR>
+      <TD ALIGN="right" VALIGN="baseline" NOWRAP><mm:browsercontrol id="browser" style="width:700px; height:500px;"/></TD>
+    </TR>
+    <TR>
+      <TD ALIGN="right" VALIGN="baseline" NOWRAP>
+        ConnectionName:
+      <SELECT STYLE="width:150px" NAME="ConnectionName" onChange="updateUI('ConnectionName','onChange')">
+      </SELECT><INPUT TYPE="button" VALUE="Define..." onClick= "_ConnectionName.launchConnectionDialog()" >   	  </TD>
+    </TR>
+    </table>
+</form>
+</body>
+</html>

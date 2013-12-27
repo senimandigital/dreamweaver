@@ -1,0 +1,83 @@
+<!-- MENU-LOCATION=NONE -->
+<!DOCTYPE HTML SYSTEM "-//Adobe//DWExtension layout-engine 10.0// dialog"> <html xmlns="http://www.w3.org/1999/xhtml">
+<head> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<title>Senimandigital - Source Get Error Insert</title>
+<SCRIPT SRC="../../Shared/Common/Scripts/dwscripts.js"></SCRIPT>
+<SCRIPT SRC="../../Shared/Common/Scripts/dwscriptsServer.js"></SCRIPT>
+<SCRIPT SRC="../../Shared/Common/Scripts/dwscriptsExtData.js"></SCRIPT>
+<SCRIPT SRC="../../Shared/Common/Scripts/ServerBehaviorClass.js"></SCRIPT>
+
+<SCRIPT SRC="../../Shared/Controls/Scripts/ConnectionMenu.js"></SCRIPT>
+<SCRIPT SRC="../../Shared/Common/Scripts/ListControlClass.js"></SCRIPT>
+<SCRIPT SRC="../../Shared/Controls/Scripts/ConnectionTableMenu.js"></SCRIPT>
+<SCRIPT SRC="../../Shared/Controls/Scripts/ListMenu.js"></SCRIPT>
+
+<script type="text/javascript">
+var _ConnectionName = new ConnectionMenu("database_relasi.htm", "ConnectionName", "");
+var _FolderRoot = new ListMenu("Folder Root.htm", "FolderRoot", "");
+
+function initializeUI()
+{
+  var elts;
+
+  _ConnectionName.initializeUI();
+  _FolderRoot.initializeUI();
+
+  elts = document.forms[0].elements;
+  if (elts && elts.length)
+    elts[0].focus();
+
+ var browser = document.getElementById("browser");
+      browser.openURL("http://senimandigital.kom/senimandigital-offline/dreamweaver/source_get_error.php?database=perumahan&" + dwscripts.getCommandArguments());
+ 
+ var httpReply = MMHttp.getText("192.168.0.1/senimandigital-offline/dreamweaver/dreamweaver_folder_root.php?LocalRootURL="+ site.getLocalRootURL(site.getCurrentSite()) +"&ConnectionName=" + document.getElementsByName('ConnectionName').options[document.getElementsByName('ConnectionName').selectedIndex].value + "&folder=" + document.getElementsByName('FolderRoot').options[document.getElementsByName('FolderRoot').selectedIndex].value);
+      document.getElementById('FolderRoot').innerHTML = httpReply.data;
+}
+
+function updateUI(controlName, event)
+{
+     var browser = document.getElementById("browser");
+         browser.openURL("http://senimandigital.kom/senimandigital-offline/dreamweaver/source_get_error.php?LocalRootURL="+ site.getLocalRootURL(site.getCurrentSite()) +"&ConnectionName=" + document.getElementsByName('ConnectionName').options[document.getElementsByName('ConnectionName').selectedIndex].value + "&folder=" + document.getElementsByName('FolderRoot').options[document.getElementsByName('FolderRoot').selectedIndex].value);
+}
+
+function LoadSourceErrorTanggal(){
+  var browser    = document.getElementById("browser");
+  var              stringAlamatFile = browser.getWindowObj().document.getElementById("error").innerHTML;
+  var alamatFile = stringAlamatFile.split(" ");
+    for (var i=0; i < alamatFile.length; i++)
+        {
+         dw.openDocument(alamatFile[i]);
+        }
+  window.close();
+}
+
+function commandButtons(){
+  return new Array("Keluar",       "window.close()",
+                   "Load File",    "LoadSourceErrorTanggal()"
+);
+}
+</script>
+</head>
+<body onLoad="initializeUI()" style="margin-bottom:0;">
+<FORM NAME="theForm">
+  <TABLE BORDER=0>
+    <TR>
+      <TD ALIGN="right" VALIGN="baseline" NOWRAP>Aplikasi</TD>
+      <TD ALIGN="right" VALIGN="baseline" NOWRAP>
+        <SELECT STYLE="width:250px" NAME="FolderRoot" ID="FolderRoot" onChange="updateUI('','onChange')">
+          <OPTION value="" SELECTED>*** No values specified</OPTION>
+        </SELECT>
+</TD>
+      <TD ALIGN="right" VALIGN="baseline" NOWRAP> From ConnectionName: </TD>
+      <TD VALIGN="baseline" NOWRAP><SELECT STYLE="width:150px" NAME="ConnectionName" onChange="updateUI('ConnectionName','onChange')">
+      </SELECT>
+        <INPUT TYPE="button" VALUE="Define..." onClick= "_ConnectionName.launchConnectionDialog()" ></TD>
+    </TR>
+    <TR>
+      <TD colspan="4"><mm:browsercontrol id="browser" style="width:700px; height:500px;"/></TD>
+    </TR>
+  </TABLE>
+</FORM>
+</body>
+</html>

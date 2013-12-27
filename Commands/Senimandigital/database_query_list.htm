@@ -1,0 +1,31 @@
+<!-- MENU-LOCATION=NONE -->
+<!DOCTYPE HTML SYSTEM "-//Adobe//DWExtension layout-engine 10.0// dialog">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<title>Senimandigital - Query List</title>
+<script type="text/javascript"> 
+function initUI()
+{ 
+  var browser = document.getElementById("browser");
+      browser.openURL("http://senimandigital.kom/senimandigital-offline/dreamweaver/query_list.php?" + dwscripts.getCommandArguments());
+}
+
+function showSource(){
+  var browser = document.getElementById("browser");
+      alert(browser.getWindowObj().document.documentElement.outerHTML);
+}
+
+function commandButtons(){
+  return new Array( "Keluar",       "window.close()",
+                    "Lihat Source", "showSource()"
+);
+}
+</script>
+</head>
+<body onLoad="initUI()" style="margin-bottom:0;">
+<form>
+  <mm:browsercontrol id="browser" style="width:700px; height:500px;"/>
+</form>
+</body>
+</html>
