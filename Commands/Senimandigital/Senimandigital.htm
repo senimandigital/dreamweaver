@@ -1,0 +1,87 @@
+<!DOCTYPE HTML SYSTEM "-//Adobe//DWExtension layout-engine 10.0// dialog"> <html xmlns="http://www.w3.org/1999/xhtml">
+<head> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<title>Senimandigital</title>
+<script type="text/javascript"> 
+//var browserLoad = function(e) {
+//var uri = document.getElementById("uri");
+//    uri.value = e.currentBrowserLocation;
+//}
+var promptToNavigate = function (e)
+{ 
+    if( ! confirm("tujuan bisa diakses anda akan berpindah dari halaman \n" + e.currentBrowserLocation + " menuju halaman \n " + e.requestedBrowserLocation ) )
+    {
+        e.preventDefault(); 
+    } 
+} 
+function initUI() 
+{ 
+    var browser = document.getElementById("browser"); 
+    // browser.addEventListener("BrowserControlBeforeNavigation", promptToNavigate, true);
+    // browser.addEventListener("BrowserControlLoad", browserLoad, true);
+    browser.openURL("http://senimandigital.kom/senimandigital-offline/dreamweaver/senimandigital_login.php");
+} 
+
+function LoadDatabaseAnalisis(){
+  var browser = document.getElementById("browser");
+      browser.openURL("http://senimandigital.kom/senimandigital-offline/dreamweaver/database_analisis.php?database=perumahan");
+} 
+function LoadDatabaseJoinSaran(){
+  var browser = document.getElementById("browser");
+      browser.openURL("http://senimandigital.kom/senimandigital-offline/dreamweaver/database_join_saran.php?extension=formulir&database=dokumen");
+} 
+function LoadDatabaseUnion(){
+  var browser = document.getElementById("browser");
+      browser.openURL("http://senimandigital.kom/senimandigital-offline/dreamweaver/query_union.php");
+}
+function LoadDatabaseQuery(){
+  var browser = document.getElementById("browser");
+      browser.openURL("http://senimandigital.kom/alat/database_query.php");
+}
+function LoadDatabaseSelectSaran(){
+  var browser = document.getElementById("browser");
+      browser.openURL("http://senimandigital.kom/senimandigital-offline/dreamweaver/database_select_saran.php");
+}
+function LoadDatabaseBanding(){
+  var browser = document.getElementById("browser");
+      browser.openURL("http://senimandigital.kom/alat/database_banding.php");
+}
+function LoadFormToSQL(){
+  var browser = document.getElementById("browser");
+      browser.openURL("http://senimandigital.kom/alat/get_form_to_sql.php");
+}
+function LoadGetError(){
+  var browser = document.getElementById("browser");
+      browser.openURL("http://senimandigital.kom/alat/dreamweaver_get_error.php");
+}
+
+function LoadGeneratorIndex(){
+  var browser = document.getElementById("browser");
+      browser.openURL("http://senimandigital.kom/alat/dreamweaver_generator_index.php");
+}
+function LoadGeneratorMenu(){
+  var browser = document.getElementById("browser");
+      browser.openURL("http://senimandigital.kom/senimandigital-offline/dreamweaver/source_generator_menu.php");
+}
+
+function commandButtons(){
+  return new Array( "Keluar", "window.close()",
+                    "Database Analisis",     "LoadDatabaseAnalisis()",
+                    "Database Join Saran",   "LoadDatabaseJoinSaran()",
+                    "Database Union",        "LoadDatabaseUnion()",
+                    "Database Query",        "LoadDatabaseQuery()",
+                    "Database Select Saran", "LoadDatabaseSelectSaran()",
+                    "Database Banding",      "LoadDatabaseBanding()",
+                    "Form To SQL",           "LoadFormToSql()",
+                    "Get Error",             "LoadGetError()",
+                    "Generator Index",       "LoadGeneratorIndex()",
+                    "Generator Menu",        "LoadGeneratorMenu()"
+);
+} 
+</script> 
+</head> 
+<body onLoad="initUI()" style="margin-bottom:0;">
+<form>
+<mm:browsercontrol id="browser" style="width:800px; height:600px;"/></form>
+</body>
+</html>
