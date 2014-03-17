@@ -1,0 +1,34 @@
+caption[align=left] {
+}
+
+caption[align=right] {
+}
+
+caption[align=top] {
+}
+
+caption[align=bottom] {
+}
+
+table {
+	width:100%;
+}
+
+td {
+	vertical-align:top;
+}
+
+table[rules=all] {
+}
+
+table[rules=cols] {
+}
+
+table[rules=groups] {
+}
+
+table[rules=rows] {
+}
+
+table[rules=none] {
+}
