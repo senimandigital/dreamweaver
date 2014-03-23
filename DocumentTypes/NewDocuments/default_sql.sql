@@ -24,3 +24,31 @@ INSERT INTO `anggota_level` (`anggota_level_id`, `anggota_level_upline_id`, `ang
 (6, 0, 'agen/administrator', 'Administrator', '', NULL),
 (7, 6, 'agen/administrasi', 'Administrasi', '', NULL),
 (8, 6, 'agen/keuangan', 'Keuangan', '', NULL);
+
+--
+-- Struktur dari tabel `meta`
+--
+
+CREATE TABLE IF NOT EXISTS `meta` (
+  `meta_id` smallint(5) NOT NULL DEFAULT '0',
+  `meta_name` varchar(64) NOT NULL,
+  `meta_content` text NOT NULL,
+  `meta_file` varchar(255) NOT NULL,
+  PRIMARY KEY (`meta_id`),
+  UNIQUE KEY `judul` (`meta_name`),
+  KEY `file` (`meta_file`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Struktur dari tabel `sessions`
+--
+
+CREATE TABLE IF NOT EXISTS `sessions` (
+  `session_id` varchar(32) NOT NULL,
+  `session_data` text NOT NULL,
+  `session_domain` varchar(255) NOT NULL,
+  `session_ip` char(32) NOT NULL,
+  `session_expiration` int(11) NOT NULL,
+  `anggota_id` smallint(5) NOT NULL,
+  PRIMARY KEY (`session_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
