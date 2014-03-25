@@ -1,0 +1,24 @@
+<participant version="5.0">
+<insertText location="afterSelection">
+<![CDATA[
+<form method="post" name="@@FormName@@" action="<?php echo $editFormAction; ?>">
+<table frame="vsides" rules="rows">
+  <@ loop (@@ElementString@@) @>
+   @@ElementString@@
+  <@ endloop @>
+<caption align="bottom">
+<@ loop (@@HiddenFieldName@@, @@HiddenFieldValue@@) @>
+  <input type="hidden" name="@@HiddenFieldName@@" value="@@HiddenFieldValue@@">
+<@ endloop @>
+  <input type="submit" value="SIMPAN PEMBAHARUAN DATA">
+<?php if (isset($_GET['popup'])) { ?>
+  <input type="button" name="keluar" id="keluar" onclick="javascript:window.close()" value="KELUAR"/>
+<?php } else { ?>
+  <input type="button" name="kembali" id="kembali" onclick="javascript:history.back()" value="KEHALAMAN SEBELUMNYA"/></td>
+<?php } /* endif */ ?>
+</caption>
+</table>
+</form>
+]]>
+</insertText>
+</participant>
