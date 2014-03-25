@@ -1,0 +1,110 @@
+<participant VERSION="5.0">
+<insertText location="afterSelection">
+<![CDATA[
+<?php echo $WEBSITE['TEMPLATE']['HEADER']; ?>
+<main>
+<table width="100%" cellpadding="0" cellspacing="0">
+<tr><td valign="top">
+<article>
+<section>
+<h3>@@RecordsetName@@</h3>
+<?php if($totalRows_@@RecordsetName@@ == 0) { ?>
+<div class="alert info"><p><img src="images/iconinfo.png"><span>Data Masih Kosong</span></p></div>
+<?php } /* if($totalRows_@@RecordsetName@@ == 0) */ ?>
+<?php if($totalRows_@@RecordsetName@@ > 0) { ?>
+<table width="100%" border="0" cellpadding="0" cellspacing="0" class="ContentData">
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>
+    <table width="100%" bordercolor="#CCC" border="1" align="center">
+<tbody>
+  <@loop (@@DetailPageFields@@) @>
+  <tr>
+    <td>@@DetailPageFields@@</td>
+    <td><?php echo $row_@@RecordsetName@@['@@DetailPageFields@@']; ?> </td>
+  </tr>
+  <@endloop@>
+ </tbody>
+</table>
+</td>
+  </tr>
+  <tr>
+    <td>
+<?php
+$topupmetodeid_topup_metode = "-1";
+if (isset($_GET['recordID'])) {
+  $topupmetodeid_topup_metode = $_GET['recordID'];
+}
+$topupmetodeid2_topup_metode = "-1";
+if (isset($_GET['recordID'])) {
+  $topupmetodeid2_topup_metode = $_GET['recordID'];
+}
+mysql_select_db($database_senimandigital, $senimandigital);
+$query_topup_metode = sprintf("SELECT *  FROM topup_metode WHERE topup_metode.topup_metode_id < %s LIMIT 0,1 UNION ALL SELECT * FROM topup_metode WHERE topup_metode.topup_metode_id > %s LIMIT 0,1", GetSQLValueString($topupmetodeid_topup_metode, "int"),GetSQLValueString($topupmetodeid2_topup_metode, "int"));
+$topup_metode = mysql_query($query_topup_metode, $senimandigital) or die(mysql_error());
+$row_topup_metode = mysql_fetch_assoc($topup_metode);
+$totalRows_topup_metode = mysql_num_rows($topup_metode);
+?>
+    <table width="100%" border="0">
+  <tr>
+                      <td align="center">
+					      <?php do { ?>
+                          <?php if ($row_topup_metode['topup_metode_id'] >= $row_DetailRS1['topup_metode_id']) continue; ?>
+                          <a style="float:left;" href="?<?php echo (isset($_GET['popup'])) ? 'popup&' : ''; ?>recordID=<?php echo $row_topup_metode['topup_metode_id']; ?>">&lt;&lt;<?php echo $row_topup_metode['topup_metode_nama']; ?></a>
+                          <?php } while ($row_topup_metode = mysql_fetch_assoc($topup_metode)); ?>
+                        <input type="submit" name="Cetak" value="CETAK DATA" />
+                        <?php if (isset($_GET['popup'])) { ?>
+                        <input type="button" name="keluar" id="keluar" onclick="javascript:window.close()" value="KELUAR"/>
+                        <?php } else { ?>
+                        <input type="button" name="kembali" id="kembali" onclick="javascript:history.back()" value="KEHALAMAN SEBELUMNYA"/></td>
+                      <?php } // endif ?>
+					  <?php
+$rows = mysql_num_rows($topup_metode);
+ if($rows > 0) {
+      mysql_data_seek($topup_metode, 0);
+	  $row_topup_metode = mysql_fetch_assoc($topup_metode);
+  }
+?>
+					  <?php do { ?>
+                      <?php if ($row_topup_metode['topup_metode_id'] <= $row_DetailRS1['topup_metode_id']) continue; ?>
+					  <a style="float:right" href="?<?php echo (isset($_GET['popup'])) ? 'popup&' : ''; ?>recordID=<?php echo $row_topup_metode['topup_metode_id']; ?>"><?php echo $row_topup_metode['topup_metode_nama']; ?>&gt;&gt;</a>
+                      <?php } while ($row_topup_metode = mysql_fetch_assoc($topup_metode)); ?>
+                    </td>
+  </tr>
+</table>
+</td>
+  </tr>
+</table>
+<?php } /* if($totalRows_@@RecordsetName@@ > 0) */ ?>
+</section>
+</article>
+</td>
+<?php if (!isset($_GET['popup'])) { ?>
+<td width="225" valign="top">
+<aside>
+<content>
+<h3>INFORMASI</h3>
+<table width="100%" border="0">
+<tbody>
+  <tr>
+    <td>
+      <p>Disini anda dapat menampilkan jumlah sub data.</p>
+      <p>Misal: Artikel - maka anda dapat menampilkan jumlah komentar, Jumlah like</p>
+    </td>
+  </tr>
+<tbody>
+</table>
+</content>
+</aside>
+</td>
+<?php } /* if (!isset($_GET['popup'])) */ ?>
+</tr>
+</table>
+</main>
+<?php echo $WEBSITE['TEMPLATE']['FOTTER']; ?>
+<@ loop(@@FieldPrimary@@) @><@endloop@>
+]]>
+</insertText>
+</participant>
