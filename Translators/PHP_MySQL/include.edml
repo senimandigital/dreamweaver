@@ -3,7 +3,7 @@
     <searchPatterns>
       <searchPattern><![CDATA[include]]></searchPattern>
       <searchPattern><![CDATA[$WEBSITE]]></searchPattern>
-      <searchPattern paramNames=",rs,col,file"><![CDATA[/include\s*(\w*\s*\(\s*)?\$WEBSITE\[["'](HOSTING)["']\]\[["'](ANGGOTA|ADMINISTRATOR|TEMPLATE)["']\]\s*.['](.*?)[']\)?;?/i]]></searchPattern>
+      <searchPattern paramNames=",rs,col,file"><![CDATA[/include\s*(\w*\s*\(\s*)?\$WEBSITE\[["'](HOSTING)["']\]\[["'](.*?)["']\]\s*.['](.*?)[']\)?;?/i]]></searchPattern>
     </searchPatterns>
     <translations>
       <translation whereToSearch="directive" translationType="dynamic data">
