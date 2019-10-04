@@ -1,0 +1,15 @@
+<participant>
+  <translator priority=400>
+    <searchPatterns>
+      <searchPattern><![CDATA[echo]]></searchPattern>
+      <searchPattern><![CDATA[$row_show_tables]]></searchPattern>
+      <searchPattern paramNames=",dbName"><![CDATA[/echo\s*(\w*\s*\(\s*)?\$row_show_tables\[["']Tables_in_["']?\s*.\s*\$database_(\w*)\]\)?;?/i]]></searchPattern>
+    </searchPatterns>
+    <translations>
+      <translation whereToSearch="directive" translationType="dynamic data">
+        <openTag>MM_DYNAMIC_CONTENT</openTag>
+        <display><![CDATA[<div align="center" style="clear:both;">Tables_in_@@dbName@@</div>]]></display>
+        <closeTag>MM_DYNAMIC_CONTENT</closeTag>
+      </translation>
+  </translator>
+</participant>
