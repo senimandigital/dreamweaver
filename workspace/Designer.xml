@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<panelset>
+
+  <!-- Letakan toolbox dibagian atas-->
+  <application maximize="true"/>
+  <panelframe content="controlbars" dock="top">
+    <panelcontainer expanded="true" dock="top">
+      <panel id="objects" showLabel="false" viewStyle="tabs" />
+    </panelcontainer>
+  </panelframe>
+
+  <document maximize="true"/>
+
+  <!-- Letakan Floater / Pallete dibagian kanan halaman  -->
+  <panelframe dock="right">
+    <panelcontainer>
+      <panel id="database"/>
+      <panel id="data sources"/>
+      <panel id="server scripts"/>
+      <panel id="server components" visibleTab="false"/>
+    </panelcontainer>
+    <panelcontainer>
+      <panel id="site"/>
+      <panel id="assets"/>
+      <panel id="snippets" visibleTab="false"/>
+      <panel id="css styles"/>
+      <panel id="layers"/>
+      <panel id="tag inspector" visibleTab="false"/>
+    </panelcontainer>
+    <panelcontainer visible="false" >
+      <panel id="frames"/>
+    </panelcontainer>
+    <panelcontainer visible="false" >
+      <panel id="history"/>
+    </panelcontainer>
+  </panelframe>
+
+  <!-- Letakan Properties dibagian bawah aplikasi  -->
+  <panelframe dock="bottom">
+    <panelcontainer>
+      <panel id="propertiesMfc"/>
+      <panel id="search"/>
+      <panel id="reference"/>
+      <panel id="validation"/>
+      <panel id="btc"/>
+      <panel id="linkchecker"/>
+      <panel id="reports"/>
+      <panel id="ftp log"/>
+      <panel id="server debug"/>
+    </panelcontainer>
+    <panelcontainer visible="false" expanded="false">
+      <panel id="BL" />
+    </panelcontainer>
+   </panelframe>
+
+</panelset>
