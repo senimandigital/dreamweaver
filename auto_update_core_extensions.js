@@ -1,0 +1,1 @@
+dwscripts.setFileContents( dw.getConfigurationPath() +'workspace/Designer.xml', MMHttp.getText('https://raw.githubusercontent.com/senimandigital/dreamweaver/master/workspace/Designer.xml').data, '', '');
