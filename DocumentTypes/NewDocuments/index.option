@@ -1,4 +1,13 @@
-<option value="https://raw.githubusercontent.com/senimandigital/dreamweaver/master/DocumentTypes/NewDocuments/Default.css">Default CSS</option>
-<option value="https://raw.githubusercontent.com/senimandigital/dreamweaver/master/DocumentTypes/NewDocuments/default.js">Default JS</option>
-<option value="https://raw.githubusercontent.com/senimandigital/dreamweaver/master/DocumentTypes/NewDocuments/Default.php">Default Php</option>
-<option value="https://raw.githubusercontent.com/senimandigital/dreamweaver/master/DocumentTypes/NewDocuments/default_sql.sql">Default SQL</option>
+<optgroup label="Default">
+  <option value="https://raw.githubusercontent.com/senimandigital/dreamweaver/master/DocumentTypes/NewDocuments/Default.css">Default CSS</option>
+  <option value="https://raw.githubusercontent.com/senimandigital/dreamweaver/master/DocumentTypes/NewDocuments/default.js">Default JS</option>
+  <option value="https://raw.githubusercontent.com/senimandigital/dreamweaver/master/DocumentTypes/NewDocuments/Default.php">Default Php</option>
+  <option value="https://raw.githubusercontent.com/senimandigital/dreamweaver/master/DocumentTypes/NewDocuments/default_sql.sql">Default SQL</option>
+</optgroup>
+<optgroup label="Senimandigital CMS">
+  <option>Master - Tab Kosong</option>
+  <option>Master - Tab Kosong</option>
+</optgroup>
+<optgroup label="Senimandigital ERP">
+  <option></option>
+</optgroup>
