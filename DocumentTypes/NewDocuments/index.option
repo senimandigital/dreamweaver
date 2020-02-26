@@ -6,7 +6,9 @@
 </optgroup>
 <optgroup label="Senimandigital CMS">
   <option>Master - Tab Kosong</option>
-  <option>Master - Tab Kosong</option>
+  <option>Master - Accurdions Kosong</option>
+  <option>Master - List Folder in Root</option>
+  <option>Master - List Tree File Recursive</option>  
 </optgroup>
 <optgroup label="Senimandigital ERP">
   <option></option>
