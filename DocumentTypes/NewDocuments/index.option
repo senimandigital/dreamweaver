@@ -5,7 +5,7 @@
   <option value="https://raw.githubusercontent.com/senimandigital/dreamweaver/master/DocumentTypes/NewDocuments/default_sql.sql">Default SQL</option>
 </optgroup>
 <optgroup label="Senimandigital CMS">
-  <option>Master - Tab Kosong</option>
+  <option value="https://raw.githubusercontent.com/senimandigital/dreamweaver/master/DocumentTypes/NewDocuments/Senimandigital_CMS/JQuery-Tabs-Blank.php">Master - JQuery Tab Kosong</option>
   <option>Master - Accurdions Kosong</option>
   <option>Master - List Folder in Root</option>
   <option>Master - List Tree File Recursive</option>  
