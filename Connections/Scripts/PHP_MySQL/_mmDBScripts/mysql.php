@@ -1,52 +1,45 @@
 <?php
 // If this file is not included from the MMHTTPDB possible hacking problem.
-if (!function_exists('create_error')){
-	die();
-}
+if (!function_exists('create_error')){ die(); }
 
-define('MYSQL_NOT_EXISTS', create_error("Your PHP server doesn't have the MySQL module loaded or you can't use the mysql_(p)connect functions."));
-define('CONN_NOT_OPEN_GET_TABLES', create_error('The Connection could not be opened when trying to retrieve the tables.'));
+define('MYSQL_NOT_EXISTS',          create_error("Your PHP server doesn't have the MySQL module loaded or you can't use the mysql_(p)connect functions."));
+define('CONN_NOT_OPEN_GET_TABLES',  create_error('The Connection could not be opened when trying to retrieve the tables.'));
 define('CONN_NOT_OPEN_GET_DB_LIST', create_error('The Connection could not be opened when trying to retrieve the database list.'));
 			 
-if (!function_exists('mysql_connect') || !function_exists('mysql_pconnect') || !extension_loaded('mysql')){
-	echo MYSQL_NOT_EXISTS;
-	die();
-}
+if (!function_exists('mysqli_connect')) { echo MYSQL_NOT_EXISTS; die(); }
 
-// Now let's handle the crashes or any other PHP errors that we can catch
-function KT_ErrorHandler($errno, $errstr, $errfile, $errline) { 
+function KT_ErrorHandler($errno, $errstr, $errfile, $errline) {
 	global $f, $already_sent;
-	$errortype = array ( 
-		1   =>  "Error", 
-		2   =>  "Warning", 
-		4   =>  "Parsing Error", 
-		8   =>  "Notice", 
-		16  =>  "Core Error", 
-		32  =>  "Core Warning", 
-		64  =>  "Compile Error", 
-		128 =>  "Compile Warning", 
-		256 =>  "User Error", 
-		512 =>  "User Warning", 
+	$errortype = array (
+		1   =>  "Error",
+		2   =>  "Warning",
+		4   =>  "Parsing Error",
+		8   =>  "Notice",
+		16  =>  "Core Error",
+		32  =>  "Core Warning",
+		64  =>  "Compile Error",
+		128 =>  "Compile Warning",
+		256 =>  "User Error",
+		512 =>  "User Warning",
 		1024=>  "User Notice",
 		2048=>  "E_ALL",
 		2049=>  "PHP5 E_STRICT"
-	
+
 	);
-	$str = sprintf("[%s]\n%s:\t%s\nFile:\t\t'%s'\nLine:\t\t%s\n\n", date('d-m-Y H:i:s'),(isset($errortype[@$errno])?$errortype[@$errno]:('Unknown '.$errno)),@$errstr,@$errfile,@$errline);
-	if (error_reporting() != 0) {
-			@fwrite($f, $str);
-			if (@$errno == 2 && isset($already_sent) && !$already_sent==true){
-				$error = '<ERRORS>'."\n";
-				$error .= '<ERROR><DESCRIPTION>An Warning Type error appeared. The error is logged into the log file.</DESCRIPTION></ERROR>'."\n";
-				$error .= '</ERRORS>'."\n";
-				$already_sent = true;
-				echo $error;
-			}
-	}
+$str = sprintf("[%s]\n%s:\t%s\nFile:\t\t'%s'\nLine:\t\t%s\n\n", date('d-m-Y H:i:s'),(isset($errortype[@$errno])?$errortype[@$errno]:('Unknown '.$errno)),@$errstr,@$errfile,@$errline);
+if (error_reporting() != 0) {
+@fwrite($f, $str);
+if (@$errno == 2 && isset($already_sent) && !$already_sent==true){
+ $error = '<ERRORS>'."\n";
+ $error .= '<ERROR><DESCRIPTION>An Warning Type error appeared. The error is logged into the log file.</DESCRIPTION></ERROR>'."\n";
+ $error .= '</ERRORS>'."\n";
+ $already_sent = true;
+ echo $error;
 }
-if ($debug_to_file){
-		$old_error_handler = set_error_handler("KT_ErrorHandler");
 }
+}
+
+if ($debug_to_file) { $old_error_handler = set_error_handler("KT_ErrorHandler"); }
 
 class MySqlConnection
 {
@@ -87,7 +80,7 @@ class MySqlConnection
 		elseif( preg_match("/uid=([^;]+);/",  $ConnectionString, $ret) ) {
 			$this->username = $ret[1];
 		}
-		
+
 		if( $Pwd ) {
 			$this->password = $Pwd;
 		}
@@ -98,10 +91,10 @@ class MySqlConnection
 
 	function Open()
 	{
-	  $this->connectionId = mysql_connect($this->hostname, $this->username, $this->password);
-		if (isset($this->connectionId) && $this->connectionId && is_resource($this->connectionId))
+	  $this->connectionId = mysqli_connect($this->hostname, $this->username, $this->password, '');
+		if (isset($this->connectionId) && $this->connectionId)
 		{
-			$this->isOpen = ($this->database == "") ? true : mysql_select_db($this->database, $this->connectionId);
+			$this->isOpen = ($this->database == "") ? true : mysqli_select_db($this->connectionId, $this->database);
 		}
 		else
 		{
@@ -116,9 +109,9 @@ class MySqlConnection
 
 	function Close()
 	{
-		if (is_resource($this->connectionId) && $this->isOpen)
+		if ($this->isOpen)
 		{
-			if (mysql_close($this->connectionId))
+			if (mysqli_close($this->connectionId))
 			{
 				$this->isOpen = false;
 				unset($this->connectionId);
@@ -128,17 +121,17 @@ class MySqlConnection
 
 	function GetTables($table_name = '')
 	{
-		$xmlOutput = "";
-		if ($this->isOpen && isset($this->connectionId) && is_resource($this->connectionId)){
+ 		$xmlOutput = "";
+		if ($this->isOpen && isset($this->connectionId)){
 			// 1. mysql_list_tables and mysql_tablename are deprecated in PHP5
 			// 2. For backward compatibility GetTables don't have any parameters
 			if ($table_name === ''){
-					$table_name = @$_POST['Database'];
+			    $table_name = @$_POST['Database'];
 			}
 			//added backtick for handling reserved words and special characters
 			//http://dev.mysql.com/doc/refman/5.0/en/legal-names.html
 			$sql = ' SHOW TABLES FROM ' . $this->ensureTicks($table_name) ;
-			$results = mysql_query($sql, $this->connectionId) or $this->HandleException();
+			$results = mysqli_query($this->connectionId, $sql) or $this->HandleException();
 
 			$xmlOutput = "<RESULTSET><FIELDS>";
 
@@ -151,10 +144,10 @@ class MySqlConnection
 
 			$xmlOutput .= "</FIELDS><ROWS>";
 
-			if (is_resource($results) && mysql_num_rows($results) > 0){
-					while ($row = mysql_fetch_array($results)){
-							$xmlOutput .= '<ROW><VALUE/><VALUE/><VALUE>' . $row[0]. '</VALUE></ROW>';	
-					}
+			if (mysqli_num_rows($results) > 0) {
+			while ($row = mysqli_fetch_array($results)){
+                               $xmlOutput .= '<ROW><VALUE/><VALUE/><VALUE>' . $row[0]. '</VALUE></ROW>';
+			      }
 			}
 			$xmlOutput .= "</ROWS></RESULTSET>";
 
@@ -179,9 +172,8 @@ class MySqlConnection
 		$xmlOutput = "";
 		//added backtick for handling reserved words and special characters
 		//http://dev.mysql.com/doc/refman/5.0/en/legal-names.html
-		$query  = "DESCRIBE ".$this->ensureTicks($TableName);
-		$result = mysql_query($query) or $this->HandleException();
-
+		$query  = "DESCRIBE ". $this->ensureTicks($TableName);
+		$result = mysqli_query($this->connectionId, $query) or $this->HandleException();
 		if ($result)
 		{
 			$xmlOutput = "<RESULTSET><FIELDS>";
@@ -199,7 +191,7 @@ class MySqlConnection
 			$xmlOutput .= "</FIELDS><ROWS>";
 
 			// The fields returned from DESCRIBE are: Field, Type, Null, Key, Default, Extra
-			while ($row = mysql_fetch_array($result, MYSQL_ASSOC))
+			while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
 			{
 				$xmlOutput .= "<ROW><VALUE/><VALUE/><VALUE/>";
 
@@ -225,7 +217,7 @@ class MySqlConnection
 				$xmlOutput .= "<VALUE>" . $null         . "</VALUE>";
 				$xmlOutput .= "<VALUE>" . $size         . "</VALUE></ROW>";
 			}
-			mysql_free_result($result);
+			mysqli_free_result($result);
 
 			$xmlOutput .= "</ROWS></RESULTSET>";
 		}
@@ -241,23 +233,22 @@ class MySqlConnection
 
 	function ExecuteSQL($aStatement, $MaxRows)
 	{
-		if ( get_magic_quotes_gpc() )
-		{
+		if ( get_magic_quotes_gpc() )		{
 				$aStatement = stripslashes( $aStatement ) ;
 		}
 				
 		$xmlOutput = "";
 
-		$result = mysql_query($aStatement) or $this->HandleException();
+		$result = mysqli_query($this->connectionId, $aStatement) or $this->HandleException();
 		
-		if (isset($result) && is_resource($result))
+		if (isset($result))
 		{
 			$xmlOutput = "<RESULTSET><FIELDS>";
 
-			$fieldCount = mysql_num_fields($result);
+			$fieldCount = mysqli_num_fields($result);
 			for ($i=0; $i < $fieldCount; $i++)
 			{
-				$meta = mysql_fetch_field($result);
+				$meta = mysqli_fetch_field($result);
 				if ($meta)
 				{
 					$xmlOutput .= '<FIELD';
@@ -277,7 +268,7 @@ class MySqlConnection
 			}
 
 			$xmlOutput .= "</FIELDS><ROWS>";
-			$row = mysql_fetch_assoc($result);
+			$row = mysqli_fetch_assoc($result);
 
 			for ($i=0; $row && ($i < $MaxRows); $i++)
 			{
@@ -291,10 +282,10 @@ class MySqlConnection
 				}
 
  				$xmlOutput .= "</ROW>";
-				$row = mysql_fetch_assoc($result);
+				$row = mysqli_fetch_assoc($result);
 			}
 
-			mysql_free_result($result);
+			mysqli_free_result($result);
 
 			$xmlOutput .= "</ROWS></RESULTSET>";
 		}
@@ -328,7 +319,7 @@ class MySqlConnection
 	function HandleException()
 	{
 		global $debug_to_file, $f;
-		$this->error = create_error(' MySQL Error#: '. ((int)mysql_errno()) . "\n\n".mysql_error());
+		$this->error = create_error(' MySQL Error#: '. ((int)mysqli_errno()) . "\n\n".mysqli_error());
 		log_messages($this->error);
 		die($this->error.'</HTML>');
 	}
@@ -357,10 +348,10 @@ class MySqlConnection
 	{
 		$xmlOutput = '<RESULTSET><FIELDS><FIELD><NAME>NAME</NAME></FIELD></FIELDS><ROWS>';
 
-		if (isset($this->connectionId) && is_resource($this->connectionId)){
-				$dbList = mysql_list_dbs($this->connectionId);
+		if (isset($this->connectionId)){
+				$dbList = mysqli_list_dbs($this->connectionId);
 				
-				while ($row = mysql_fetch_object($dbList))
+				while ($row = mysqli_fetch_object($dbList))
 				{
 					$xmlOutput .= '<ROW><VALUE>' . $row->Database . '</VALUE></ROW>';
 				}
@@ -379,7 +370,7 @@ class MySqlConnection
 		//added backtick for handling reserved words and special characters
 		//http://dev.mysql.com/doc/refman/5.0/en/legal-names.html
 		$query  = "DESCRIBE ".$this->ensureTicks($TableName);
-		$result = mysql_query($query) or $this->HandleException();
+		$result = mysqli_query($this->connectionId, $query) or $this->HandleException();
 		
 		
 		if ($result)
@@ -399,7 +390,7 @@ class MySqlConnection
 			$xmlOutput .= '</FIELDS><ROWS>';
 
 			// The fields returned from DESCRIBE are: Field, Type, Null, Key, Default, Extra
-			while ($row = mysql_fetch_array($result, MYSQL_ASSOC))
+			while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
 			{
 			  if (strtoupper($row['Key']) == 'PRI'){
   				$xmlOutput .= '<ROW><VALUE/><VALUE/><VALUE/>';
@@ -427,7 +418,7 @@ class MySqlConnection
   				$xmlOutput .= '<VALUE>' . $size         . '</VALUE></ROW>';
   			}
 			}
-			mysql_free_result($result);
+			mysqli_free_result($result);
 
 			$xmlOutput .= '</ROWS></RESULTSET>';
 		}
