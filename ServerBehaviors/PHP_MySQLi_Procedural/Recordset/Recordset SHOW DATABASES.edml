@@ -1,0 +1,6 @@
+<group name="Recordset SHOW DATABASES" version="11.0" serverBehavior="Recordset SHOW DATABASES.htm">
+	<TITLE>Recordset SHOW DATABASES (@@ConnectionName@@)</TITLE>
+	<groupParticipants>
+		<groupParticipant name="Recordset SHOW DATABASES Query" partType="identifier" />
+	</groupParticipants>
+</group>

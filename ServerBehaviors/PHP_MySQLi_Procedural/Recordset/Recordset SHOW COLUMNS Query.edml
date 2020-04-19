@@ -1,0 +1,15 @@
+<participant version="11.0">
+	<insertText location="aboveHTML+51"><![CDATA[<?php
+<@ if(@@mysqli_select_db@@ == 'true') @>
+mysqli_select_db($database_@@ConnectionName@@, $@@ConnectionName@@);
+<@ endif @>
+$query_show_columns = sprintf("SHOW COLUMNS FROM %s", GetSQLValueString($@@Table__Name@@_show_columns, "defined", "@@Table__Name@@", "@@Table__Name@@"));
+$show_columns = mysql_query($@@ConnectionName@@, $query_show_columns) or die(mysql_error($@@ConnectionName@@));
+$row_show_columns = mysql_fetch_assoc($show_columns);
+$totalRows_show_columns = mysql_num_rows($show_columns);
+?>]]></insertText>
+	<searchPatterns whereToSearch="directive">
+		<searchPattern paramNames="Table__Name,ConnectionName" isOptional="false" limitSearch="all"><![CDATA[/<\?php(?:\r\n|\r(?!\n)|\n)[ \t]*(?:mysqli_select_db\(\$database_[^\r\n]*?, \$[^\r\n]*?\);(?:\r\n|\r(?!\n)|\n)[ \t]*)?\$query_show_columns = sprintf\("SHOW COLUMNS FROM %s", GetSQLValueString\(\$([^\r\n]*?)_show_columns, "defined", "[^\r\n]*?", "[^\r\n]*?"\)\);(?:\r\n|\r(?!\n)|\n)[ \t]*\$show_columns = mysql_query\(\$([^\r\n]*?), \$query_show_columns\) or die\(mysql_error\(\$[^\r\n]*?\)\);(?:\r\n|\r(?!\n)|\n)[ \t]*\$row_show_columns = mysql_fetch_assoc\(\$show_columns\);(?:\r\n|\r(?!\n)|\n)[ \t]*\$totalRows_show_columns = mysql_num_rows\(\$show_columns\);(?:\r\n|\r(?!\n)|\n)[ \t]*\?>/i]]></searchPattern>
+	</searchPatterns>
+	<quickSearch>mysql_fetch_assoc($show_columns);</quickSearch>
+</participant>

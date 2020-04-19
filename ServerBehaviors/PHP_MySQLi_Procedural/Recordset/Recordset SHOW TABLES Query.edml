@@ -1,0 +1,15 @@
+<participant version="11.0">
+	<insertText location="aboveHTML+49"><![CDATA[<?php
+<@ if(@@mysqli_select_db@@ == 'true') @>
+mysqli_select_db($database_@@ConnectionName@@, $@@ConnectionName@@);
+<@ endif @>
+$query_show_tables = "SHOW TABLES";
+$show_tables = mysqli_query($@@ConnectionName@@, $query_show_tables) or die(mysqli_error($@@ConnectionName@@)) ;
+$row_show_tables = mysqli_fetch_assoc($show_tables);
+$totalRows_show_tables = mysqli_num_rows($show_tables);
+?>]]></insertText>
+	<searchPatterns whereToSearch="directive">
+		<searchPattern paramNames="ConnectionName" isOptional="false" limitSearch="all"><![CDATA[/(?:mysqli_select_db\(\$database_[^\r\n]*?, \$[^\r\n]*?\);(?:\r\n|\r(?!\n)|\n)[ \t]*)?\$query_show_tables = "SHOW TABLES";(?:\r\n|\r(?!\n)|\n)[ \t]*\$show_tables = mysqli_query\(\$([^\r\n]*?), \$query_show_tables\) or die\(mysqli_error\(\$[^\r\n]*?\)\) ;(?:\r\n|\r(?!\n)|\n)[ \t]*\$row_show_tables = mysqli_fetch_assoc\(\$show_tables\);(?:\r\n|\r(?!\n)|\n)[ \t]*\$totalRows_show_tables = mysqli_num_rows\(\$show_tables\);(?=\r\n|\r|\n|\?>)/i]]></searchPattern>
+	</searchPatterns>
+	<quickSearch>mysqli_fetch_assoc($show_tables);</quickSearch>
+</participant>
