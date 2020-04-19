@@ -1,0 +1,288 @@
+<!-- auto-generated=true -->
+<!DOCTYPE HTML SYSTEM "-//Macromedia//DWExtension layout-engine 5.0//dialog">
+<HTML>
+<HEAD>
+<TITLE>Recordset SHOW COLUMNS</TITLE>
+
+<SCRIPT SRC="../../../Shared/Common/Scripts/dwscripts.js"></SCRIPT>
+<SCRIPT SRC="../../../Shared/Common/Scripts/dwscriptsServer.js"></SCRIPT>
+<SCRIPT SRC="../../../Shared/Common/Scripts/dwscriptsExtData.js"></SCRIPT>
+<SCRIPT SRC="../../../Shared/Common/Scripts/ServerBehaviorClass.js"></SCRIPT>
+
+<SCRIPT SRC="../../../Shared/Controls/Scripts/ConnectionMenu.js"></SCRIPT>
+<SCRIPT SRC="../../../Shared/Common/Scripts/ListControlClass.js"></SCRIPT>
+<SCRIPT SRC="../../../Shared/Controls/Scripts/ConnectionTableMenu.js"></SCRIPT>
+<SCRIPT>
+
+var _ConnectionName = new ConnectionMenu("Recordset SHOW COLUMNS.htm", "ConnectionName", "");
+var _TableName = new ConnectionTableMenu("Recordset SHOW COLUMNS.htm", "TableName", "");
+
+
+//--------------------------------------------------------------------
+// FUNCTION:
+//   initializeUI
+//
+// DESCRIPTION:
+//   Prepare the dialog and controls for user input
+//
+// ARGUMENTS:
+//   none
+//
+// RETURNS:
+//   nothing
+//--------------------------------------------------------------------
+function initializeUI()
+{
+  var elts;
+
+  _ConnectionName.initializeUI();
+  _TableName.initializeUI();
+
+  elts = document.forms[0].elements;
+  if (elts && elts.length)
+    elts[0].focus();
+}
+
+
+//--------------------------------------------------------------------
+// FUNCTION:
+//   findServerBehaviors
+//
+// DESCRIPTION:
+//   Returns an array of ServerBehavior objects, each one representing
+//   an instance of this Server Behavior on the page
+//
+// ARGUMENTS:
+//   none
+//
+// RETURNS:
+//   JavaScript Array of ServerBehavior objects
+//--------------------------------------------------------------------
+function findServerBehaviors()
+{
+  _ConnectionName.findServerBehaviors();
+  _TableName.findServerBehaviors();
+
+  sbArray = dwscripts.findSBs();
+
+  return sbArray;
+}
+
+
+//--------------------------------------------------------------------
+// FUNCTION:
+//   canApplyServerBehavior
+//
+// DESCRIPTION:
+//   Returns true if a Server Behavior can be applied to the current
+//   document
+//
+// ARGUMENTS:
+//   sbObj - ServerBehavior object - one of the objects returned
+//           from findServerBehaviors
+//
+// RETURNS:
+//   boolean - true if the behavior can be applied, false otherwise
+//--------------------------------------------------------------------
+function canApplyServerBehavior(sbObj)
+{
+  var success = true;
+  if (success)
+  {
+    success = _ConnectionName.canApplyServerBehavior(sbObj);
+  }
+  if (success)
+  {
+    success = _TableName.canApplyServerBehavior(sbObj);
+  }
+  if (success)
+  {
+    success = dwscripts.canApplySB(sbObj, false); // preventNesting is false
+  }
+  return success;
+}
+
+
+//--------------------------------------------------------------------
+// FUNCTION:
+//   applyServerBehavior
+//
+// DESCRIPTION:
+//   Collects values from the form elements in the dialog box and
+//   adds the Server Behavior to the user's document
+//
+// ARGUMENTS:
+//   sbObj - ServerBehavior object - one of the objects returned
+//           from findServerBehaviors
+//
+// RETURNS:
+//   string - empty upon success, or an error message
+//--------------------------------------------------------------------
+function applyServerBehavior(sbObj)
+{
+  var paramObj = new Object();
+  var errStr = "";
+
+  if (!errStr)
+  {
+    errStr = _ConnectionName.applyServerBehavior(sbObj, paramObj);
+  }
+  if (!errStr)
+  {
+    errStr = _TableName.applyServerBehavior(sbObj, paramObj);
+  }
+
+  if (!errStr)
+  {
+    dwscripts.fixUpSelection(dw.getDocumentDOM(), true, true);
+    dwscripts.applySB(paramObj, sbObj);
+  }
+  return errStr;
+}
+
+
+//--------------------------------------------------------------------
+// FUNCTION:
+//   inspectServerBehavior
+//
+// DESCRIPTION:
+//   Sets the values of the form elements in the dialog box based
+//   on the given ServerBehavior object
+//
+// ARGUMENTS:
+//   sbObj - ServerBehavior object - one of the objects returned
+//           from findServerBehaviors
+//
+// RETURNS:
+//   nothing
+//--------------------------------------------------------------------
+function inspectServerBehavior(sbObj)
+{
+  _ConnectionName.inspectServerBehavior(sbObj);
+  _TableName.inspectServerBehavior(sbObj);
+}
+
+
+//--------------------------------------------------------------------
+// FUNCTION:
+//   deleteServerBehavior
+//
+// DESCRIPTION:
+//   Remove the specified Server Behavior from the user's document
+//
+// ARGUMENTS:
+//   sbObj - ServerBehavior object - one of the objects returned
+//           from findServerBehaviors
+//
+// RETURNS:
+//   nothing
+//--------------------------------------------------------------------
+function deleteServerBehavior(sbObj)
+{
+  _ConnectionName.deleteServerBehavior(sbObj);
+  _TableName.deleteServerBehavior(sbObj);
+
+  dwscripts.deleteSB(sbObj);
+}
+
+
+//--------------------------------------------------------------------
+// FUNCTION:
+//   analyzeServerBehavior
+//
+// DESCRIPTION:
+//   Performs extra checks needed to determine if the Server Behavior
+//   is complete
+//
+// ARGUMENTS:
+//   sbObj - ServerBehavior object - one of the objects returned
+//           from findServerBehaviors
+//   allRecs - JavaScripts Array of ServerBehavior objects - all of the
+//             ServerBehavior objects known to Dreamweaver
+//
+// RETURNS:
+//   nothing
+//--------------------------------------------------------------------
+function analyzeServerBehavior(sbObj, allRecs)
+{
+  _ConnectionName.analyzeServerBehavior(sbObj, allRecs);
+  _TableName.analyzeServerBehavior(sbObj, allRecs);
+}
+
+
+//--------------------------------------------------------------------
+// FUNCTION:
+//   updateUI
+//
+// DESCRIPTION:
+//   Called from controls to update the dialog based on user input
+//
+// ARGUMENTS:
+//   controlName - string - the name of the control which called us
+//   event - string - the name of the event which triggered this call
+//           or null
+//
+// RETURNS:
+//   nothing
+//--------------------------------------------------------------------
+function updateUI(controlName, event)
+{
+  if (window["_" + controlName] != null)
+  {
+    var controlObj = window["_" + controlName];
+
+    if (_ConnectionName.updateUI != null)
+    {
+      _ConnectionName.updateUI(controlObj, event);
+    }
+    if (_TableName.updateUI != null)
+    {
+      _TableName.updateUI(controlObj, event);
+    }
+  }
+}
+
+</SCRIPT>
+<script>
+function commandButtons(){
+  return new Array("OK",           "applyServerBehavior(); window.close()",
+                   "Keluar",       "window.close()",
+                   "",             "",
+                   "Edit",         "dreamweaver.browseDocument('http://dreamweaver.phpmysource.kom/ServerBehaviors.php?configuration='+ dreamweaver.getConfigurationPath() + '&ServerModel=' +dwscripts.getServerModel()+ '&Title=Recordset SHOW COLUMNS' )",
+                   "Bantuan",      "dwscripts.callCommand('senimandigital - serverbehavior - bantuan', 'Recordset SHOW COLUMNS')",
+                   "Komunitas",    "dreamweaver.browseDocument('http://dreamweaver.senimandigital.com/redirect.php.php?configuration='+ dreamweaver.getConfigurationPath() + '&ServerModel=' +dwscripts.getServerModel()+ '&Title=Recordset SHOW COLUMNS' )"
+);
+}
+// dwscripts.getSBFileName(); mendapatkan nama File Server Behaviors
+</script>
+</HEAD>
+
+<BODY onLoad="initializeUI()">
+<FORM NAME="theForm">
+<TABLE BORDER=0>
+    <TR>
+      <TD ALIGN="right" VALIGN="baseline" NOWRAP>
+        ConnectionName:
+      </TD>
+      <TD VALIGN="baseline" NOWRAP>
+        <SELECT STYLE="width:150px" NAME="ConnectionName" onChange="updateUI('ConnectionName','onChange')">
+        </SELECT><INPUT TYPE="button" VALUE="Define..." onClick= "_ConnectionName.launchConnectionDialog()" >
+      </TD>
+    </TR>
+    <TR><TD HEIGHT="1"></TD></TR>
+    <TR>
+      <TD ALIGN="right" VALIGN="baseline" NOWRAP>
+        TableName:
+      </TD>
+      <TD VALIGN="baseline" NOWRAP>
+        <SELECT STYLE="width:250px" NAME="TableName" onChange="updateUI('TableName','onChange')">
+          <OPTION SELECTED>*** No Table Found</OPTION>
+        </SELECT>
+      </TD>
+    </TR>
+    <TR><TD HEIGHT="1"></TD></TR>
+  </TABLE>
+</FORM>
+</BODY>
+</HTML>
+

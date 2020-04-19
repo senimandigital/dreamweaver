@@ -1,0 +1,13 @@
+<participant version="11.0">
+	<insertText location="aboveHTML+49"><![CDATA[<?php
+mysql_select_db($database_@@ConnectionName@@, $@@ConnectionName@@);
+$query_show_databases = "SHOW DATABASES";
+$show_databases = mysql_query($query_show_databases, $@@ConnectionName@@) or die(mysql_error());
+$row_show_databases = mysql_fetch_assoc($show_databases);
+$totalRows_show_databases = mysql_num_rows($show_databases);
+?>]]></insertText>
+	<searchPatterns whereToSearch="directive">
+		<searchPattern paramNames="ConnectionName" isOptional="false" limitSearch="all"><![CDATA[/mysql_select_db\(\$database_([^\r\n]*?), \$[^\r\n]*?\);(?:\r\n|\r(?!\n)|\n)[ \t]*\$query_show_databases = "SHOW DATABASES";(?:\r\n|\r(?!\n)|\n)[ \t]*\$show_databases = mysql_query\(\$query_show_databases, \$[^\r\n]*?\) or die\(mysql_error\(\)\);(?:\r\n|\r(?!\n)|\n)[ \t]*\$row_show_databases = mysql_fetch_assoc\(\$show_databases\);(?:\r\n|\r(?!\n)|\n)[ \t]*\$totalRows_show_databases = mysql_num_rows\(\$show_databases\);(?=\r\n|\r|\n|\?>)/i]]></searchPattern>
+	</searchPatterns>
+	<quickSearch>mysql_fetch_assoc($show_databases);</quickSearch>
+</participant>

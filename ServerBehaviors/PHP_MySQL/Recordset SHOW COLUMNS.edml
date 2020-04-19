@@ -1,0 +1,6 @@
+<group name="Recordset SHOW COLUMNS" version="11.0" serverBehavior="Recordset SHOW COLUMNS.htm">
+	<TITLE>Recordset SHOW COLUMNS (@@ConnectionName@@, @@TableName@@)</TITLE>
+	<groupParticipants>
+		<groupParticipant name="Recordset SHOW COLUMNS PHP" partType="identifier" />
+	</groupParticipants>
+</group>

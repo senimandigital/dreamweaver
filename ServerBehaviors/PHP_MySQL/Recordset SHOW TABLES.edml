@@ -1,0 +1,7 @@
+<group name="Recordset SHOW TABLES" version="11.0" serverBehavior="Recordset SHOW TABLES.htm">
+	<TITLE>Recordset SHOW TABLES (@@ConnectionName@@)</TITLE>
+	<groupParticipants>
+		<groupParticipant name="Recordset SHOW TABLES - Recordset" partType="identifier" />
+		<groupParticipant name="Recordset SHOW TABLES - Aside" partType="identifier" />
+	</groupParticipants>
+</group>

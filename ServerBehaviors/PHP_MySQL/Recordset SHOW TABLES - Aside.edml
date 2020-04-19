@@ -1,0 +1,14 @@
+<participant version="11.0">
+	<insertText location="replaceSelection"><![CDATA[<section>
+<h3>Tabel</h3>
+<ul data-filter="true" id="show-tables" active="<?php echo $_GET['table']; ?>">
+<?php do { // } while ($row_show_tables = mysql_fetch_assoc($show_tables)); ?>
+<li active="<?php echo $row_show_tables[key($row_show_tables)]; ?>"><a href="?table=<?php echo $row_show_tables[key($row_show_tables)]; ?>"><?php echo $row_show_tables[key($row_show_tables)]; ?></a></li>
+<?php } while ($row_show_tables = mysql_fetch_assoc($show_tables)); $rows = mysql_num_rows($show_tables); if($rows > 0) { mysql_data_seek($show_tables, 0); $row_show_tables = mysql_fetch_assoc($show_tables); } ?>
+</ul>
+</section>]]></insertText>
+	<searchPatterns whereToSearch="tag+section">
+		<searchPattern paramNames="" isOptional="false" limitSearch="all"><![CDATA[/<section>\s*<h3>\s*Tabel\s*<\/h3>\s*<ul data-filter="true" id="show-tables" active="\s*<\?php echo \$_GET\['table'\]; \?>\s*">\s*<\?php do \{ \/\/ \} while \(\$row_show_tables = mysql_fetch_assoc\(\$show_tables\)\); \?>\s*<li active="\s*<\?php echo \$row_show_tables\[key\(\$row_show_tables\)\]; \?>\s*">\s*<a href="\?table=\s*<\?php echo \$row_show_tables\[key\(\$row_show_tables\)\]; \?>\s*">\s*<\?php echo \$row_show_tables\[key\(\$row_show_tables\)\]; \?>\s*<\/a>\s*<\/li>\s*<\?php \} while \(\$row_show_tables = mysql_fetch_assoc\(\$show_tables\)\); \$rows = mysql_num_rows\(\$show_tables\); if\(\$rows >\s*0\) \{ mysql_data_seek\(\$show_tables, 0\); \$row_show_tables = mysql_fetch_assoc\(\$show_tables\); \} \?>\s*<\/ul>\s*<\/section>/i]]></searchPattern>
+	</searchPatterns>
+	<quickSearch>$row_show_tables[key($row_show_tables)];</quickSearch>
+</participant>
