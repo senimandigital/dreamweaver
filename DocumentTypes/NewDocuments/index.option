@@ -6,6 +6,7 @@
 </optgroup>
 <optgroup label="Senimandigital CMS">
   <option value="https://raw.githubusercontent.com/senimandigital/dreamweaver/master/DocumentTypes/NewDocuments/Senimandigital_CMS/JQuery-Tabs-Blank.php">Master - JQuery Tab Kosong</option>
+  <option value="https://raw.githubusercontent.com/senimandigital/dreamweaver/master/DocumentTypes/NewDocuments/Senimandigital_CMS/Default.php-Master_Konten_Dinamis.php">Senimandigital CMS - Master Kontenn Dinamis</option>
   <option>Master - Accurdions Kosong</option>
   <option>Master - List Folder in Root</option>
   <option>Master - List Tree File Recursive</option>  
