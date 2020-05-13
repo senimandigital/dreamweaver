@@ -1,0 +1,11 @@
+<participant name="print_r">
+  <translator>
+    <searchPatterns>
+       <searchPattern><![CDATA[/[\$WEBSITE|\$_SERVER]\[['|"]META['|"]\]\[['|"]TITLE['|"]\];/i]]></searchPattern>
+    </searchPatterns>
+    <translations>
+      <translation whereToSearch="directive" translationType="dynamic data">
+        <display><![CDATA[<div style="clear:both;">{JUDUL HALAMAN DINAMIS}</div>]]></display>
+      </translation>
+  </translator>
+</participant>
