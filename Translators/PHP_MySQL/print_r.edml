@@ -1,0 +1,11 @@
+<participant name="print_r">
+  <translator>
+    <searchPatterns>
+       <searchPattern><![CDATA[/print_r(.*?);/i]]></searchPattern>
+    </searchPatterns>
+    <translations>
+      <translation whereToSearch="directive" translationType="dynamic data">
+        <display><![CDATA[<div style="clear:both; background-color:#F0F; padding:10px;">{Area: print_r}</div>]]></display>
+      </translation>
+  </translator>
+</participant>
