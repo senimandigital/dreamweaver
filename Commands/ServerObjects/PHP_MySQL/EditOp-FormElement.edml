@@ -1,0 +1,298 @@
+<participant version="5.0">
+<insertText location="afterSelection">
+<![CDATA[
+<@ if (@@ElementName@@ == "anggota_id") @>
+<@ elseif (@@ElementName@@ == "subdomain") @>
+<tr>
+  <td nowrap><label for="@@ElementName@@">@@ElementLabel@@</label></td>
+  <td><input type="text" name="@@ElementName@@" placeholder="@@ElementLabel@@" required="required" value="<?php echo $WEBSITE['DOMAIN']['SUB']; ?>"></td>
+</tr>
+<@ elseif (@@ElementName@@ == "http_host") @>
+<tr>
+  <td nowrap><label for="@@ElementName@@">@@ElementLabel@@</label></td>
+  <td><input type="text" name="@@ElementName@@" placeholder="@@ElementLabel@@" required="required" value="&lt;?php echo $_SERVER['HTTP_HOST']; ?>"></td>
+</tr>
+<@ elseif (@@ElementName@@ == "http_connection") @>
+<tr>
+  <td nowrap><label for="@@ElementName@@">@@ElementLabel@@</label></td>
+  <td><input type="text" name="@@ElementName@@" placeholder="@@ElementLabel@@" required="required" value="&lt;?php echo $_SERVER['HTTP_CONNECTION']; ?>"></td>
+</tr>
+<@ elseif (@@ElementName@@ == "http_cache_control") @>
+<tr>
+  <td nowrap><label for="@@ElementName@@">@@ElementLabel@@</label></td>
+  <td><input type="text" name="@@ElementName@@" placeholder="@@ElementLabel@@" required="required" value="&lt;?php echo $_SERVER['HTTP_CACHE_CONTROL']; ?>"></td>
+</tr>
+<@ elseif (@@ElementName@@ == "http_upgrade_insecure_requests") @>
+<tr>
+  <td nowrap><label for="@@ElementName@@">@@ElementLabel@@</label></td>
+  <td><input type="text" name="@@ElementName@@" placeholder="@@ElementLabel@@" required="required" value="&lt;?php echo $_SERVER['HTTP_UPGRADE_INSECURE_REQUESTS']; ?>"></td>
+</tr>
+<@ elseif (@@ElementName@@ == "http_user_agent") @>
+<tr>
+  <td nowrap><label for="@@ElementName@@">@@ElementLabel@@</label></td>
+  <td><input type="text" name="@@ElementName@@" placeholder="@@ElementLabel@@" required="required" value="&lt;?php echo $_SERVER['HTTP_USER_AGENT']; ?>"></td>
+</tr>
+<@ elseif (@@ElementName@@ == "http_accept") @>
+<tr>
+  <td nowrap><label for="@@ElementName@@">@@ElementLabel@@</label></td>
+  <td><input type="text" name="@@ElementName@@" placeholder="@@ElementLabel@@" required="required" value="&lt;?php echo $_SERVER['HTTP_ACCEPT']; ?>"></td>
+</tr>
+<@ elseif (@@ElementName@@ == "http_accept_encoding") @>
+<tr>
+  <td nowrap><label for="@@ElementName@@">@@ElementLabel@@</label></td>
+  <td><input type="text" name="@@ElementName@@" placeholder="@@ElementLabel@@" required="required" value="&lt;?php echo $_SERVER['HTTP_ACCEPT_ENCODING']; ?>"></td>
+</tr>
+<@ elseif (@@ElementName@@ == "http_accept_language") @>
+<tr>
+  <td nowrap><label for="@@ElementName@@">@@ElementLabel@@</label></td>
+  <td><input type="text" name="@@ElementName@@" placeholder="@@ElementLabel@@" required="required" value="&lt;?php echo $_SERVER['HTTP_ACCEPT_LANGUAGE']; ?>"></td>
+</tr>
+<@ elseif (@@ElementName@@ == "http_cookie") @>
+<tr>
+  <td nowrap><label for="@@ElementName@@">@@ElementLabel@@</label></td>
+  <td><input type="text" name="@@ElementName@@" placeholder="@@ElementLabel@@" required="required" value="&lt;?php echo $_SERVER['HTTP_COOKIE']; ?>"></td>
+</tr>
+<@ elseif (@@ElementName@@ == "path") @>
+<tr>
+  <td nowrap><label for="@@ElementName@@">@@ElementLabel@@</label></td>
+  <td><input type="text" name="@@ElementName@@" placeholder="@@ElementLabel@@" required="required" value="&lt;?php echo $_SERVER['PATH']; ?>"></td>
+</tr>
+<@ elseif (@@ElementName@@ == "systemroot") @>
+<tr>
+  <td nowrap><label for="@@ElementName@@">@@ElementLabel@@</label></td>
+  <td><input type="text" name="@@ElementName@@" placeholder="@@ElementLabel@@" required="required" value="&lt;?php echo $_SERVER['SystemRoot']; ?>"></td>
+</tr>
+<@ elseif (@@ElementName@@ == "comspec") @>
+<tr>
+  <td nowrap><label for="@@ElementName@@">@@ElementLabel@@</label></td>
+  <td><input type="text" name="@@ElementName@@" placeholder="@@ElementLabel@@" required="required" value="&lt;?php echo $_SERVER['COMSPEC']; ?>"></td>
+</tr>
+<@ elseif (@@ElementName@@ == "pathext") @>
+<tr>
+  <td nowrap><label for="@@ElementName@@">@@ElementLabel@@</label></td>
+  <td><input type="text" name="@@ElementName@@" placeholder="@@ElementLabel@@" required="required" value="&lt;?php echo $_SERVER['PATHEXT']; ?>"></td>
+</tr>
+<@ elseif (@@ElementName@@ == "windir") @>
+<tr>
+  <td nowrap><label for="@@ElementName@@">@@ElementLabel@@</label></td>
+  <td><input type="text" name="@@ElementName@@" placeholder="@@ElementLabel@@" required="required" value="&lt;?php echo $_SERVER['WINDIR']; ?>"></td>
+</tr>
+<@ elseif (@@ElementName@@ == "server_signature") @>
+<tr>
+  <td nowrap><label for="@@ElementName@@">@@ElementLabel@@</label></td>
+  <td><input type="text" name="@@ElementName@@" placeholder="@@ElementLabel@@" required="required" value="&lt;?php echo $_SERVER['SERVER_SIGNATURE']; ?>"></td>
+</tr>
+<@ elseif (@@ElementName@@ == "server_software") @>
+<tr>
+  <td nowrap><label for="@@ElementName@@">@@ElementLabel@@</label></td>
+  <td><input type="text" name="@@ElementName@@" placeholder="@@ElementLabel@@" required="required" value="&lt;?php echo $_SERVER['SERVER_SOFTWARE']; ?>"></td>
+</tr>
+<@ elseif (@@ElementName@@ == "server_name") @>
+<tr>
+  <td nowrap><label for="@@ElementName@@">@@ElementLabel@@</label></td>
+  <td><input type="text" name="@@ElementName@@" placeholder="@@ElementLabel@@" required="required" value="&lt;?php echo $_SERVER['SERVER_NAME']; ?>"></td>
+</tr>
+<@ elseif (@@ElementName@@ == "server_addr") @>
+<tr>
+  <td nowrap><label for="@@ElementName@@">@@ElementLabel@@</label></td>
+  <td><input type="text" name="@@ElementName@@" placeholder="@@ElementLabel@@" required="required" value="&lt;?php echo $_SERVER['SERVER_ADDR']; ?>"></td>
+</tr>
+<@ elseif (@@ElementName@@ == "server_port") @>
+<tr>
+  <td nowrap><label for="@@ElementName@@">@@ElementLabel@@</label></td>
+  <td><input type="text" name="@@ElementName@@" placeholder="@@ElementLabel@@" required="required" value="&lt;?php echo $_SERVER['SERVER_PORT']; ?>"></td>
+</tr>
+<@ elseif (@@ElementName@@ == "remote_addr") @>
+<tr>
+  <td nowrap><label for="@@ElementName@@">@@ElementLabel@@</label></td>
+  <td><input type="text" name="@@ElementName@@" placeholder="@@ElementLabel@@" required="required" value="&lt;?php echo $_SERVER['REMOTE_ADDR']; ?>"></td>
+</tr>
+<@ elseif (@@ElementName@@ == "document_root") @>
+<tr>
+  <td nowrap><label for="@@ElementName@@">@@ElementLabel@@</label></td>
+  <td><input type="text" name="@@ElementName@@" placeholder="@@ElementLabel@@" required="required" value="&lt;?php echo $_SERVER['DOCUMENT_ROOT']; ?>"></td>
+</tr>
+<@ elseif (@@ElementName@@ == "request_scheme") @>
+<tr>
+  <td nowrap><label for="@@ElementName@@">@@ElementLabel@@</label></td>
+  <td><input type="text" name="@@ElementName@@" placeholder="@@ElementLabel@@" required="required" value="&lt;?php echo $_SERVER['REQUEST_SCHEME']; ?>"></td>
+</tr>
+<@ elseif (@@ElementName@@ == "context_prefix") @>
+<tr>
+  <td nowrap><label for="@@ElementName@@">@@ElementLabel@@</label></td>
+  <td><input type="text" name="@@ElementName@@" placeholder="@@ElementLabel@@" required="required" value="&lt;?php echo $_SERVER['CONTEXT_PREFIX']; ?>"></td>
+</tr>
+<@ elseif (@@ElementName@@ == "context_document_root") @>
+<tr>
+  <td nowrap><label for="@@ElementName@@">@@ElementLabel@@</label></td>
+  <td><input type="text" name="@@ElementName@@" placeholder="@@ElementLabel@@" required="required" value="&lt;?php echo $_SERVER['CONTEXT_DOCUMENT_ROOT']; ?>"></td>
+</tr>
+<@ elseif (@@ElementName@@ == "server_admin") @>
+<tr>
+  <td nowrap><label for="@@ElementName@@">@@ElementLabel@@</label></td>
+  <td><input type="text" name="@@ElementName@@" placeholder="@@ElementLabel@@" required="required" value="&lt;?php echo $_SERVER['SERVER_ADMIN']; ?>"></td>
+</tr>
+<@ elseif (@@ElementName@@ == "script_filename") @>
+<tr>
+  <td nowrap><label for="@@ElementName@@">@@ElementLabel@@</label></td>
+  <td><input type="text" name="@@ElementName@@" placeholder="@@ElementLabel@@" required="required" value="&lt;?php echo $_SERVER['SCRIPT_FILENAME']; ?>"></td>
+</tr>
+<@ elseif (@@ElementName@@ == "remote_port") @>
+<tr>
+  <td nowrap><label for="@@ElementName@@">@@ElementLabel@@</label></td>
+  <td><input type="text" name="@@ElementName@@" placeholder="@@ElementLabel@@" required="required" value="&lt;?php echo $_SERVER['REMOTE_PORT']; ?>"></td>
+</tr>
+<@ elseif (@@ElementName@@ == "gateway_interface") @>
+<tr>
+  <td nowrap><label for="@@ElementName@@">@@ElementLabel@@</label></td>
+  <td><input type="text" name="@@ElementName@@" placeholder="@@ElementLabel@@" required="required" value="&lt;?php echo $_SERVER['GATEWAY_INTERFACE']; ?>"></td>
+</tr>
+<@ elseif (@@ElementName@@ == "server_protocol") @>
+<tr>
+  <td nowrap><label for="@@ElementName@@">@@ElementLabel@@</label></td>
+  <td><input type="text" name="@@ElementName@@" placeholder="@@ElementLabel@@" required="required" value="&lt;?php echo $_SERVER['SERVER_PROTOCOL']; ?>"></td>
+</tr>
+<@ elseif (@@ElementName@@ == "request_method") @>
+<tr>
+  <td nowrap><label for="@@ElementName@@">@@ElementLabel@@</label></td>
+  <td><input type="text" name="@@ElementName@@" placeholder="@@ElementLabel@@" required="required" value="&lt;?php echo $_SERVER['REQUEST_METHOD']; ?>"></td>
+</tr>
+<@ elseif (@@ElementName@@ == "query_string") @>
+<tr>
+  <td nowrap><label for="@@ElementName@@">@@ElementLabel@@</label></td>
+  <td><input type="text" name="@@ElementName@@" placeholder="@@ElementLabel@@" required="required" value="&lt;?php echo $_SERVER['QUERY_STRING']; ?>"></td>
+</tr>
+<@ elseif (@@ElementName@@ == "request_uri") @>
+<tr>
+  <td nowrap><label for="@@ElementName@@">@@ElementLabel@@</label></td>
+  <td><input type="text" name="@@ElementName@@" placeholder="@@ElementLabel@@" required="required" value="&lt;?php echo $_SERVER['REQUEST_URI']; ?>"></td>
+</tr>
+<@ elseif (@@ElementName@@ == "script_name") @>
+<tr>
+  <td nowrap><label for="@@ElementName@@">@@ElementLabel@@</label></td>
+  <td><input type="text" name="@@ElementName@@" placeholder="@@ElementLabel@@" required="required" value="&lt;?php echo $_SERVER['SCRIPT_NAME']; ?>"></td>
+</tr>
+<@ elseif (@@ElementName@@ == "php_self") @>
+<tr>
+  <td nowrap><label for="@@ElementName@@">@@ElementLabel@@</label></td>
+  <td><input type="text" name="@@ElementName@@" placeholder="@@ElementLabel@@" required="required" value="&lt;?php echo $_SERVER['PHP_SELF']; ?>"></td>
+</tr>
+<@ elseif (@@ElementName@@ == "request_time_float") @>
+<tr>
+  <td nowrap><label for="@@ElementName@@">@@ElementLabel@@</label></td>
+  <td><input type="text" name="@@ElementName@@" placeholder="@@ElementLabel@@" required="required" value="&lt;?php echo $_SERVER['REQUEST_TIME_FLOAT']; ?>"></td>
+</tr>
+<@ elseif (@@ElementName@@ == "request_time") @>
+<tr>
+  <td nowrap><label for="@@ElementName@@">@@ElementLabel@@</label></td>
+  <td><input type="text" name="@@ElementName@@" placeholder="@@ElementLabel@@" required="required" value="&lt;?php echo $_SERVER['REQUEST_TIME']; ?>"></td>
+</tr>
+<@ elseif (@@ElementName@@ == "parse_query_string") @>
+<tr>
+  <td nowrap><label for="@@ElementName@@">@@ElementLabel@@</label></td>
+  <td><input type="text" name="@@ElementName@@" placeholder="@@ElementLabel@@" required="required" value="&lt;?php echo $_SERVER['PARSE_QUERY_STRING']; ?>"></td>
+</tr><@ elseif (@@ElementType@@ == "textfield") @>
+<tr>
+  <td nowrap><label for="@@ElementName@@">@@ElementLabel@@</label></td>
+  <td><input type="text" name="@@ElementName@@" placeholder="@@ElementLabel@@" required="required" value="<@ if (@@ElementValue@@ == "") @><?php echo $_REQUEST['@@ElementName@@']; ?><@ else @>@@ElementValue@@<@ endif @>"></td>
+</tr>
+<@ elseif (@@ElementType@@ == "TextDate") @>
+<tr>
+  <td nowrap><label for="@@ElementName@@">@@ElementLabel@@</label></td>
+  <td><input type="date" name="@@ElementName@@" placeholder="@@ElementLabel@@" required="required" value="<@ if (@@ElementValue@@ == "") @><?php echo $_REQUEST['@@ElementName@@']; ?><@ else @>@@ElementValue@@<@ endif @>"></td>
+</tr>
+<@ elseif (@@ElementType@@ == "url") @>
+<tr>
+  <td nowrap><label for="@@ElementName@@">@@ElementLabel@@</label></td>
+  <td><input type="url" name="@@ElementName@@" placeholder="@@ElementLabel@@" required="required" value="<@ if (@@ElementValue@@ == "") @><?php echo $_REQUEST['@@ElementName@@']; ?><@ else @>@@ElementValue@@<@ endif @>"></td>
+</tr>
+<@ elseif (@@ElementType@@ == "tel") @>
+<tr>
+  <td nowrap><label for="@@ElementName@@">@@ElementLabel@@</label></td>
+  <td><input type="tel" name="@@ElementName@@" placeholder="@@ElementLabel@@" required="required" value="<@ if (@@ElementValue@@ == "") @><?php echo $_REQUEST['@@ElementName@@']; ?><@ else @>@@ElementValue@@<@ endif @>"></td>
+</tr>
+<@ elseif (@@ElementType@@ == "TextUsia") @>
+<tr>
+  <td nowrap><label for="@@ElementName@@">@@ElementLabel@@</label></td>
+  <td><input type="number" name="@@ElementName@@" placeholder="@@ElementLabel@@" required="required" value="<@ if (@@ElementValue@@ == "") @><?php echo $_REQUEST['@@ElementName@@']; ?><@ else @>@@ElementValue@@<@ endif @>" min="00" max="127"></td>
+</tr>
+<@ elseif (@@ElementType@@ == "passwordfield") @>
+<tr>
+  <td nowrap><label for="@@ElementName@@">@@ElementLabel@@</label></td>
+  <td><input type="password" name="@@ElementName@@" placeholder="@@ElementLabel@@" required="required" value="<@ if (@@ElementValue@@ == "") @><?php echo $_REQUEST['@@ElementName@@']; ?><@ else @>@@ElementValue@@<@ endif @>"></td>
+</tr>
+<@ elseif (@@ElementType@@ == "textarea") @>
+<tr>
+  <td nowrap valign="top"><label for="@@ElementName@@">@@ElementLabel@@</label></td>
+  <td><textarea data-format="html" name="@@ElementName@@" required="required"><@ if (@@ElementValue@@ == "") @><?php echo $_REQUEST['@@ElementName@@']; ?><@ else @>@@ElementValue@@<@ endif @></textarea></td>
+</tr>
+<@ elseif (@@ElementType@@ == "sourceeditorhtml") @>
+<tr>
+  <td nowrap valign="top"><label for="@@ElementName@@">@@ElementLabel@@</label></td>
+  <td><textarea data-format="html" name="@@ElementName@@" required="required"><@ if (@@ElementValue@@ == "") @><?php echo $_REQUEST['@@ElementName@@']; ?><@ else @>@@ElementValue@@<@ endif @></textarea></td>
+</tr>
+<@ elseif (@@ElementType@@ == "text") @>
+<tr>
+  <td nowrap><label for="@@ElementName@@">@@ElementLabel@@</label></td>
+  <td><@ if (@@ElementValue@@ == "") @><?php echo $_REQUEST['@@ElementName@@']; ?><@ else @>@@ElementValue@@<@ endif @></td>
+</tr>
+<@ elseif (@@ElementType@@ == "checkbox") @>
+<tr>
+  <td nowrap><label for="@@ElementName@@">@@ElementLabel@@</label></td>
+  <td><input type="checkbox" name="@@ElementName@@" required="required" value="<@ if (@@ElementValue@@ == "") @><?php echo $_REQUEST['@@ElementName@@']; ?><@ else @>@@ElementValue@@<@ endif @>" @@ElementChecked@@></td>
+</tr>
+<@ elseif (@@ElementType@@ == "dynamiccheckbox") @>
+<tr>
+  <td nowrap><label for="@@ElementName@@">@@ElementLabel@@</label></td>
+  <td><input type="checkbox" name="@@ElementName@@" required="required" value="<@ if (@@ElementValue@@ == "") @><?php echo $_REQUEST['@@ElementName@@']; ?><@ else @>@@ElementValue@@<@ endif @>" @@ElementChecked@@></td>
+</tr>
+<@ elseif (@@ElementType@@ == "menu") @>
+<tr>
+  <td nowrap><label for="@@ElementName@@">@@ElementLabel@@</label></td>
+  <td>
+    <select name="@@ElementName@@" value="<@ if (@@ElementValue@@ == "") @><?php echo $_REQUEST['@@ElementName@@']; ?><@ else @>@@ElementValue@@<@ endif @>">
+    <@ loop (@@OptionValue@@, @@OptionText@@, @@OptionSelected@@) @>
+      <option value="@@OptionValue@@" @@OptionSelected@@>@@OptionText@@</option>
+    <@ endloop @>
+    </select>
+  </td>
+</tr>
+<@ elseif (@@ElementType@@ == "MenuKelamin") @>
+<tr>
+  <td nowrap><label for="@@ElementName@@">@@ElementLabel@@</label></td>
+  <td>
+    <?php ($_POST['@@ElementName@@']) ? $_GET['@@ElementName@@'] = $_POST['@@ElementName@@'] : ''; ?>
+    <select name="@@ElementName@@" value="<@ if (@@ElementValue@@ == "") @><?php echo $_REQUEST['@@ElementName@@']; ?><@ else @>@@ElementValue@@<@ endif @>">
+      <option value="Pria" <?php if (!(strcmp("Pria", "". $_GET['@@ElementName@@'] .""))) {echo "selected=\"selected\"";} ?>>Pria</option>
+      <option value="Wanita" <?php if (!(strcmp("Wanita", "". $_GET['@@ElementName@@'] .""))) {echo "selected=\"selected\"";} ?>>Wanita</option>
+    </select>
+  </td>
+</tr>
+<@ elseif (@@ElementType@@ == "dynamicmenu") @>
+<tr>
+  <td nowrap><label for="@@ElementName@@">@@ElementLabel@@</label></td>
+  <td>
+    <select name="@@ElementName@@" value="<@ if (@@ElementValue@@ == "") @><?php echo $_REQUEST['@@ElementName@@']; ?><@ else @>@@ElementValue@@<@ endif @>">
+<?php do { ?><option value="<?php echo $row_@@RecordsetName@@['@@DynOptionValue@@']?>" <@ if (@@EqualToVal@@) @><?php if (!(strcmp($row_@@RecordsetName@@['@@DynOptionValue@@'], @@EqualToVal@@))) {echo "SELECTED";} ?><@ endif @>><?php echo $row_@@RecordsetName@@['@@DynOptionText@@']?></option>
+<?php } while ($row_@@RecordsetName@@ = mysql_fetch_assoc($@@RecordsetName@@)); ?>
+    </select>
+  </td>
+<tr>
+<@ elseif (@@ElementType@@ == "radiogroup") @>
+<tr>
+  <td nowrap><label for="@@ElementName@@">@@ElementLabel@@</label></td>
+  <td>
+    <table>
+    <@ loop (@@FieldLabel@@, @@FieldValue@@,@@FieldChecked@@) @>
+    <tr>
+      <td><input type="radio" name="@@ElementName@@" value="@@FieldValue@@" @@FieldChecked@@>@@FieldLabel@@</td>
+    </tr>
+    <@ endloop @>
+    </table>
+  </td>
+</tr>
+<@ else @>
+<@ endif @>
+]]>
+</insertText>
+</participant>
