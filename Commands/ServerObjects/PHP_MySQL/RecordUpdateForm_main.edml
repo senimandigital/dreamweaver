@@ -1,17 +1,35 @@
 <participant version="5.0">
 <insertText location="afterSelection">
 <![CDATA[
+<div role="tabs" id="tabs-">
+<ul><li><a href="#tab-@@FormName@@">Edit @@FormName@@</a></li></ul>
+<div id="tab-@@FormName@@">
 <form method="post" name="@@FormName@@" action="<?php echo $editFormAction; ?>">
-<table frame="vsides" rules="rows">
+<table frame="box">
+<@ if (@@LabelPosisi@@ == 'LabelAtasRepeat') @>
+<tr>
+<@ loop (@@ElementLabel@@) @>
+<td>@@ElementLabel@@</td>
+<@ endloop @>
+</tr>
+<tr>
+<@ loop (@@ElementString@@) @>
+   @@ElementString@@
+<@ endloop @>
+<tr>
+<@ else @>
   <@ loop (@@ElementString@@) @>
    @@ElementString@@
   <@ endloop @>
+<@ endif @>
 <caption align="bottom">
 <@ loop (@@HiddenFieldName@@, @@HiddenFieldValue@@) @>
   <input type="hidden" name="@@HiddenFieldName@@" value="@@HiddenFieldValue@@">
 <@ endloop @>
   <input type="submit" value="SIMPAN PEMBAHARUAN DATA">
-<?php if (isset($_GET['popup'])) { ?>
+<?php if (isset($_GET['popup']) && $_GET['popup'] == 'dialog') { ?>
+  <input type="button" name="keluar"  onclick="parent.postMessage('remove-dialog', '*')" value="TUTUP"/>
+<?php } elseif (isset($_GET['popup'])) { ?>
   <input type="button" name="keluar" id="keluar" onclick="javascript:window.close()" value="KELUAR"/>
 <?php } else { ?>
   <input type="button" name="kembali" id="kembali" onclick="javascript:history.back()" value="KEHALAMAN SEBELUMNYA"/></td>
@@ -19,6 +37,8 @@
 </caption>
 </table>
 </form>
+</div>
+</div>
 ]]>
 </insertText>
 </participant>
