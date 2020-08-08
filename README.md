@@ -12,8 +12,10 @@ Kode update Dreamweaver yang kami tulis dapat anda gunakan untuk mengupdate Drea
 
 # Kostumasi
 Anda bisa melakukan kostumasi bahkan kostumasi khusus untuk CMS yang anda tulis dengan tangan anda sendiri, dari pada repot-repot menghabiskan waktu bertahun-tahun tentang bagimana mengupdate Dreamweaver, Kami menyediakan Layanan Teknologi kostumasi CMS dan Dreamweaver dengan 2 Langkah awal:
-
 <ol>
-  <li>Registrasikan CMS melalui:<a href="http://cms.senimandigital.kom/">http://cms.senimandigital.kom/</a></li>
-  <li>Download Dreamweaver Extensions melalui:<a href="http://dreamweaver.senimandigital.kom/">http://dreamweaver.senimandigital.kom/</a></li>
+  <li>Registrasikan CMS melalui: <a href="http://cms.senimandigital.com/">http://cms.senimandigital.com/</a></li>
+  <li>Download Dreamweaver Extensions melalui: <a href="http://dreamweaver.senimandigital.com/">http://dreamweaver.senimandigital.com/</a></li>
 </ol>
+Coba saja dulu, kami yakin anda tidak akan menyesal. terimakasih
+<br /><br />
+salam <a href="http://senimandigital.com/">http://senimandigital.com/</a>
