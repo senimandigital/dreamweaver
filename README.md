@@ -18,4 +18,4 @@ Anda bisa melakukan kostumasi bahkan kostumasi khusus untuk CMS yang anda tulis 
 </ol>
 Coba saja dulu, kami yakin anda tidak akan menyesal. terimakasih
 <br /><br />
-salam <a href="http://senimandigital.com/">senimandigital/</a>
+salam <a href="http://senimandigital.com/">senimandigital</a>
