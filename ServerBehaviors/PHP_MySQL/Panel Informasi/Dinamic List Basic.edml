@@ -1,0 +1,7 @@
+<group name="Dinamic List Basic" version="11.0" serverBehavior="Dinamic List Basic.htm">
+	<TITLE>Dinamic List Basic (@@ConnectionName@@, @@Master__Field__ID@@, @@Master__Field__Alias@@, @@Master__Field__Judul@@, @@Master__Table__Name@@)</TITLE>
+	<groupParticipants>
+		<groupParticipant name="Dinamic List Basic Query" partType="identifier" />
+		<groupParticipant name="Dinamic List Basic HTML" partType="identifier" />
+	</groupParticipants>
+</group>

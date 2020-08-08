@@ -1,0 +1,13 @@
+<participant version="11.0">
+	<insertText location="aboveHTML+51"><![CDATA[<?php
+mysql_select_db($database_@@ConnectionName@@, $@@ConnectionName@@);
+$query_@@Master__Table__Name@@ = "SELECT * FROM @@Master__Table__Name@@";
+$@@Master__Table__Name@@ = mysql_query($query_@@Master__Table__Name@@, $@@ConnectionName@@) or die(mysql_error());
+$row_@@Master__Table__Name@@ = mysql_fetch_assoc($@@Master__Table__Name@@);
+$totalRows_@@Master__Table__Name@@ = mysql_num_rows($@@Master__Table__Name@@);
+?>]]></insertText>
+	<searchPatterns whereToSearch="directive">
+		<searchPattern paramNames="ConnectionName,Master__Table__Name" isOptional="false" limitSearch="all"><![CDATA[/mysql_select_db\(\$database_([^\r\n]*?), \$[^\r\n]*?\);(?:\r\n|\r(?!\n)|\n)[ \t]*\$query_([^\r\n]*?) = "SELECT \* FROM [^\r\n]*?";(?:\r\n|\r(?!\n)|\n)[ \t]*\$[^\r\n]*? = mysql_query\(\$query_[^\r\n]*?, \$[^\r\n]*?\) or die\(mysql_error\(\)\);(?:\r\n|\r(?!\n)|\n)[ \t]*\$row_[^\r\n]*? = mysql_fetch_assoc\(\$[^\r\n]*?\);(?:\r\n|\r(?!\n)|\n)[ \t]*\$totalRows_[^\r\n]*? = mysql_num_rows\(\$[^\r\n]*?\);(?=\r\n|\r|\n|\?>)/i]]></searchPattern>
+	</searchPatterns>
+	<quickSearch>mysql_select_db($database_</quickSearch>
+</participant>

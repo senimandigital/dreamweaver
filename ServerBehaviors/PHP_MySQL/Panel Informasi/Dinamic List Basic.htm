@@ -1,0 +1,366 @@
+<!-- auto-generated=true -->
+<!DOCTYPE HTML SYSTEM "-//Macromedia//DWExtension layout-engine 5.0//dialog">
+<HTML>
+<HEAD>
+<TITLE>Dinamic List Basic</TITLE>
+
+<SCRIPT SRC="../../../Shared/Common/Scripts/dwscripts.js"></SCRIPT>
+<SCRIPT SRC="../../../Shared/Common/Scripts/dwscriptsServer.js"></SCRIPT>
+<SCRIPT SRC="../../../Shared/Common/Scripts/dwscriptsExtData.js"></SCRIPT>
+<SCRIPT SRC="../../../Shared/Common/Scripts/ServerBehaviorClass.js"></SCRIPT>
+
+<SCRIPT SRC="../../../Shared/Controls/Scripts/ConnectionMenu.js"></SCRIPT>
+<SCRIPT SRC="../../../Shared/Common/Scripts/ListControlClass.js"></SCRIPT>
+<SCRIPT SRC="../../../Shared/Controls/Scripts/ConnectionTableMasterMenu.js"></SCRIPT>
+<SCRIPT SRC="../../../Shared/Controls/Scripts/ConnectionColumnMasterMenu.js"></SCRIPT>
+<SCRIPT>
+
+var _ConnectionName = new ConnectionMenu("Dinamic List Basic.htm", "ConnectionName", "");
+var _Master__Table__Name = new ConnectionTableMasterMenu("Dinamic List Basic.htm", "Master__Table__Name", "");
+var _Master__Field__ID = new ConnectionColumnMasterMenu("Dinamic List Basic.htm", "Master__Field__ID", "");
+var _Master__Field__Alias = new ConnectionColumnMasterMenu("Dinamic List Basic.htm", "Master__Field__Alias", "");
+var _Master__Field__Judul = new ConnectionColumnMasterMenu("Dinamic List Basic.htm", "Master__Field__Judul", "");
+
+
+//--------------------------------------------------------------------
+// FUNCTION:
+//   initializeUI
+//
+// DESCRIPTION:
+//   Prepare the dialog and controls for user input
+//
+// ARGUMENTS:
+//   none
+//
+// RETURNS:
+//   nothing
+//--------------------------------------------------------------------
+function initializeUI()
+{
+  var elts;
+
+  _ConnectionName.initializeUI();
+  _Master__Table__Name.initializeUI();
+  _Master__Field__ID.initializeUI();
+  _Master__Field__Alias.initializeUI();
+  _Master__Field__Judul.initializeUI();
+
+  elts = document.forms[0].elements;
+  if (elts && elts.length)
+    elts[0].focus();
+}
+
+
+//--------------------------------------------------------------------
+// FUNCTION:
+//   findServerBehaviors
+//
+// DESCRIPTION:
+//   Returns an array of ServerBehavior objects, each one representing
+//   an instance of this Server Behavior on the page
+//
+// ARGUMENTS:
+//   none
+//
+// RETURNS:
+//   JavaScript Array of ServerBehavior objects
+//--------------------------------------------------------------------
+function findServerBehaviors()
+{
+  _ConnectionName.findServerBehaviors();
+  _Master__Table__Name.findServerBehaviors();
+  _Master__Field__ID.findServerBehaviors();
+  _Master__Field__Alias.findServerBehaviors();
+  _Master__Field__Judul.findServerBehaviors();
+
+  sbArray = dwscripts.findSBs();
+
+  return sbArray;
+}
+
+
+//--------------------------------------------------------------------
+// FUNCTION:
+//   canApplyServerBehavior
+//
+// DESCRIPTION:
+//   Returns true if a Server Behavior can be applied to the current
+//   document
+//
+// ARGUMENTS:
+//   sbObj - ServerBehavior object - one of the objects returned
+//           from findServerBehaviors
+//
+// RETURNS:
+//   boolean - true if the behavior can be applied, false otherwise
+//--------------------------------------------------------------------
+function canApplyServerBehavior(sbObj)
+{
+  var success = true;
+  if (success)
+  {
+    success = _ConnectionName.canApplyServerBehavior(sbObj);
+  }
+  if (success)
+  {
+    success = _Master__Table__Name.canApplyServerBehavior(sbObj);
+  }
+  if (success)
+  {
+    success = _Master__Field__ID.canApplyServerBehavior(sbObj);
+  }
+  if (success)
+  {
+    success = _Master__Field__Alias.canApplyServerBehavior(sbObj);
+  }
+  if (success)
+  {
+    success = _Master__Field__Judul.canApplyServerBehavior(sbObj);
+  }
+  if (success)
+  {
+    success = dwscripts.canApplySB(sbObj, false); // preventNesting is false
+  }
+  return success;
+}
+
+
+//--------------------------------------------------------------------
+// FUNCTION:
+//   applyServerBehavior
+//
+// DESCRIPTION:
+//   Collects values from the form elements in the dialog box and
+//   adds the Server Behavior to the user's document
+//
+// ARGUMENTS:
+//   sbObj - ServerBehavior object - one of the objects returned
+//           from findServerBehaviors
+//
+// RETURNS:
+//   string - empty upon success, or an error message
+//--------------------------------------------------------------------
+function applyServerBehavior(sbObj)
+{
+  var paramObj = new Object();
+  var errStr = "";
+
+  if (!errStr)
+  {
+    errStr = _ConnectionName.applyServerBehavior(sbObj, paramObj);
+  }
+  if (!errStr)
+  {
+    errStr = _Master__Table__Name.applyServerBehavior(sbObj, paramObj);
+  }
+  if (!errStr)
+  {
+    errStr = _Master__Field__ID.applyServerBehavior(sbObj, paramObj);
+  }
+  if (!errStr)
+  {
+    errStr = _Master__Field__Alias.applyServerBehavior(sbObj, paramObj);
+  }
+  if (!errStr)
+  {
+    errStr = _Master__Field__Judul.applyServerBehavior(sbObj, paramObj);
+  }
+
+  if (!errStr)
+  {
+    dwscripts.fixUpSelection(dw.getDocumentDOM(), true, true);
+    dwscripts.applySB(paramObj, sbObj);
+  }
+  return errStr;
+}
+
+
+//--------------------------------------------------------------------
+// FUNCTION:
+//   inspectServerBehavior
+//
+// DESCRIPTION:
+//   Sets the values of the form elements in the dialog box based
+//   on the given ServerBehavior object
+//
+// ARGUMENTS:
+//   sbObj - ServerBehavior object - one of the objects returned
+//           from findServerBehaviors
+//
+// RETURNS:
+//   nothing
+//--------------------------------------------------------------------
+function inspectServerBehavior(sbObj)
+{
+  _ConnectionName.inspectServerBehavior(sbObj);
+  _Master__Table__Name.inspectServerBehavior(sbObj);
+  _Master__Field__ID.inspectServerBehavior(sbObj);
+  _Master__Field__Alias.inspectServerBehavior(sbObj);
+  _Master__Field__Judul.inspectServerBehavior(sbObj);
+}
+
+
+//--------------------------------------------------------------------
+// FUNCTION:
+//   deleteServerBehavior
+//
+// DESCRIPTION:
+//   Remove the specified Server Behavior from the user's document
+//
+// ARGUMENTS:
+//   sbObj - ServerBehavior object - one of the objects returned
+//           from findServerBehaviors
+//
+// RETURNS:
+//   nothing
+//--------------------------------------------------------------------
+function deleteServerBehavior(sbObj)
+{
+  _ConnectionName.deleteServerBehavior(sbObj);
+  _Master__Table__Name.deleteServerBehavior(sbObj);
+  _Master__Field__ID.deleteServerBehavior(sbObj);
+  _Master__Field__Alias.deleteServerBehavior(sbObj);
+  _Master__Field__Judul.deleteServerBehavior(sbObj);
+
+  dwscripts.deleteSB(sbObj);
+}
+
+
+//--------------------------------------------------------------------
+// FUNCTION:
+//   analyzeServerBehavior
+//
+// DESCRIPTION:
+//   Performs extra checks needed to determine if the Server Behavior
+//   is complete
+//
+// ARGUMENTS:
+//   sbObj - ServerBehavior object - one of the objects returned
+//           from findServerBehaviors
+//   allRecs - JavaScripts Array of ServerBehavior objects - all of the
+//             ServerBehavior objects known to Dreamweaver
+//
+// RETURNS:
+//   nothing
+//--------------------------------------------------------------------
+function analyzeServerBehavior(sbObj, allRecs)
+{
+  _ConnectionName.analyzeServerBehavior(sbObj, allRecs);
+  _Master__Table__Name.analyzeServerBehavior(sbObj, allRecs);
+  _Master__Field__ID.analyzeServerBehavior(sbObj, allRecs);
+  _Master__Field__Alias.analyzeServerBehavior(sbObj, allRecs);
+  _Master__Field__Judul.analyzeServerBehavior(sbObj, allRecs);
+}
+
+
+//--------------------------------------------------------------------
+// FUNCTION:
+//   updateUI
+//
+// DESCRIPTION:
+//   Called from controls to update the dialog based on user input
+//
+// ARGUMENTS:
+//   controlName - string - the name of the control which called us
+//   event - string - the name of the event which triggered this call
+//           or null
+//
+// RETURNS:
+//   nothing
+//--------------------------------------------------------------------
+function updateUI(controlName, event)
+{
+  if (window["_" + controlName] != null)
+  {
+    var controlObj = window["_" + controlName];
+
+    if (_ConnectionName.updateUI != null)
+    {
+      _ConnectionName.updateUI(controlObj, event);
+    }
+    if (_Master__Table__Name.updateUI != null)
+    {
+      _Master__Table__Name.updateUI(controlObj, event);
+    }
+    if (_Master__Field__ID.updateUI != null)
+    {
+      _Master__Field__ID.updateUI(controlObj, event);
+    }
+    if (_Master__Field__Alias.updateUI != null)
+    {
+      _Master__Field__Alias.updateUI(controlObj, event);
+    }
+    if (_Master__Field__Judul.updateUI != null)
+    {
+      _Master__Field__Judul.updateUI(controlObj, event);
+    }
+  }
+}
+
+</SCRIPT>
+<script>
+function commandButtons(){
+  return new Array("OK",           "applyServerBehavior(); window.close()",
+                   "Keluar",       "window.close()",
+                   "",             "",
+                   "Edit",         "dreamweaver.browseDocument('http://dreamweaver.phpmysource.kom/ServerBehaviors.php?configuration='+ dreamweaver.getConfigurationPath() + '&ServerModel=' +dwscripts.getServerModel()+ '&getSBFileName='+ dwscripts.getSBFileName() +'&Title=Dinamic List Basic' )",
+                   "Bantuan",      "dwscripts.callCommand('senimandigital - serverbehavior - bantuan', 'Dinamic List Basic')",
+                   "Komunitas",    "dreamweaver.browseDocument('http://dreamweaver.senimandigital.com/redirect.php.php?configuration='+ dreamweaver.getConfigurationPath() + '&ServerModel=' +dwscripts.getServerModel()+ '&Title=Dinamic List Basic' )"
+);
+}
+// dwscripts.getSBFileName(); mendapatkan nama File Server Behaviors
+</script>
+</HEAD>
+
+<BODY onLoad="initializeUI()">
+<FORM NAME="theForm">
+<TABLE BORDER=0>
+    <TR>
+      <TD ALIGN="right" NOWRAP>ConnectionName:</TD>
+      <TD VALIGN="baseline" NOWRAP>
+        <SELECT STYLE="width:150px" NAME="ConnectionName" onChange="updateUI('ConnectionName','onChange')">
+        </SELECT><INPUT TYPE="button" VALUE="Define..." onClick= "_ConnectionName.launchConnectionDialog()" >
+      </TD>
+    </TR>
+    <TR><TD HEIGHT="1"></TD></TR>
+    <TR>
+      <TD ALIGN="right" NOWRAP>Master Table Name:</TD>
+      <TD VALIGN="baseline" NOWRAP>
+        <SELECT STYLE="width:250px" NAME="Master__Table__Name" onChange="updateUI('Master__Table__Name','onChange')">
+          <OPTION SELECTED>*** No Table Found</OPTION>
+        </SELECT>
+      </TD>
+    </TR>
+    <TR><TD HEIGHT="1"></TD></TR>
+    <TR>
+      <TD ALIGN="right" NOWRAP>Master Field ID:</TD>
+      <TD VALIGN="baseline" NOWRAP>
+        <SELECT STYLE="width:250px" NAME="Master__Field__ID">
+          <OPTION SELECTED>*** No Column Found</OPTION>
+        </SELECT>
+      </TD>
+    </TR>
+    <TR><TD HEIGHT="1"></TD></TR>
+    <TR>
+      <TD ALIGN="right" NOWRAP>Master Field Alias:</TD>
+      <TD VALIGN="baseline" NOWRAP>
+        <SELECT STYLE="width:250px" NAME="Master__Field__Alias">
+          <OPTION SELECTED>*** No Column Found</OPTION>
+        </SELECT>
+      </TD>
+    </TR>
+    <TR><TD HEIGHT="1"></TD></TR>
+    <TR>
+      <TD ALIGN="right" NOWRAP>Master Field Judul:</TD>
+      <TD VALIGN="baseline" NOWRAP>
+        <SELECT STYLE="width:250px" NAME="Master__Field__Judul">
+          <OPTION SELECTED>*** No Column Found</OPTION>
+        </SELECT>
+      </TD>
+    </TR>
+    <TR><TD HEIGHT="1"></TD></TR>
+  </TABLE>
+</FORM>
+</BODY>
+</HTML>
+

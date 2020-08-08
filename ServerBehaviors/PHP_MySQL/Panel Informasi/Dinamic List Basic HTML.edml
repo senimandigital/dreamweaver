@@ -1,0 +1,15 @@
+<participant version="11.0">
+	<insertText location="replaceSelection"><![CDATA[<section>
+<h3><a href="<?php echo $WEBSITE['DOMAIN']['SITE']; ?>@@Master__Table__Name@@">@@Master__Table__Name@@</a></h3>
+<ul active="">
+<?php do { ?>
+  <li active="<?php echo $_GET['@@Master__Field__ID@@']; ?>"><a href="@@Master__Table__Name@@_detail.php?@@Master__Field__ID@@=<?php echo $row_@@Master__Table__Name@@['@@Master__Field__Alias@@']; ?>"><?php echo $row_@@Master__Table__Name@@['@@Master__Field__Judul@@']; ?></a></li>
+<?php } while ($row_@@Master__Table__Name@@ = mysql_fetch_assoc($@@Master__Table__Name@@)); ?>
+</ul>
+<left><a href="/@@Master__Table__Name@@_tambah.php?popup=dialog">Baru</a></left>
+</section>]]></insertText>
+	<searchPatterns whereToSearch="tag+section">
+		<searchPattern paramNames="Master__Table__Name,Master__Field__ID,Master__Field__Alias,Master__Field__Judul" isOptional="false" limitSearch="all"><![CDATA[/<section>\s*<h3>\s*<a href="\s*<\?php echo \$WEBSITE\['DOMAIN'\]\['SITE'\]; \?>\s*([^\r\n]*?)\s*">\s*[^\r\n]*?\s*<\/a>\s*<\/h3>\s*<ul active="">\s*<\?php do \{ \?>\s*<li active="\s*<\?php echo \$_GET\['([^\r\n]*?)'\]; \?>\s*">\s*<a href="[^\r\n]*?_detail\.php\?[^\r\n]*?=\s*<\?php echo \$row_[^\r\n]*?\['([^\r\n]*?)'\]; \?>\s*">\s*<\?php echo \$row_[^\r\n]*?\['([^\r\n]*?)'\]; \?>\s*<\/a>\s*<\/li>\s*<\?php \} while \(\$row_[^\r\n]*? = mysql_fetch_assoc\(\$[^\r\n]*?\)\); \?>\s*<\/ul>\s*<left>\s*<a href="\/[^\r\n]*?_tambah\.php\?popup=dialog">\s*Baru\s*<\/a>\s*<\/left>\s*<\/section>/i]]></searchPattern>
+	</searchPatterns>
+	<quickSearch>$WEBSITE['DOMAIN']['SITE'];</quickSearch>
+</participant>
