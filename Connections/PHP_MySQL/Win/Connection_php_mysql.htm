@@ -1,0 +1,62 @@
+<!DOCTYPE HTML SYSTEM "-//Macromedia//DWExtension layout-engine 5.0//dialog">
+<HTML>
+<HEAD>
+<!--  Copyright 2001-2002 Macromedia, Inc. All rights reserved. -->
+
+<TITLE>MySQL Connection</TITLE>
+
+<SCRIPT SRC="../../../Shared/Common/Scripts/dwscripts.js"></SCRIPT>
+<SCRIPT SRC="../../../Shared/Common/Scripts/ListControlClass.js"></SCRIPT>
+<SCRIPT SRC="../../../Shared/UltraDev/Scripts/connectionCmn.js"></SCRIPT>
+<SCRIPT SRC="../../../Shared/UltraDev/Scripts/sbManager.js"></SCRIPT>
+<SCRIPT SRC="../Connection_php_mysql.js"></SCRIPT>
+
+</HEAD>
+
+<BODY onLoad="initializeUI()">
+
+<form NAME="theForm" ACTION="">
+  <table border=0>
+    <tr>
+      <td align="right" valign="baseline" nowrap>Connection Name:</td>
+      <td align="left" colspan="2">
+        <input type="text" style="width:160px" name="ConnectionName">
+      </td>
+    </tr>
+    <tr><td height="1"></td></tr>
+    <tr>
+      <td align="right" valign="baseline" nowrap>MySQL Server:</td>
+      <td align="left" colspan="2">
+        <input type="text" style="width:160px" name="HostName">
+      </td>
+    </tr>
+    <tr><td height="1"></td></tr>
+    <tr>
+      <td align="right" valign="baseline" nowrap>User Name:</td>
+      <td align="left" colspan="2">
+        <input type="text" style="width:160px" name="UserName">
+      </td>
+    </tr>
+    <tr><td height="1"></td></tr>
+    <tr>
+      <td>
+        <div align="right">Password:</div>
+      </td>
+      <td align="left" colspan="2">
+        <input type="password" style="width:160px" name="Password">
+      </td>
+    </tr>
+	 <tr>
+      <td align="right" valign="baseline" nowrap>Database:</td>
+      <td align="left" valign="baseline">
+        <input type="text" style="width:160px" name="DatabaseName">
+      </td>
+      <td align="left">
+        <input type="button" name="DB_button" value="Select..." onClick="selectDatabase()">
+      </td>
+    </tr>
+  </table>
+</form>
+
+</BODY>
+</HTML>
