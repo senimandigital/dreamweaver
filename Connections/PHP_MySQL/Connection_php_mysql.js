@@ -1,4 +1,4 @@
-// Copyright 2001-2002 Macromedia, Inc. All rights reserved.
+// Copyright 2001, 2002, 2003 Macromedia, Inc. All rights reserved.
 
 // *************** GLOBALS VARS *****************
 
@@ -372,7 +372,7 @@ function initializeUI()
     // CONN_TYPE_OBJ[index].checked = true;
   // }
   
-  CONN_NAME_OBJ.setAttribute("disabled","false");  
+  CONN_NAME_OBJ.removeAttribute("disabled");  
   CONN_NAME_OBJ.focus();
 }
 
@@ -402,12 +402,12 @@ function updateControls(useHTTP)
     {
       // document.theForm.dsn.setAttribute("disabled","true");
       // document.theForm.ODBC_button.setAttribute("disabled","true");
-      document.theForm.DB_button.setAttribute("disabled","false");
+      document.theForm.DB_button.removeAttribute("disabled");
     }
     else
     {
-      // document.theForm.dsn.setAttribute("disabled","false");
-      // document.theForm.ODBC_button.setAttribute("disabled","false");
+      // document.theForm.dsn.removeAttribute("disabled");
+      // document.theForm.ODBC_button.removeAttribute("disabled");
       document.theForm.DB_button.setAttribute("disabled","true");
     }
   // }

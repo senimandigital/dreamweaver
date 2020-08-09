@@ -1,7 +1,7 @@
 <!DOCTYPE HTML SYSTEM "-//Macromedia//DWExtension layout-engine 5.0//dialog">
 <HTML>
 <HEAD>
-<!--  Copyright 2001-2002 Macromedia, Inc. All rights reserved. -->
+<!--  Copyright 2001, 2002, 2003 Macromedia, Inc. All rights reserved. -->
 
 <TITLE>MySQL Connection</TITLE>
 
@@ -11,30 +11,30 @@
 <SCRIPT SRC="../../../Shared/UltraDev/Scripts/sbManager.js"></SCRIPT>
 <SCRIPT SRC="../Connection_php_mysql.js"></SCRIPT>
 
-</HEAD>
+<link href="../../../fields.css" rel="stylesheet" type="text/css"></HEAD>
 
 <BODY onLoad="initializeUI()">
 
 <form NAME="theForm" ACTION="">
   <table border=0>
     <tr>
-      <td align="right" valign="baseline" nowrap>Connection Name:</td>
+      <td align="right" valign="baseline" nowrap>Connection name:</td>
       <td align="left" colspan="2">
-        <input type="text" style="width:160px" name="ConnectionName">
+        <input name="ConnectionName" type="text" class="medTField">
       </td>
     </tr>
     <tr><td height="1"></td></tr>
     <tr>
-      <td align="right" valign="baseline" nowrap>MySQL Server:</td>
+      <td align="right" valign="baseline" nowrap>MySQL server:</td>
       <td align="left" colspan="2">
-        <input type="text" style="width:160px" name="HostName">
+        <input name="HostName" type="text" class="medTField">
       </td>
     </tr>
     <tr><td height="1"></td></tr>
     <tr>
-      <td align="right" valign="baseline" nowrap>User Name:</td>
+      <td align="right" valign="baseline" nowrap>User name:</td>
       <td align="left" colspan="2">
-        <input type="text" style="width:160px" name="UserName">
+        <input name="UserName" type="text" class="medTField">
       </td>
     </tr>
     <tr><td height="1"></td></tr>
@@ -43,13 +43,13 @@
         <div align="right">Password:</div>
       </td>
       <td align="left" colspan="2">
-        <input type="password" style="width:160px" name="Password">
+        <input type="password" style="width:150px" name="Password">
       </td>
     </tr>
 	 <tr>
       <td align="right" valign="baseline" nowrap>Database:</td>
       <td align="left" valign="baseline">
-        <input type="text" style="width:160px" name="DatabaseName">
+        <input name="DatabaseName" type="text" class="medTField">
       </td>
       <td align="left">
         <input type="button" name="DB_button" value="Select..." onClick="selectDatabase()">

@@ -9,7 +9,7 @@ $hostname_@@cname@@ = "@@hostname@@";
 $database_@@cname@@ = "@@databasename@@";
 $username_@@cname@@ = "@@username@@";
 $password_@@cname@@ = "@@password@@";
-$@@cname@@ = mysql_pconnect($hostname_@@cname@@, $username_@@cname@@, $password_@@cname@@) or die(mysql_error());
+$@@cname@@ = mysql_pconnect($hostname_@@cname@@, $username_@@cname@@, $password_@@cname@@) or trigger_error(mysql_error(),E_USER_ERROR); 
 ?>]]>
   </insertText>
   <searchPatterns whereToSearch="directive">
@@ -20,6 +20,6 @@ $@@cname@@ = mysql_pconnect($hostname_@@cname@@, $username_@@cname@@, $password_
     <searchPattern paramNames="cname,databasename"><![CDATA[/\$database_(\w*) = "([^"]*)";/]]></searchPattern>
     <searchPattern paramNames="cname,username">    <![CDATA[/\$username_(\w*) = "([^"]*)";/]]></searchPattern>
     <searchPattern paramNames="cname,password">    <![CDATA[/\$password_(\w*) = "([^"]*)";/]]></searchPattern>                                                                        
-	<searchPattern paramNames="cname" isOptional="true" limitSearch="all"><![CDATA[/\$([^\r\n]*?) = mysql_pconnect\(\$hostname_[^\r\n]*?, \$username_[^\r\n]*?, \$password_[^\r\n]*?\) or die\(mysql_error\(\)\);(?=\r\n|\r|\n|>)/]]></searchPattern>  
+	<searchPattern paramNames="cname" isOptional="true" limitSearch="all"><![CDATA[/\$([^\r\n]*?) = mysql_pconnect\(\$hostname_[^\r\n]*?, \$username_[^\r\n]*?, \$password_[^\r\n]*?\) or /]]></searchPattern>  
   </searchPatterns>
 </participant>
