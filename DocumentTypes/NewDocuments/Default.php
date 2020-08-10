@@ -1,49 +1,21 @@
-<?php if (isset($_GET['dom'])) goto dom_article; ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Senimandigital</title>
-<meta name="description" content="Deskripsikan halaman disini, tulisan ini dapat diubah melalui meta tag." />
-<?php echo $WEBSITE['SCRIPT']['HEADER']; ?>
-<?php echo $WEBSITE['STYLE']['HEADER']; ?>
-</head>
-<body>
-<?php if (!isset($_GET['popup'])) { echo $WEBSITE['TEMPLATE']['MENUATAS']; } ?>
-<main>
-<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<?php require_once('../Connections/senimandigital.php'); ?>
+<table>
 <tr>
-  <td valign="top">
-  <?php dom_article: ?>
-  <article>
-    <section>
-    <h3>ERROR... !</h3>
-      <content class="alert under-construction">
-      Under Construction
-      <style> h3 { border-bottom-color:#999999; border-bottom-style:double; padding-bottom:10px; } </style>
-      </content>
-    </section>
-  </article>
-  <?php if (isset($_GET['dom'])) exit; ?>
-  </td>
-  <?php if (!isset($_GET['popup'])) { ?>
-  <td width="225" valign="top">
-  <aside>
-  <content class="panel-description">
-  <h3 class="article">DESCRIPTION</h3>
-  <script language="javascript">
-  for(var i=0; i<document.getElementsByTagName('meta').length; i++) {
-      if(document.getElementsByTagName('meta').item(i).name.toLowerCase() != 'description') continue;
-         document.write('<p>'+ document.getElementsByTagName('meta').item(i).content + '</p>');
-     }
-  </script>
-  </content>
-  </aside>
-  </td>
-  <?php } /* if (!isset($_GET['popup'])) */ ?>
+<td role="article" valign="top">
+<section>
+<h3><?php echo $WEBSITE['DOMAIN']['SUB'] . $_SERVER['SCRIPT_NAME']; ?></h3>
+<?php include $WEBSITE['HOSTING']['TEMPLATES'] .'php/deskripsi.php'; ?>
+<?php
+if     (preg_match('(tambah.php|insert.php)', $WEBSITE['HOSTING']['SCRIPT_FILENAME']) === 1) { include $WEBSITE['HOSTING']['TEMPLATES'] .'php/data_field_tambah.php'; }
+elseif (preg_match('(edit.php|update.php)', $WEBSITE['HOSTING']['SCRIPT_FILENAME']) === 1)   { include $WEBSITE['HOSTING']['TEMPLATES'] .'php/data_field_edit.php'; }
+elseif ($re = mysql_query('select 1 from `'. substr(basename($_SERVER['SCRIPT_NAME']), 0, -4) .'` LIMIT 1', $senimandigital) === FALSE) {    
+	     include $WEBSITE['HOSTING']['TEMPLATES'] .'php/script_content_default.php'; if ($_GET['hapus']) unlink($WEBSITE['HOSTING']['SCRIPT_FILENAME']);
+} else { include $WEBSITE['HOSTING']['TEMPLATES'] .'php/data_field_master.php'; }
+?>
+</section>
+</td>
+<td role="aside">
+<?php include $WEBSITE['HOSTING']['TEMPLATES'] .'php/menu_samping.php'; ?>
+</td>
 </tr>
 </table>
-</main>
-<?php echo $WEBSITE['TEMPLATE']['FOTTER']; ?>
-</body>
-</html>
