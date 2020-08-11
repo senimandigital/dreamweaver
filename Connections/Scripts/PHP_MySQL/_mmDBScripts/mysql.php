@@ -349,7 +349,8 @@ class MySqlConnection
 		$xmlOutput = '<RESULTSET><FIELDS><FIELD><NAME>NAME</NAME></FIELD></FIELDS><ROWS>';
 
 		if (isset($this->connectionId)){
-				$dbList = mysqli_list_dbs($this->connectionId);
+			//	$dbList = mysqli_list_dbs($this->connectionId);
+				$dbList = mysqli_query($this->connectionId, "SHOW DATABASES");
 				
 				while ($row = mysqli_fetch_object($dbList))
 				{
