@@ -1,0 +1,11 @@
+<group name="InsertRecord" version="6.0" serverBehavior="Insert Record MySQLi Procedural.htm" hideFromBuilder="true">
+	<groupParticipants selectParticipant="Insert Record MySQLi Procedural_main">
+		<groupParticipant name="Connection_include" partType="member" />
+		<groupParticipant name="EditOps_queryString" partType="member" />
+		<groupParticipant name="Insert Record MySQLi Procedural_main" partType="identifier" />
+		<groupParticipant name="InsertRecord_hidden" partType="member" />
+		<groupParticipant name="EditOps_formMethod" partType="member" />
+		<groupParticipant name="EditOps_formAction" partType="member" />
+		<groupParticipant name="EditOps_formName" partType="member" />
+	</groupParticipants>
+</group>
