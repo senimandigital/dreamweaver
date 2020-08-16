@@ -1,0 +1,43 @@
+<!-- MENU-LOCATION=NONE -->
+<!-- Copyright 2002 Macromedia, Inc. All rights reserved. -->
+
+<!DOCTYPE HTML SYSTEM "-//Macromedia//DWExtension layout-engine 5.0//dialog">
+<html>
+<head>
+<title>Add Parameter</title>
+
+<SCRIPT SRC="../Shared/Common/Scripts/dwscripts.js"></SCRIPT>
+<SCRIPT SRC="../Shared/Common/Scripts/dwscriptsServer.js"></SCRIPT>
+<SCRIPT SRC="../Shared/Common/Scripts/ListControlClass.js"></SCRIPT>
+<SCRIPT SRC="../Shared/Common/Scripts/ServerBehaviorClass.js"></SCRIPT>
+<SCRIPT SRC="../Shared/Common/Scripts/SBDatabaseCallClass.js"></SCRIPT>
+<SCRIPT SRC="../Shared/Controls/Scripts/TextField.js"></SCRIPT>
+<SCRIPT SRC="../ServerBehaviors/Shared/ASP.Net/DatabaseCallClass.js"></SCRIPT>
+<SCRIPT SRC="../ServerBehaviors/Shared/ASP.Net/RecordsetClass.js"></SCRIPT>
+<SCRIPT SRC="../Shared/MM/Scripts/CMN/displayHelp.js"></SCRIPT>
+
+<SCRIPT SRC="AddPHPParam.js"></SCRIPT>
+
+</head>
+<body onLoad="initializeUI()">
+<form>
+  <table border="0">
+    <tr VALIGN="baseline">
+      <td ALIGN="right" nowrap>Name: </td>
+      <td nowrap><input type="text" name="ParamName" style="width:195px" /></td>
+    </tr>
+    
+    <tr VALIGN="baseline"> 
+    <td ALIGN="right" valign="top" nowrap>Default Value: </td>
+      <td nowrap><input type="text" name="DefaultValue" style="width:195px" /></td>
+    </tr>
+
+    <tr VALIGN="baseline"> 
+    <td ALIGN="right" valign="top" nowrap>Runtime Value: </td>
+      <td nowrap><input type="text" name="RuntimeValue" style="width:195px" /></td>
+    </tr>
+
+   </table>
+</form>
+</body>
+</html>

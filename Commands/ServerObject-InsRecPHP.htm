@@ -1,0 +1,122 @@
+<!-- MENU-LOCATION=NONE -->
+<!DOCTYPE HTML SYSTEM "-//Macromedia//DWExtension layout-engine 5.0//dialog">
+<html>
+<head>
+<title>Record Insertion Form</title>
+<script language = "JavaScript">
+// note: this global variable needs to be at the top of this file to load properly
+// it is not a localizable variable, and localizing it will break the script!!
+var EDIT_OP_TYPE = "Insert";
+</script>
+<SCRIPT src="../Shared/Common/Scripts/dwscripts.js"></SCRIPT>
+<SCRIPT src="../Shared/Common/Scripts/dwscriptsServer.js"></SCRIPT>
+<SCRIPT src="../Shared/Common/Scripts/dwscriptsExtData.js"></SCRIPT>
+<SCRIPT SRC="../Shared/Common/Scripts/SQLStatementClass.js"></SCRIPT>
+<SCRIPT SRC="../Shared/Common/Scripts/ListControlClass.js"></SCRIPT>
+<SCRIPT SRC="../Shared/Common/Scripts/TreeControlClass.js"></SCRIPT>
+<SCRIPT SRC="../Shared/Controls/Scripts/ConnectionMenu.js"></SCRIPT>
+<SCRIPT SRC="../Shared/Controls/Scripts/ConnectionTableMenu.js"></SCRIPT>
+<SCRIPT SRC="../Shared/Controls/Scripts/TextField.js"></SCRIPT>
+<SCRIPT SRC="EditOpsCustomObjs.js"></SCRIPT>
+<SCRIPT SRC="ServerObject-FormCmnPHP.js"></SCRIPT>
+<SCRIPT SRC="ServerObject-InsRecPHP.js"></SCRIPT>
+</head>
+
+<body onload="initializeUI()">
+  <form>
+    <table border=0 width="482">
+	    <tr><td height="1"></td></tr>
+	    <tr valign="baseline">
+	      <td align="right" NOWRAP>Connection:</TD>
+	      <td colspan="2" NOWRAP>
+	        <select name="ConnectionName" style="width:180px" wrap="virtual" onChange="updateUI('ConnectionName','onChange')">
+	        </select>
+	        &nbsp;
+	      </td>
+	    </tr>
+		<tr><td height="1"></td></tr>
+     <TR VALIGN="baseline">
+        <TD ALIGN="right" NOWRAP>Table:</TD>
+        <TD COLSPAN="2" NOWRAP>
+          <select name="TableName" style="width:180px;" wrap="virtual" onChange="updateUI('TableName','onChange')">
+          </select>
+        </TD>
+      </TR>
+		<tr><td height="1"></td></tr>
+      <tr>
+        <td align="right" valign="baseline" nowrap>After Inserting, Go To:</td>
+        <td valign="baseline" colspan="4" nowrap>
+          <input name="GoToURL" type="text" style="width:280px">
+          <input type="button" value="Browse..." onClick="updateUI('GoToURL','onClick');focus(this)">
+        </td>
+      </tr>
+      <tr>
+        <td align="right" valign="baseline" nowrap colspan="5">
+          <hr>
+        </td>
+      </tr>
+      <tr>
+        <td align="right" valign="baseline" nowrap>Form Fields:</td>
+        <td valign="baseline" colspan="4" nowrap align="left">
+          <input type="image" border="0" alt="Add Item" name="elemAdd" src="../Shared/MM/Images/btnAdd.gif" width="20" height="18" onClick="updateUI('AddRow','onClick')">
+          <input type="image" border="0" alt="Remove Item" name="elemDel" src="../Shared/MM/Images/btnDel.gif" width="20" height="18" onClick="updateUI('DeleteRow','onClick')">
+          <img src="../Shared/MM/Images/transparent.gif" height="8" width="250">
+          <input type="image" name="elemUp" alt="Move Item Up in List" onClick="updateUI('MoveRowUp','onClick')" border="0" src="../Shared/MM/Images/btnUp.gif" width="20" height="18">
+          <input type="image" name="elemDown" alt="Move Item Down in List" onClick="updateUI('MoveRowDown','onClick')" border="0" src="../Shared/MM/Images/btnDown.gif" width="20" height="18">
+        </td>
+      </tr>
+      <tr>
+        <td align="right" valign="baseline" nowrap></td>
+        <td valign="baseline" rowspan="2" colspan="4" nowrap>
+          <mm:treecontrol noexpandbuttons name="ColumnNames" style="width:344;height:116" onChange="updateUI('ColumnNames','onChange')">
+            <mm:treecolumn width="80">
+            <mm:treecolumn width="90">
+            <mm:treecolumn width="80">
+            <mm:treecolumn width="70">
+          </mm:treecontrol>
+        </td>
+      </tr>
+      <tr><td height=1></td></tr>
+      <tr>
+        <td align="right" valign="baseline" nowrap>Label:</td>
+        <td valign="baseline" nowrap colspan="4">
+          <input type="text" style="width:160px" name="ElementLabel" onBlur="updateUI('ElementLabel','onBlur')">
+        </td>
+      </tr>
+      <tr><td height=1></td></tr>
+      <tr>
+        <td align="right" valign="baseline" nowrap>Display As:</td>
+        <td valign="baseline" nowrap colspan="4">
+          <select name="DisplayAs" style="width:160px" onChange="updateUI('DisplayAs','onChange')">
+            <option value="textField">Text Field</option>
+            <option value="textArea">Text Area</option>
+            <option value="menu">Menu</option>
+            <option value="checkBox">Checkbox</option>
+            <option value="radioGroup">Radio Group</option>
+          </select>
+          <mmsubmit>
+          Submit As:
+          <select name="SubmitAs" style="width:120px" onChange="updateUI('SubmitAs','onChange')">
+            <!-- Format values: value="char to wrap with, alt value if not wrapping, default value if empty" -->
+            <option value="',none,none" selected>Text</option>
+            <option value="none,0,NULL">Numeric</option>
+            <option value="none,.,NULL">Double</option>
+            <option value="',none,NULL">Date</option>
+            <option value="none,Y,N"   >Checkbox: Y,N</option>
+            <option value="none,1,0"   >Checkbox: 1,0</option>
+            <option value="none,-1,0"  >Checkbox: -1,0</option>
+          </select>
+          </mmsubmit>
+        </td>
+      </tr>
+      <tr><td height=1></td></tr>
+      <mmParams>
+      <tr>
+        <td nowrap valign="baseline" align="right" height="50">&nbsp;</td>
+        <td nowrap align="left">&nbsp;</td>
+      </tr>
+      </mmParams>
+    </table>
+  </form>
+</body>
+</html>

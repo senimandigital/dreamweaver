@@ -1,0 +1,150 @@
+<!-- MENU-LOCATION=NONE -->
+<!-- Copyright 2001-2002 Macromedia, Inc. All rights reserved. -->
+
+<!DOCTYPE HTML SYSTEM "-//Macromedia//DWExtension layout-engine 5.0//dialog">
+<HTML>
+<HEAD>
+<TITLE>Master Detail Page Set</TITLE>
+<SCRIPT SRC="../Shared/Common/Scripts/dwscripts.js"></SCRIPT>
+<SCRIPT SRC="../Shared/Common/Scripts/dwscriptsServer.js"></SCRIPT>
+<SCRIPT SRC="../Shared/Common/Scripts/dwscriptsExtData.js"></SCRIPT>
+<SCRIPT SRC="../Shared/MM/Scripts/sbUtils.js"></SCRIPT>
+<SCRIPT SRC="../Shared/Common/Scripts/ListControlClass.js"></SCRIPT>
+<SCRIPT SRC="../Shared/Common/Scripts/ServerBehaviorClass.js"></SCRIPT>
+<SCRIPT SRC="../Shared/Controls/Scripts/RecordsetMenu.js"></SCRIPT>
+<SCRIPT SRC="../Shared/Controls/Scripts/RecordsetFieldsOrderedList.js"></SCRIPT>
+<SCRIPT SRC="../Shared/Controls/Scripts/RecordsetFieldMenu.js"></SCRIPT>
+<SCRIPT SRC="../Shared/Controls/Scripts/NumRecButtons.js"></SCRIPT>
+<SCRIPT SRC="../Shared/Controls/Scripts/URLTextField.js"></SCRIPT>
+<SCRIPT SRC="../Shared/Controls/Scripts/CheckBox.js"></SCRIPT>
+<SCRIPT SRC="ServerObject-MasterDetail.js"></SCRIPT>
+
+</HEAD>
+<BODY onLoad="initializeUI()">
+<FORM NAME="theForm">
+  <TABLE BORDER=0>
+    <TR>
+      <TD height="43" ALIGN="right" VALIGN="baseline" NOWRAP> Recordset:</TD>
+      <TD VALIGN="baseline" NOWRAP>
+        <p>
+          <SELECT STYLE="width:200px" NAME="RecordsetName">
+            <OPTION SELECTED>*** No Recordsets Found</OPTION>
+          </SELECT>
+        </p>
+      </TD>
+    </TR>
+    <TR>
+      <TD ALIGN="right" VALIGN="top" NOWRAP> Master Page Fields: </TD>
+      <TD VALIGN="baseline" NOWRAP>
+        <table border=0>
+          <tr>
+            <td valign="baseline" width="107">
+              <input type="image" name="AddButton" src="../Shared/MM/Images/btnAdd.gif" width="20" height="18" onClick = "_MasterPageFields.updateUI('addField'); updateUI('masterFieldsLength');focus(this)" >
+              <input type="image" name="RemoveButton" src="../Shared/MM/Images/btnDel.gif" width="20" height="18" onClick = "_MasterPageFields.updateUI('removeField');updateUI('masterFieldsLength');focus(this)" >
+            </td>
+            <td valign="baseline" align="right" nowrap width="88">
+              <input type="image" name="MoveUpButton2"  border="0" src="../Shared/MM/Images/btnUp.gif" width="20" height="18" onclick = "_MasterPageFields.updateUI('moveFieldUp');focus(this)" >
+              <input type="image" name="MoveDownButton2"  border="0" src="../Shared/MM/Images/btnDown.gif" width="20" height="18"onclick = "_MasterPageFields.updateUI('moveFieldDown');focus(this)" >
+            </td>
+          </tr>
+          <tr>
+            <td valign="top" colspan=2>
+              <select name="MasterPageFields" size="6" multiple style="width:200px">
+              </select>
+            </td>
+          </tr>
+        </table>
+      </TD>
+    </TR>
+    <TR>
+      <TD HEIGHT="1"></TD>
+    </TR>
+    <TR>
+      <TD ALIGN="right" VALIGN="baseline" NOWRAP> Link To Detail From:</TD>
+      <TD VALIGN="baseline" NOWRAP>
+        <SELECT STYLE="width:200px" NAME="LinkField">
+          <OPTION SELECTED>*** No Fields Found</OPTION>
+        </SELECT>
+      </TD>
+    </TR>
+    <TR>
+      <TD HEIGHT="1"></TD>
+    </TR>
+    <TR>
+      <TD ALIGN="right" VALIGN="baseline" NOWRAP> Pass Unique Key:</TD>
+      <TD VALIGN="baseline" NOWRAP>
+        <SELECT STYLE="width:200px" NAME="UniqueKeyField">
+          <OPTION SELECTED>*** No Fields Found</OPTION>
+        </SELECT>
+        <input name="Numeric" type="checkbox" value="checkbox" checked>
+        Numeric</TD>
+    </TR>
+    <TR>
+      <TD HEIGHT="1"></TD>
+    </TR>
+    <TR>
+      <TD ALIGN="right" VALIGN="top" NOWRAP> Show:</TD>
+      <TD VALIGN="baseline" NOWRAP>
+        <table border="0">
+          <tr>
+            <td valign="baseline" nowrap>
+              <input type="radio" name="NumRecs" value="Count" onClick="_NumRecs.updateUI('countButton')" checked>
+              <input type="text" name="tf_NumRecs" maxlength="5" style="width:30px" value="10" onBlur="_NumRecs.updateUI('numRecField')">
+              Records at a Time</td>
+          </tr>
+          <tr>
+            <td valign="baseline" nowrap>
+              <input type="radio" name="NumRecs" value="All" onClick="_NumRecs.updateUI('allButton')">
+              All Records </td>
+          </tr>
+        </table>
+      </TD>
+    </TR>
+    <TR>
+      <TD HEIGHT="1"></TD>
+    </TR>
+    <TR>
+      <TD colspan="2" ALIGN="right" VALIGN="baseline" NOWRAP>
+        <hr>
+      </TD>
+    </TR>
+    <TR>
+      <TD ALIGN="right" VALIGN="baseline" NOWRAP> Detail Page Name:</TD>
+      <TD VALIGN="baseline" NOWRAP>
+        <INPUT TYPE="text" NAME="DetailPageName" style="width:136px">
+        <input type="button" value="Browse..." onClick="_DetailPageName.browseForFile();focus(this)">
+      </TD>
+    </TR>
+    <TR>
+      <TD HEIGHT="1"></TD>
+    </TR>
+    <TR>
+      <TD ALIGN="right" VALIGN="top" NOWRAP>Detail Page Fields:</TD>
+      <TD VALIGN="baseline" NOWRAP>
+        <table border=0>
+          <tr>
+            <td valign="baseline" width="107">
+              <input type="image" name="AddButton" src="../Shared/MM/Images/btnAdd.gif" width="20" height="18" onClick = "_DetailPageFields.updateUI('addField');focus(this)" >
+              <input type="image" name="RemoveButton" src="../Shared/MM/Images/btnDel.gif" width="20" height="18" onClick = "_DetailPageFields.updateUI('removeField');focus(this)" >
+            </td>
+            <td valign="baseline" align="right" nowrap width="89">
+              <input type="image" name="MoveUpButton"  border="0" src="../Shared/MM/Images/btnUp.gif" width="20" height="18" onClick = "_DetailPageFields.updateUI('moveFieldUp');focus(this)" >
+              <input type="image" name="MoveDownButton"  border="0" src="../Shared/MM/Images/btnDown.gif" width="20" height="18"onClick = "_DetailPageFields.updateUI('moveFieldDown');focus(this)" >
+            </td>
+          </tr>
+          <tr>
+            <td valign="top" colspan=2>
+              <select name="DetailPageFields" size="6" multiple style="width:200px">
+              </select>
+            </td>
+          </tr>
+        </table>
+      </TD>
+    </TR>
+    <TR>
+      <TD HEIGHT="1"></TD>
+    </TR>
+  </TABLE>
+</FORM>
+</BODY>
+</HTML>

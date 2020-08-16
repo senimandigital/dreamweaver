@@ -1,0 +1,119 @@
+<!-- MENU-LOCATION=NONE -->
+<!DOCTYPE HTML SYSTEM "-//Macromedia//DWExtension layout-engine 5.0//dialog">
+
+<HTML>
+<HEAD>
+<!-- Copyright 2002 Macromedia, Inc. All rights reserved. -->
+
+<TITLE>Recordset</TITLE>
+
+<SCRIPT SRC="../Shared/Common/Scripts/dwscripts.js"></SCRIPT>
+<SCRIPT SRC="../Shared/Common/Scripts/dwscriptsServer.js"></SCRIPT>
+<SCRIPT SRC="../Shared/Common/Scripts/dwscriptsExtData.js"></SCRIPT>
+<SCRIPT SRC="../Shared/Common/Scripts/ServerBehaviorClass.js"></SCRIPT>
+<SCRIPT SRC="../Shared/Common/Scripts/SBDatabaseCallClass.js"></SCRIPT>
+<SCRIPT SRC="../Shared/MM/Scripts/RecordsetDialogClass.js"></SCRIPT>
+<SCRIPT SRC="../Shared/Common/Scripts/SQLStatementClass.js"></SCRIPT>
+
+<SCRIPT SRC="../Shared/Common/Scripts/ListControlClass.js"></SCRIPT>
+<SCRIPT SRC="../Shared/Controls/Scripts/ConnectionMenu.js"></SCRIPT>
+<SCRIPT SRC="../Shared/Controls/Scripts/ConnectionTableMenu.js"></SCRIPT>
+<SCRIPT SRC="../Shared/Controls/Scripts/ConnectionColumnMenu.js"></SCRIPT>
+<SCRIPT SRC="../Shared/Controls/Scripts/RadioGroup.js"></SCRIPT>
+<SCRIPT SRC="../Shared/Controls/Scripts/ListMenu.js"></SCRIPT>
+<SCRIPT SRC="../Shared/Controls/Scripts/TextField.js"></SCRIPT>
+<SCRIPT SRC="ServerBeh-PHP-SimpRS.js"></SCRIPT>
+
+</HEAD>
+
+<BODY onLoad="initializeUI()">
+<form>
+  <TABLE BORDER="0">
+    <TR VALIGN="baseline">
+      <TD ALIGN="right" NOWRAP>Name:</TD>
+      <TD COLSPAN="2" NOWRAP>
+        <input type="text" name="RecordsetName" style="width:180px" onBlur="updateUI('RecordsetName','onBlur')">
+      </TD>
+    </TR>
+    <TR VALIGN="baseline">
+      <TD ALIGN="right" NOWRAP>Connection:</TD>
+      <TD COLSPAN="2" NOWRAP>
+        <select name="ConnectionName" style="width:180px" wrap="virtual" onChange="updateUI('ConnectionName','onChange')">
+        </select>
+        <input type="button" value="Define..." onClick="updateUI('Define','onClick')" name="Define">
+      </TD>
+    </TR>
+    <TR><TD HEIGHT="1"></TD></TR>
+   <TR VALIGN="baseline">
+      <TD ALIGN="right" NOWRAP>Table:</TD>
+      <TD COLSPAN="2" NOWRAP>
+        <select name="TableName" style="width:180px;" wrap="virtual" onChange="updateUI('TableName','onChange')">
+        </select>
+      </TD>
+    </TR>
+    <TR><TD HEIGHT="1"></TD></TR>
+    <TR VALIGN="baseline">
+      <TD ALIGN="right"NOWRAP>Columns:</TD>
+      <TD WIDTH="1%" NOWRAP>
+	      <input type="radio" name="ColumnType" value="all" checked onClick="updateUI('ColumnType','onClick')">
+		    All
+        <img src="../Shared/MM/Images/transparent.gif" height="3" width="10">
+	      <input type="radio" name="ColumnType" value="some" onClick="updateUI('ColumnType','onClick')">
+		    Selected:
+      </TD>
+    </TR>
+    <TR>
+      <TD NOWRAP></TD>
+      <TD COLSPAN="2" NOWRAP>
+        <select name="ColumnList" size="5" multiple style="width:236px;" wrap="virtual" onChange="updateUI('ColumnList','onChange')">
+        </select>
+      </TD>
+    </TR>
+    <TR><TD HEIGHT="1"></TD></TR>
+    <TR VALIGN="baseline">
+      <TD ALIGN="right" NOWRAP>Filter:</TD>
+      <TD COLSPAN="2" NOWRAP>
+        <select name="FilterColumn"  style="width:117;" onChange="updateUI('FilterColumn','onChange'); focus(this);">
+          <option value="">None</option>
+        </select>
+        <select name="FilterOperator" style="width:117;" onChange="updateUI('FilterOperator','onChange')">
+          <option value="=" selected>=</option>
+          <option value=">" >&gt;</option>
+          <option value="<" >&lt;</option>
+          <option value=">=" >&gt;=</option>
+          <option value="<=" >&lt;=</option>
+          <option value="<>" >&lt;&gt;</option>
+          <option value="begins with" >begins with</option>
+          <option value="ends with" >ends with</option>
+          <option value="contains" >contains</option>
+        </select>
+      </TD>
+    </TR>
+    <TR><TD HEIGHT="1"></TD></TR>
+    <TR VALIGN="baseline">
+      <TD NOWRAP></TD>
+      <TD COLSPAN="2" NOWRAP>
+        <select name="FilterParameter"  style="width:117;" onChange="updateUI('FilterParameter','onChange')">
+          <option value="" selected>***</option>
+        </select>
+        <input type="text" name="FilterParameterValue" style="width:117;" onBlur="updateUI('FilterParameterValue','onBlur')">
+      </TD>
+    </TR>
+    <TR><TD HEIGHT="1"></TD></TR>
+    <TR VALIGN="baseline">
+      <TD ALIGN="right" NOWRAP>Sort:</TD>
+      <TD COLSPAN="2" NOWRAP>
+        <select name="SortColumn"  style="width:117;" onChange="updateUI('SortColumn','onChange')">
+           <option value="">None</option>
+        </select>
+        <select name="SortDirection" style="width:117;" onChange="updateUI('SortDirection','onChange')">
+          <option value="ASC" selected>Ascending</option>
+          <option value="DESC">Descending</option>
+        </select>
+      </TD>
+    </TR>
+  </TABLE>
+</form>
+</BODY>
+</HTML>
+
