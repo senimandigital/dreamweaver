@@ -1,0 +1,19 @@
+<head>
+<title>Senimandigita - Evaluasi Commands</title>
+<SCRIPT SRC="../Shared/Common/Scripts/dwscripts.js"></SCRIPT>
+</head>
+<body bgcolor="#FFFFFF">
+<form style="width:400; height:25; margin:0px; padding:0px">
+<p style="margin-top:0px;">Pilih salah satu dari daftar Commnands yang terdesia pada Dreamweaver dan kami akan memanggilnya untuk anda</p>
+<select id="Commands" style="width:100%" onchange="eval( dwscripts.callCommand(this.options[this.selectedIndex].text) )">
+<script> 
+var listFolder = dwscripts.listFolder(dw.getConfigurationPath() +'/Commands/');
+var option = ''; 
+for ($i=0 ; $i <= listFolder.length ; $i++ ) {
+  option += '<option>'+ listFolder[$i] +'</option>';
+}
+document.getElementById('Commands').innerHTML = option;
+</script>
+</select>
+</form>
+</body>
