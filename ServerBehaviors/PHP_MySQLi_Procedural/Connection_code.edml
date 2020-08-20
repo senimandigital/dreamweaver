@@ -1,0 +1,9 @@
+<participant version="5.0">
+	<insertText location="aboveHTML+6"><![CDATA[<?php
+mysqli_select_db($@@ConnectionName@@, $database_@@ConnectionName@@);
+?>]]></insertText>
+	<searchPatterns whereToSearch="directive">
+		<searchPattern paramNames="ConnectionName" isOptional="false" limitSearch="all"><![CDATA[/mysqli_select_db\(\$[^\r\n]*?, \$database_[^\r\n]*?\);(?=\r\n|\r|\n|>)/i]]></searchPattern>
+	</searchPatterns>
+	<quickSearch>mysqli_select_db($</quickSearch>
+</participant>
