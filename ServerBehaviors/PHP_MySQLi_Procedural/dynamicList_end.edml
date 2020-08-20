@@ -1,0 +1,11 @@
+<participant>
+     <quickSearch><![CDATA[mysqli_fetch_assoc($]]></quickSearch>
+     <insertText location="lastChildOfNode" nodeParamName="selectNode">
+<![CDATA[
+<?php } while ($row_@@rsName@@ = mysqli_fetch_assoc($@@rsName@@)); $rows = mysqli_num_rows($@@rsName@@); if($rows > 0) { mysqli_data_seek($@@rsName@@, 0); $row_@@rsName@@ = mysqli_fetch_assoc($@@rsName@@); } ?>
+]]>
+     </insertText>
+     <searchPatterns whereToSearch="directive">
+       <searchPattern paramNames="rsName"><![CDATA[/\} while \(\$row_([^\r\n]*?) = mysqli_fetch_assoc\(\$[^\r\n]*?\)\);(?=\r\n|\r|\n|\s|\?>)/i]]></searchPattern>
+     </searchPatterns>
+</participant>
