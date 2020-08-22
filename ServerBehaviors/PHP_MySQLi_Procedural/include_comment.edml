@@ -1,0 +1,11 @@
+<participant>
+  <quickSearch><![CDATA[#include]]></quickSearch>
+  <searchPatterns whereToSearch="comment">
+    <searchPattern paramNames=",include_relUrl"><![CDATA[/<!--\s*#include\s+(file|virtual)\s*=\s*["|']([^\r\n]*?)["|']\s*-->/im]]></searchPattern>
+  </searchPatterns>
+  <translator>
+    <searchPatterns whereToSearch="comment">
+      <searchPattern paramNames=",ssi_comment_includeUrl"><![CDATA[/<!--\s*#include\s+(file|virtual)\s*=\s*["|']([^\r\n]*?)["|']\s*-->/im]]></searchPattern>
+    </searchPatterns>
+  </translator>
+</participant>

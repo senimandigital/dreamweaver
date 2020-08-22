@@ -1,0 +1,38 @@
+<participant version="6.0">
+	<insertText location="aboveHTML+17"><![CDATA[<?php
+if (!function_exists("GetSQLValueString")) {
+function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDefinedValue = "") 
+{
+  if (PHP_VERSION < 6) {
+    $theValue = get_magic_quotes_gpc() ? stripslashes($theValue) : $theValue;
+  }
+
+  $theValue = function_exists("mysql_real_escape_string") ? mysql_real_escape_string($theValue) : mysql_escape_string($theValue);
+
+  switch ($theType) {
+    case "text":
+      $theValue = ($theValue != "") ? "'" . $theValue . "'" : "NULL";
+      break;    
+    case "long":
+    case "int":
+      $theValue = ($theValue != "") ? intval($theValue) : "NULL";
+      break;
+    case "double":
+      $theValue = ($theValue != "") ? doubleval($theValue) : "NULL";
+      break;
+    case "date":
+      $theValue = ($theValue != "") ? "'" . $theValue . "'" : "NULL";
+      break;
+    case "defined":
+      $theValue = ($theValue != "") ? $theDefinedValue : $theNotDefinedValue;
+      break;
+  }
+  return $theValue;
+}
+}
+?>]]></insertText>
+	<searchPatterns whereToSearch="directive">
+		<searchPattern paramNames="" isOptional="false" limitSearch="all"><![CDATA[/(?:if \(!function_exists\("GetSQLValueString"\)\) \{(?:\r\n|\r(?!\n)|\n)[ \t]*)?function GetSQLValueString\(\$theValue, \$theType, \$theDefinedValue = "", \$theNotDefinedValue = ""\) (?:\r\n|\r(?!\n)|\n)[ \t]*\{(?:\r\n|\r(?!\n)|\n)[ \t]*(?:if \(PHP_VERSION < 6\) \{(?:\r\n|\r(?!\n)|\n))?[ \t]*(?:\$theValue = \(!get_magic_quotes_gpc\(\)\) \? addslashes\(\$theValue\) : \$theValue;|\$theValue = get_magic_quotes_gpc\(\) \? stripslashes\(\$theValue\) : \$theValue;(?:\r\n|\r(?!\n)|\n)[ \t]*)\}?(?:(?:\r\n|\r(?!\n)|\n)*[ \t]*\$theValue = function_exists\("mysql_real_escape_string"\) \? mysql_real_escape_string\(\$theValue\) : mysql_escape_string\(\$theValue\);)(?:\r\n|\r(?!\n)|\n)[ \t]*(?:\r\n|\r(?!\n)|\n)[ \t]*switch \(\$theType\) \{(?:\r\n|\r(?!\n)|\n)[ \t]*case "text":(?:\r\n|\r(?!\n)|\n)[ \t]*\$theValue = \(\$theValue != ""\) \? "'" \. \$theValue \. "'" : "NULL";(?:\r\n|\r(?!\n)|\n)[ \t]*break;    (?:\r\n|\r(?!\n)|\n)[ \t]*case "long":(?:\r\n|\r(?!\n)|\n)[ \t]*case "int":(?:\r\n|\r(?!\n)|\n)[ \t]*\$theValue = \(\$theValue != ""\) \? intval\(\$theValue\) : "NULL";(?:\r\n|\r(?!\n)|\n)[ \t]*break;(?:\r\n|\r(?!\n)|\n)[ \t]*case "double":(?:\r\n|\r(?!\n)|\n)[ \t]*\$theValue = \(\$theValue != ""\) \?\s*(?:"'"\s*\.\s*)?doubleval\(\$theValue\)\s*(?:\.\s*"'"\s*)?: "NULL";(?:\r\n|\r(?!\n)|\n)[ \t]*break;(?:\r\n|\r(?!\n)|\n)[ \t]*case "date":(?:\r\n|\r(?!\n)|\n)[ \t]*\$theValue = \(\$theValue != ""\) \? "'" \. \$theValue \. "'" : "NULL";(?:\r\n|\r(?!\n)|\n)[ \t]*break;(?:\r\n|\r(?!\n)|\n)[ \t]*case "defined":(?:\r\n|\r(?!\n)|\n)[ \t]*\$theValue = \(\$theValue != ""\) \? \$theDefinedValue : \$theNotDefinedValue;(?:\r\n|\r(?!\n)|\n)[ \t]*break;(?:\r\n|\r(?!\n)|\n)[ \t]*\}(?:\r\n|\r(?!\n)|\n)[ \t]*return \$theValue;(?:\r\n|\r(?!\n)|\n)[ \t]*\}(?:(?:\r\n|\r(?!\n)|\n)[ \t]*\})?(?=\r\n|\r|\n|\?>)/i]]></searchPattern>
+	</searchPatterns>
+	<quickSearch>GetSQLValueString($theValue,</quickSearch>
+</participant>
