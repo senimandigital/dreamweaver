@@ -1,0 +1,6 @@
+<participant>
+	<insertText location="aboveHTML+99"><![CDATA[GetSQLValueString(@@parameterValue@@, "@@parameterType@@"<@ if (@@parameterDefinedValue@@ || @@parameterNotDefinedValue@@) @>, @@parameterDefinedValue@@, @@parameterNotDefinedValue@@<@ endif @>)]]></insertText>
+	<searchPatterns whereToSearch="directive">
+		<searchPattern paramNames="parameterValue,parameterType,parameterDefinedValue,parameterNotDefinedValue" isOptional="false" limitSearch="all"><![CDATA[/GetSQLValueString\(([^\r\n]*?), "([^\r\n]*?)"(?:, ([^\r\n]*?), ([^\r\n]*?))?\)/i]]></searchPattern>
+	</searchPatterns>
+</participant>

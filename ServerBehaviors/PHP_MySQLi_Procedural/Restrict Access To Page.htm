@@ -1,0 +1,72 @@
+<!DOCTYPE HTML SYSTEM "-//Macromedia//DWExtension layout-engine 5.0//dialog">
+
+<html xmlns:MMString="http://www.macromedia.com/schemes/data/string/">
+<HEAD>
+
+<SCRIPT>
+// Copyright 2001, 2002, 2003 Macromedia, Inc. All rights reserved.
+var HELP_DOC = MM.HELP_sbRestrictAccessToPage;
+</SCRIPT>
+
+<SCRIPT SRC="../../Shared/Common/Scripts/dwscripts.js"></SCRIPT>
+<SCRIPT SRC="../../Shared/Common/Scripts/dwscriptsServer.js"></SCRIPT>
+<SCRIPT SRC="../../Shared/Common/Scripts/dwscriptsExtData.js"></SCRIPT>
+<SCRIPT SRC="../../Shared/Common/Scripts/ServerBehaviorClass.js"></SCRIPT>
+<SCRIPT SRC="../../Shared/Common/Scripts/ListControlClass.js"></SCRIPT>
+<SCRIPT SRC="../../Shared/Common/Scripts/RadioGroupClass.js"></SCRIPT>
+<SCRIPT SRC="../../Shared/UltraDev/Scripts/accessControlCmn.js"></SCRIPT>
+<SCRIPT SRC="../Shared/AccessControlCmn.js"></SCRIPT>
+<SCRIPT SRC="Restrict Access To Page.js"></SCRIPT>
+
+<TITLE><MMString:loadString id="ServerBehaviors/PHP_MySQL/Restrict_Access_To_Page/title" /></TITLE>
+<link href="../../Styles/Restrict_Access_To_Page.css" rel="stylesheet" type="text/css" />
+</HEAD>
+
+<BODY onLoad="initializeUI()">
+  <FORM NAME="theForm" ACTION="">
+    <table border="0">
+      <tr valign="baseline">
+        <td align="right" nowrap><MMString:loadString id="ServerBehaviors/PHP_MySQL/Restrict_Access_To_Page/text/Restrict" /></td>
+        <td nowrap>
+          <input type="radio" name="securityMethod" id="DontUseAccessLevel" value="DontUseAccessLevel" onClick="onClickDontUseAccessLevel()" checked>
+        </td>
+        <td colspan="3" nowrap><label for="DontUseAccessLevel"><MMString:loadString id="ServerBehaviors/PHP_MySQL/Restrict_Access_To_Page/text/Username" /></label></td>
+      </tr>
+      <tr><td height="1"></td></tr>
+      <tr valign="baseline">
+        <td align="right" nowrap>&nbsp;</td>
+        <td nowrap>
+          <input type="radio" name="securityMethod" id="UseAccessLevel" value="UseAccessLevel" onClick="onClickUseAccessLevel()">
+        </td>
+        <td colspan="3" nowrap><label for="UseAccessLevel"><MMString:loadString id="ServerBehaviors/PHP_MySQL/Restrict_Access_To_Page/text/Username_1" /></label></td>
+      </tr>
+      <tr><td height="1"></td></tr>
+      <tr valign="baseline">
+        <td nowrap></td>
+        <td nowrap></td>
+        <td valign="top" align="left" nowrap>
+          <img src="../../Shared/MM/Images/transparent.gif" height="3" width="20"><br>
+          <MMString:loadString id="ServerBehaviors/PHP_MySQL/Restrict_Access_To_Page/text/Select" />
+        </td>
+        <td valign="top" nowrap>
+          <select name="listAccessLevels" size="5" class="cls_RestrictAccessToPage_select_listAccessLevels" multiple>
+            <option></option>
+          </select>
+        </td>
+        <td valign="top" nowrap>
+          <input name="btnFileBrowserOnFailure2" type="button" MMString:value="ServerBehaviors/PHP_MySQL/Restrict_Access_To_Page/button/btnFileBrowserOnFailure2/Define" onClick="onClickBtnDefineAuthLevels();focus(this)">
+        </td>
+      </tr>
+      <tr valign="baseline">
+        <td align="right" nowrap><MMString:loadString id="ServerBehaviors/PHP_MySQL/Restrict_Access_To_Page/text/If" /></td>
+        <td nowrap colspan="3">
+          <input name="textGoToURLOnFailure" type="text" class="cls_RestrictAccessToPage_input_textGoToURLOnFailure" value="">
+        </td>
+        <td nowrap>
+          <input name="btnFileBrowserOnFailure" type="button" MMString:value="ServerBehaviors/PHP_MySQL/Restrict_Access_To_Page/button/btnFileBrowserOnFailure/Browse" onClick="onClickBtnFileBrowserOnFailure();focus(this)">
+        </td>
+      </tr>
+    </table>
+  </FORM>
+</BODY>
+</HTML>

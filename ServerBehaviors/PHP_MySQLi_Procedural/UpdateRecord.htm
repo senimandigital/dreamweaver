@@ -1,0 +1,112 @@
+<html>
+<HEAD>
+<SCRIPT SRC="../../Shared/Common/Scripts/dwscripts.js"></SCRIPT>
+<SCRIPT SRC="../../Shared/Common/Scripts/dwscriptsServer.js"></SCRIPT>
+<SCRIPT SRC="../../Shared/UltraDev/Scripts/ssCmnElements.js"></SCRIPT>
+<SCRIPT SRC="../../Shared/Common/Scripts/dwscriptsExtData.js"></SCRIPT>
+<SCRIPT SRC="../../Shared/Common/Scripts/ServerBehaviorClass.js"></SCRIPT>
+<SCRIPT SRC="../../Shared/Common/Scripts/TagEditClass.js"></SCRIPT>
+<SCRIPT SRC="../../Shared/Common/Scripts/SQLStatementClass.js"></SCRIPT>
+<SCRIPT SRC="../../Shared/Common/Scripts/ListControlClass.js"></SCRIPT>
+<SCRIPT SRC="../../Shared/Controls/Scripts/ConnectionTableMenu.js"></SCRIPT>
+<SCRIPT SRC="../../Shared/Controls/Scripts/ConnectionMenu.js"></SCRIPT>
+<SCRIPT SRC="../../Shared/Controls/Scripts/TextField.js"></SCRIPT>
+<SCRIPT SRC="../../Shared/Controls/Scripts/ListMenu.js"></SCRIPT>
+<SCRIPT SRC="../../Shared/Controls/Scripts/TagMenu.js"></SCRIPT>
+<SCRIPT SRC="../../Shared/Controls/Scripts/FormFieldsMenu.js"></SCRIPT>
+<SCRIPT SRC="../../Shared/Controls/Scripts/ConnectionColumnMenu.js"></SCRIPT>
+
+<SCRIPT src="FieldTypes.js"></SCRIPT>
+<SCRIPT src="UpdateRecord.js"></SCRIPT>
+
+<title><MMString:loadString id="ServerBehaviors/PHP_MySQL/UpdateRecord/title" /></title>
+<link href="../../fields.css" rel="stylesheet" type="text/css">
+</HEAD>
+<BODY onLoad="initializeUI();">
+<FORM name="theForm">
+  <table border="0">
+    <tr valign="baseline">
+      <td align="right" nowrap><MMString:loadString id="ServerBehaviors/PHP_MySQL/UpdateRecord/text/Submit" /></td>
+      <td nowrap>
+        <select class="tagList" name="form__tag" onChange="updateUI('FormName','onChange')">
+        </select>
+      </td>
+    </tr>
+    <tr><td height="1"></td></tr>
+    <tr valign="baseline">
+      <td align="right" nowrap><MMString:loadString id="ServerBehaviors/PHP_MySQL/UpdateRecord/text/Connection" /></td>
+      <td nowrap>
+        <select name="ConnectionName" class="connNameList" onChange="updateUI('ConnectionName','onChange')" wrap="virtual">
+        </select>
+      </td>
+    </tr>
+    <tr><td height="1"></td></tr>
+    <tr valign="baseline">
+      <td align="right"  nowrap><MMString:loadString id="ServerBehaviors/PHP_MySQL/UpdateRecord/text/Update" /></td>
+      <td>
+        <select name="TableName" class="connRSTableList" onChange="updateUI('TableName')" wrap="virtual">
+        </select>
+      </td>
+    </tr>
+
+    <tr><td height="1"></td></tr>
+    <TR>
+      <TD></TD>
+      <TD valign="baseline" rowspan="2" nowrap>
+        <SELECT name="ColumnList" size="20" style="width:600px" class="columnDescList" onChange="updateUI('ColumnList')">
+        </select>
+      </TD>
+    </TR>
+    <TR>
+      <TD align="right" valign="top" nowrap><MMString:loadString id="ServerBehaviors/PHP_MySQL/UpdateRecord/text/Columns" /></TD>
+    </TR>
+
+    <tr valign="baseline">
+      <td align="right"></td>
+      <td>
+        <table border="0">
+          <tr>
+            <td align="right" valign="baseline" nowrap><MMString:loadString id="ServerBehaviors/PHP_MySQL/UpdateRecord/text/Value" /></td>
+            <td valign="baseline" nowrap>
+              <select name="SubmittedValueList" class="fieldList" onChange="updateUI('SubmittedValueList', 'onChange')" wrap="virtual">
+              <optgroup label="FORM">
+                <OPTION selected></OPTION>
+              </optgroup>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td align="right" valign="baseline" nowrap><MMString:loadString id="ServerBehaviors/PHP_MySQL/UpdateRecord/text/Submit_1" /></td>
+            <td valign="baseline" nowrap>
+              <select name="FieldColFormat" class="dataTypeList"  onChange="updateUI('FieldColFormat')">
+                <!-- Format values: value="char to wrap with, alt value if not wrapping, default value if empty, is Primary Key" -->
+                <!-- Use "0" and "." as the alt value to differentiate integer and double MySQL types from numeric -->
+                <option value="',none,none" selected  ><MMString:loadString id="ServerBehaviors/PHP_MySQL/UpdateRecord/option/',none,none/Text" /></option>
+                <option value="none,0,NULL"           ><MMString:loadString id="ServerBehaviors/PHP_MySQL/UpdateRecord/option/none,0,NULL/Integer" /></option>
+                <option value="none,.,NULL"           ><MMString:loadString id="ServerBehaviors/PHP_MySQL/UpdateRecord/option/none,.,NULL/Double" /></option>
+                <option value="',none,NULL"           ><MMString:loadString id="ServerBehaviors/PHP_MySQL/UpdateRecord/option/',none,NULL/Date" /></option>
+                <option value="none,Y,N"              ><MMString:loadString id="ServerBehaviors/PHP_MySQL/UpdateRecord/option/none,Y,N/Checkbox" /></option>
+                <option value="none,1,0"              ><MMString:loadString id="ServerBehaviors/PHP_MySQL/UpdateRecord/option/none,1,0/Checkbox" /></option>
+                <option value="none,-1,0"             ><MMString:loadString id="ServerBehaviors/PHP_MySQL/UpdateRecord/option/none,-1,0/Checkbox" /></option>
+              </select>
+            </td>
+            <td>
+              <input type="checkbox" name="primaryKey" onClick="updateUI('primaryKey','onClick')"><MMString:loadString id="ServerBehaviors/PHP_MySQL/UpdateRecord/checkbox/primaryKey/Primary" />
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td align="right" valign="baseline" nowrap><MMString:loadString id="ServerBehaviors/PHP_MySQL/UpdateRecord/text/After" /></td>
+      <td valign="baseline" nowrap>
+      <input name="Redirect_url" type="text" class="largeTField">
+        &nbsp;
+      <input type="button" MMString:value="ServerBehaviors/PHP_MySQL/UpdateRecord/button/value/Browse" onClick="updateUI('Redirect_url');focus(this);">
+      </td>
+    </tr>
+  </TABLE>
+</FORM>
+
+</BODY>
+</HTML>
