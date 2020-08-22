@@ -1,0 +1,115 @@
+<html>
+<HEAD>
+<!-- Copyright 2002-2006 Adobe Macromedia Software LLC and its licensors. All rights reserved. -->
+<!-- Common Functions-->
+<SCRIPT SRC="../../Shared/Common/Scripts/dwscripts.js"></SCRIPT>
+<SCRIPT SRC="../../Shared/Common/Scripts/dwscriptsServer.js"></SCRIPT>
+<SCRIPT SRC="../../Shared/UltraDev/Scripts/ssCmnElements.js"></SCRIPT>
+
+<!-- Server Behavior Classes -->
+<SCRIPT SRC="../../Shared/Common/Scripts/dwscriptsExtData.js"></SCRIPT>
+<SCRIPT SRC="../../Shared/Common/Scripts/ServerBehaviorClass.js"></SCRIPT>
+<SCRIPT SRC="../../Shared/Common/Scripts/TagEditClass.js"></SCRIPT>
+<SCRIPT SRC="../../Shared/Common/Scripts/SQLStatementClass.js"></SCRIPT>
+
+<!-- Control Classes -->
+<SCRIPT SRC="../../Shared/Common/Scripts/ListControlClass.js"></SCRIPT>
+<SCRIPT SRC="../../Shared/Controls/Scripts/ConnectionTableMenu.js"></SCRIPT>
+<SCRIPT SRC="../../Shared/Controls/Scripts/ConnectionMenu.js"></SCRIPT>
+<SCRIPT SRC="../../Shared/Controls/Scripts/TextField.js"></SCRIPT>
+<SCRIPT SRC="../../Shared/Controls/Scripts/ListMenu.js"></SCRIPT>
+<SCRIPT SRC="../../Shared/Controls/Scripts/TagMenu.js"></SCRIPT>
+<SCRIPT SRC="../../Shared/Controls/Scripts/FormFieldsMenu.js"></SCRIPT>
+<SCRIPT SRC="../../Shared/Controls/Scripts/ConnectionColumnMenu.js"></SCRIPT>
+<SCRIPT src="FieldTypes.js"></SCRIPT>
+<SCRIPT src="InsertRecord.js"></SCRIPT>
+<title><MMString:loadString id="ServerBehaviors/PHP_MySQL/InsertRecord/title" /></title>
+<link href="../../fields.css" rel="stylesheet" type="text/css">
+</HEAD>
+<BODY onLoad="initializeUI();">
+<FORM name="theForm">
+  <table border="0">
+    <tr valign="baseline">
+      <td align="right" nowrap><MMString:loadString id="ServerBehaviors/PHP_MySQL/InsertRecord/text/Submit" /></td>
+      <td nowrap><select name="form__tag" class="tagList" onChange="updateUI('FormName','onChange')">
+        </select></td>
+    </tr>
+    <tr>
+      <td height="1"></td>
+    </tr>
+    <tr valign="baseline">
+      <td align="right" nowrap><MMString:loadString id="ServerBehaviors/PHP_MySQL/InsertRecord/text/Connection" /></td>
+      <td nowrap><select name="ConnectionName" class="connNameList" onChange="updateUI('ConnectionName','onChange')" wrap="virtual">
+        </select></td>
+    </tr>
+    <tr>
+      <td height="1"></td>
+    </tr>
+    <tr valign="baseline">
+      <td align="right"><MMString:loadString id="ServerBehaviors/PHP_MySQL/InsertRecord/text/Insert" /></td>
+      <td><select name="TableName" id="TableName" class="connRSTableList" onChange="updateUI('TableName')" wrap="virtual">
+        </select></td>
+    </tr>
+    <tr>
+      <td height="1"></td>
+    </tr>
+    <TR>
+      <TD></TD>
+      <TD valign="baseline" rowspan="2" nowrap><SELECT name="ColumnList" size="20" style="width:600px" class="columnDescList" onChange="updateUI('ColumnList')">
+        </select></TD>
+    </TR>
+    <TR>
+      <TD align="right" valign="top" nowrap><MMString:loadString id="ServerBehaviors/PHP_MySQL/InsertRecord/text/Columns" />
+        1</TD>
+    </TR>
+    <tr>
+      <td align="right" valign="baseline" width="75" nowrap><MMString:loadString id="ServerBehaviors/PHP_MySQL/InsertRecord/text/Value" /></td>
+      <td valign="baseline" nowrap><select name="SubmittedValueList" class="columnNameList" onChange="updateUI('SubmittedValueList', 'onChange')" wrap="virtual" style="width:100%">
+          <OPTION selected></OPTION>
+        </select></td>
+    </tr>
+    <tr>
+      <td height="1"></td>
+    </tr>
+    <tr>
+      <td align="right" valign="baseline" nowrap><MMString:loadString id="ServerBehaviors/PHP_MySQL/InsertRecord/text/Submit_1" /></td>
+      <td valign="baseline" nowrap><select name="FieldColFormat" class="dataTypeList" onChange="updateUI('FieldColFormat')">
+          <!-- Format values: value="char to wrap with, alt value if not wrapping, default value if empty, is Primary Key" -->
+          <option value="',none,none" selected  >
+          <MMString:loadString id="ServerBehaviors/PHP_MySQL/InsertRecord/option/',none,none/Text" />
+          </option>
+          <option value="none,0,NULL"           >
+          <MMString:loadString id="ServerBehaviors/PHP_MySQL/InsertRecord/option/none,0,NULL/Integer" />
+          </option>
+          <option value="none,.,NULL"           >
+          <MMString:loadString id="ServerBehaviors/PHP_MySQL/InsertRecord/option/none,.,NULL/Double" />
+          </option>
+          <option value="',none,NULL"           >
+          <MMString:loadString id="ServerBehaviors/PHP_MySQL/InsertRecord/option/',none,NULL/Date" />
+          </option>
+          <option value="none,Y,N"              >
+          <MMString:loadString id="ServerBehaviors/PHP_MySQL/InsertRecord/option/none,Y,N/Checkbox" />
+          </option>
+          <option value="none,1,0"              >
+          <MMString:loadString id="ServerBehaviors/PHP_MySQL/InsertRecord/option/none,1,0/Checkbox" />
+          </option>
+          <option value="none,-1,0"             >
+          <MMString:loadString id="ServerBehaviors/PHP_MySQL/InsertRecord/option/none,-1,0/Checkbox" />
+          </option>
+        </select></td>
+    </tr>
+    <tr>
+      <td align="right" valign="baseline" nowrap><MMString:loadString id="ServerBehaviors/PHP_MySQL/InsertRecord/text/After" /></td>
+      <td valign="baseline" nowrap>
+      <table border="0" width="100%">
+          <tr>
+            <td><input name="Redirect_url" id="Redirect_url" type="text" class="xlargeTField" style="width:100%"></td>
+            <td width="75"><input type="button" MMString:value="ServerBehaviors/PHP_MySQL/InsertRecord/button/value/Browse" onClick="updateUI('Redirect_url');focus(this);"></td>
+            <td width="75"><input type="button" value="+ mysql_insert_id()" onClick="document.getElementById('Redirect_url').value = document.getElementById('TableName').options[document.getElementById('TableName').selectedIndex].value +'_edit.php?'+ document.getElementById('TableName').options[document.getElementById('TableName').selectedIndex].value +'_id=<?php echo mysql_insert_id(); ?>'" /></td>
+          </tr>
+        </table></td>
+    </tr>
+  </TABLE>
+</FORM>
+</BODY>
+</HTML>

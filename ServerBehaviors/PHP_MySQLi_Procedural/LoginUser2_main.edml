@@ -1,0 +1,68 @@
+<participant>
+     <quickSearch><![CDATA[loginUsername]]></quickSearch>
+     <insertText location="aboveHTML+81">
+<![CDATA[
+<?php
+// *** Validate request to login to this site.
+if (!isset($_SESSION)) {
+  session_start();
+}
+
+$loginFormAction = $_SERVER['PHP_SELF'];
+if (isset($_GET['accesscheck'])) {
+  $_SESSION['PrevUrl'] = $_GET['accesscheck'];
+}
+
+if (isset($_POST['@@frmUsername@@'])) {
+  $loginUsername=$_POST['@@frmUsername@@'];
+  $password=$_POST['@@frmPassword@@'];
+  $MM_fldUserAuthorization = "@@fldAuthorization@@";
+  $MM_redirectLoginSuccess = "@@redirectSuccess@@";
+  $MM_redirectLoginFailed = "@@redirectFailed@@";
+  $MM_redirecttoReferrer = @@redirectToReferrer@@;
+  mysqli_select_db($@@connection@@, $database_@@connection@@);
+  <@ if (@@fldAuthorization@@ == "") @>
+  $LoginRS__query=sprintf("SELECT @@fldUsername@@, @@fldPassword@@ FROM @@table@@ WHERE @@fldUsername@@=%s AND @@fldPassword@@=%s",
+    GetSQLValueString($loginUsername, "@@UsernameFieldType@@"), GetSQLValueString($password, "@@PasswordFieldType@@")); 
+  <@ else @>	
+  $LoginRS__query=sprintf("SELECT @@fldUsername@@, @@fldPassword@@, @@fldAuthorization@@ FROM @@table@@ WHERE @@fldUsername@@=%s AND @@fldPassword@@=%s",
+  GetSQLValueString($loginUsername, "@@UsernameFieldType@@"), GetSQLValueString($password, "@@PasswordFieldType@@")); 
+  <@endif@> 
+  $LoginRS = mysqli_query($@@connection@@ $LoginRS__query) or die(mysqli_error());
+  $loginFoundUser = mysqli_num_rows($LoginRS);
+  if ($loginFoundUser) {
+    <@ if (@@fldAuthorization@@ == "") @> $loginStrGroup = "";
+    <@ else @>
+    $loginStrGroup  = mysqli_result($LoginRS,0,'@@fldAuthorization@@');
+    <@endif@>
+	if (PHP_VERSION >= 5.1) {session_regenerate_id(true);} else {session_regenerate_id();}
+    //declare two session variables and assign them
+    $_SESSION['MM_Username'] = $loginUsername;
+    $_SESSION['MM_UserGroup'] = $loginStrGroup;	      
+
+    if (isset($_SESSION['PrevUrl']) && @@redirectToReferrer@@) {
+      $MM_redirectLoginSuccess = $_SESSION['PrevUrl'];	
+    }
+    header("Location: " . $MM_redirectLoginSuccess );
+  }
+  else {
+    header("Location: ". $MM_redirectLoginFailed );
+  }
+}
+?>
+]]>
+     </insertText>
+     <searchPatterns whereToSearch="directive">
+        <searchPattern paramNames="frmUsername" limitSearch="all"><![CDATA[/\$loginUsername\s*=\s*\$_POST\['([^\r\n]*?)'/]]></searchPattern>
+        <searchPattern paramNames="frmPassword" limitSearch="all"><![CDATA[/\$password\s*=\s*\$_POST\['([^\r\n]*?)'/]]></searchPattern>
+        <searchPattern paramNames="fldAuthorization" limitSearch="all"><![CDATA[/\$MM_fldUserAuthorization\s*=\s*"([^\r\n]*?)"/]]></searchPattern>
+        <searchPattern paramNames="fldUsername,fldPassword,dummy,table,UsernameFieldType,PasswordFieldType" 
+limitSearch="all"><![CDATA[/\$LoginRS__query=sprintf\(\"SELECT\s+([^\r\n]*?),\s*([^\r\n]*?)[\s|,]([^\r\n]*?)\s*FROM\s+([^\r\n]*?)\s+WHERE\s+(?:[^\r\n]*?)[\s\t]*GetSQLValueString\(\$loginUsername, "([^\r\n]*?)"\),\s*GetSQLValueString\(\$password, "([^\r\n]*?)"\)/]]></searchPattern>
+    	<searchPattern paramNames="redirectSuccess" limitSearch="all"><![CDATA[/\$MM_redirectLoginSuccess\s*=\s*"([^\r\n]*?)"/]]></searchPattern>
+	    <searchPattern paramNames="redirectFailed" limitSearch="all"><![CDATA[/\$MM_redirectLoginFailed\s*=\s*"([^\r\n]*?)"/]]></searchPattern>
+		<searchPattern paramNames="redirectToReferrer" limitSearch="all"><![CDATA[/\$MM_redirecttoReferrer\s*=\s*([^\r\n]+)/]]></searchPattern>
+		<searchPattern paramNames="redirectSuccess_url" limitSearch="all"><![CDATA[/\$MM_redirectLoginSuccess\s*=\s*"([^\r\n]*?)"/]]></searchPattern>
+        <searchPattern paramNames="redirectFailed_url" limitSearch="all"><![CDATA[/\$MM_redirectLoginFailed\s*=\s*"([^\r\n]*?)"/]]></searchPattern>
+   	</searchPatterns>
+  <quickSearch>session_start("</quickSearch>
+</participant>

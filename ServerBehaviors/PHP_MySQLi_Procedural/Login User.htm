@@ -1,0 +1,128 @@
+<html>
+<HEAD>
+<SCRIPT>
+var HELP_DOC = MM.HELP_sbLoginUser;
+</SCRIPT>
+<SCRIPT SRC="../../Shared/Common/Scripts/dwscripts.js"></SCRIPT>
+<SCRIPT SRC="../../Shared/Common/Scripts/dwscriptsServer.js"></SCRIPT>
+<SCRIPT SRC="../../Shared/Common/Scripts/dwscriptsExtData.js"></SCRIPT>
+<SCRIPT SRC="../../Shared/Common/Scripts/ServerBehaviorClass.js"></SCRIPT>
+<SCRIPT SRC="../../Shared/Common/Scripts/ListControlClass.js"></SCRIPT>
+<SCRIPT SRC="../../Shared/Common/Scripts/RadioGroupClass.js"></SCRIPT>
+<SCRIPT SRC="../../Shared/UltraDev/Scripts/accessControlCmn.js"></SCRIPT>
+<SCRIPT SRC="../../Shared/UltraDev/Scripts/ssCmnElements.js"></SCRIPT>
+<SCRIPT SRC="../Shared/AccessControlCmn.js"></SCRIPT>
+<SCRIPT SRC="FieldTypes.js"></SCRIPT>
+<SCRIPT SRC="Login User.js"></SCRIPT>
+
+<SCRIPT SRC="../../Shared/UltraDev/Scripts/ssCmnElements.js"></SCRIPT>
+
+<TITLE><MMString:loadString id="ServerBehaviors/PHP_MySQL/Login_User/title" /></TITLE>
+</HEAD>
+
+<BODY onLoad="initializeUI()">
+  <FORM NAME="theForm" ACTION="">
+    <table border="0">
+      <tr valign="baseline">
+        <td nowrap align="right"><MMString:loadString id="ServerBehaviors/PHP_MySQL/Login_User/text/Get" /></td>
+        <td nowrap>
+          <select name="listForm" style="width:180px" onChange="onChangeForm()">
+          </select>
+        </td>
+      </tr>
+      <tr><td height="1"></td></tr>
+      <tr valign="baseline">
+        <td nowrap align="right"><MMString:loadString id="ServerBehaviors/PHP_MySQL/Login_User/text/Username" /></td>
+        <td nowrap>
+          <select name="listFormUsername" style="width:180px">
+          </select>
+        </td>
+      </tr>
+      <tr><td height="1"></td></tr>
+      <tr valign="baseline">
+        <td nowrap align="right"><MMString:loadString id="ServerBehaviors/PHP_MySQL/Login_User/text/Password" /></td>
+        <td nowrap>
+          <select name="listFormPassword" style="width:180px">
+          </select>
+        </td>
+      </tr>
+      <tr valign="baseline"><td colspan="3" nowrap><hr></td></tr>
+      <tr valign="baseline">
+        <td nowrap align="right"><MMString:loadString id="ServerBehaviors/PHP_MySQL/Login_User/text/Validate" /></td>
+        <td nowrap>
+          <select name="listConnection" style="width:180px" onChange="onChangeConnection()">
+          </select>
+        </td>
+      </tr>
+      <tr><td height="1"></td></tr>
+      <tr valign="baseline">
+        <td nowrap align="right"><MMString:loadString id="ServerBehaviors/PHP_MySQL/Login_User/text/Table" /></td>
+        <td nowrap>
+          <select name="listTable" style="width:180px" onChange="onChangeTable()">
+          </select>
+        </td>
+      </tr>
+      <tr><td height="1"></td></tr>
+      <tr valign="baseline">
+        <td nowrap align="right"><MMString:loadString id="ServerBehaviors/PHP_MySQL/Login_User/text/Username_1" /></td>
+        <td nowrap>
+          <select name="listRsUsername" style="width:180px">
+          </select>
+        </td>
+      </tr>
+      <tr><td height="1"></td></tr>
+      <tr valign="baseline">
+        <td nowrap align="right"><MMString:loadString id="ServerBehaviors/PHP_MySQL/Login_User/text/Password_1" /></td>
+        <td nowrap>
+          <select name="listRsPassword" style="width:180px">
+          </select>
+        </td>
+      </tr>
+      <tr valign="baseline"><td colspan="3" nowrap><hr></td></tr>
+      <tr valign="baseline">
+        <td align="right" nowrap><MMString:loadString id="ServerBehaviors/PHP_MySQL/Login_User/text/If" /></td>
+        <td nowrap>
+          <input name="textGoToURLOnSuccess" type="text" style="width:180px">
+          <input name="btnFileBrowserOnSuccess" type="button" MMString:value="ServerBehaviors/PHP_MySQL/Login_User/button/btnFileBrowserOnSuccess/Browse" onClick="onClickBtnFileBrowserOnSuccess();focus(this)">
+        </td>
+      </tr>
+      <tr><td height="1"></td></tr>
+      <tr valign="baseline">
+        <td nowrap>&nbsp;</td>
+        <td nowrap>
+          <input name="cbGoToReferrerURL" type="checkbox" >
+          <MMString:loadString id="ServerBehaviors/PHP_MySQL/Login_User/checkbox/cbGoToReferrerURL/Go" /></td>
+      </tr>
+      <tr valign="baseline">
+        <td nowrap align="right"><MMString:loadString id="ServerBehaviors/PHP_MySQL/Login_User/text/If_1" /></td>
+        <td nowrap>
+          <input name="textGoToURLOnFailure" type="text" style="width:180px">
+          <input name="btnFileBrowserOnFailure" type="button" MMString:value="ServerBehaviors/PHP_MySQL/Login_User/button/btnFileBrowserOnSuccess/Browse" onClick="onClickBtnFileBrowserOnFailure();focus(this)">
+        </td>
+      </tr>
+      <tr valign="baseline"><td colspan="3" nowrap><hr></td></tr>
+      <tr valign="baseline">
+        <td align="right" nowrap><MMString:loadString id="ServerBehaviors/PHP_MySQL/Login_User/text/Restrict" /> </td>
+        <td nowrap>
+          <input type="radio" name="securityMethod" value="securityMethodUP" onClick="onClickSecurityMethodUP()" checked>
+          <MMString:loadString id="ServerBehaviors/PHP_MySQL/Login_User/radiobutton/securityMethod/Username" /></td>
+      </tr>
+      <tr><td height="1"></td></tr>
+      <tr valign="baseline">
+        <td align="right" nowrap>&nbsp;</td>
+        <td nowrap>
+          <input type="radio" name="securityMethod" value="securityMethodUPA" onClick="onClickSecurityMethodUPA()">
+          <MMString:loadString id="ServerBehaviors/PHP_MySQL/Login_User/radiobutton/securityMethod/Username_1" /></td>
+      </tr>
+      <tr><td height="1"></td></tr>
+      <tr valign="baseline">
+        <td align="right" nowrap>&nbsp;</td>
+        <td nowrap> <MMString:loadString id="ServerBehaviors/PHP_MySQL/Login_User/text/Get_1" />
+          <select name="listRsAuthorization" style="width:150px">
+          </select>
+        </td>
+      </tr>
+    </table>
+  </FORM>
+</BODY>
+</HTML>
