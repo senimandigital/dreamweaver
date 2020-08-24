@@ -1,0 +1,147 @@
+<!-- MENU-LOCATION=NONE -->
+<!-- Copyright 2005-2006 Adobe Macromedia Software LLC and its licensors. All rights reserved. -->
+
+<!DOCTYPE HTML SYSTEM "-//Macromedia//DWExtension layout-engine 5.0//dialog">
+<html xmlns:MMString="http://www.macromedia.com/schemes/data/string/">
+<head>
+<title>Insert Record Form Wizard</title>
+<script language = "JavaScript">
+var EDIT_OP_TYPE = "Insert";
+</script>
+<SCRIPT src="../Shared/Common/Scripts/dwscripts.js"></SCRIPT>
+<SCRIPT src="../Shared/Common/Scripts/dwscriptsServer.js"></SCRIPT>
+<SCRIPT SRC="../Shared/UltraDev/Scripts/ssCmnElements.js"></SCRIPT>
+<SCRIPT src="../Shared/Common/Scripts/dwscriptsExtData.js"></SCRIPT>
+<SCRIPT SRC="../Shared/Common/Scripts/SQLStatementClass.js"></SCRIPT>
+<SCRIPT SRC="../Shared/Common/Scripts/ListControlClass.js"></SCRIPT>
+<SCRIPT SRC="../Shared/Common/Scripts/TreeControlClass.js"></SCRIPT>
+<SCRIPT SRC="../Shared/Controls/Scripts/ConnectionMenu.js"></SCRIPT>
+<SCRIPT SRC="../Shared/Controls/Scripts/ConnectionTableMenu.js"></SCRIPT>
+<SCRIPT SRC="../Shared/Controls/Scripts/TextField.js"></SCRIPT>
+<script src="../ServerBehaviors/PHP_MySQL/FieldTypes.js"></SCRIPT>
+<SCRIPT SRC="EditOpsCustomObjs.js"></SCRIPT>
+<SCRIPT SRC="ServerObject-FormCmnPHP.js"></SCRIPT>
+<SCRIPT SRC="PHP_MySQLi_Procedural-InsRec.js"></SCRIPT>
+<link href="../fields.css" rel="stylesheet" type="text/css">
+</head>
+
+<body onLoad="initializeUI()">
+  <form>
+    <table border=0 width="482">
+	    <tr><td height="1"></td></tr>
+	    <tr valign="baseline">
+	      <td align="right" NOWRAP><MMString:loadString id="Commands/ServerObject-InsRecPHP/text/Connection" /></TD>
+	      <td colspan="2" NOWRAP>
+	        <select name="ConnectionName" class="connNameList" onChange="updateUI('ConnectionName','onChange')" wrap="virtual">
+	        </select>
+	      &nbsp; Desain Formulir
+	      <select name="LabelPosisi" id="LabelPosisi">
+	        <option value="LabelAtas">Label Atas</option>
+	        <option value="LabelSamping" selected>Label Samping</option>
+	        <option value="LabelMati">Label Tidak Digunakan</option>
+          </select>
+          <input type="button" name="dd" onClick="alert('http://modul.senimandigital.com/')"></td>
+	    </tr>
+		<tr><td height="1"></td></tr>
+     <TR VALIGN="baseline">
+        <TD ALIGN="right" NOWRAP>Insert To <MMString:loadString id="Commands/ServerObject-InsRecPHP/text/Table" /></TD>
+        <TD COLSPAN="2" NOWRAP>
+          <select name="TableName" class="connRSTableList" style="width:200px;" onChange="updateUI('TableName','onChange')" wrap="virtual">
+          </select> 
+          &nbsp; Open phpMyAdmin
+          <input type="button" id="phpmyadmin_struktur"      value="Struktur" onClick="dreamweaver.browseDocument('http://dreamweaver.phpmysource.kom/redirect.php?target=tbl_structure.php&getSiteRoot='+ dw.getSiteRoot() +'&ConnectionName='+ _ConnectionName.getValue() +'&table='+ _TableName.getValue())">
+          <input type="button" id="PerbaharuiDefinisiRelasi" value="Relasi"   onClick="dreamweaver.browseDocument('http://dreamweaver.phpmysource.kom/redirect.php?target=tbl_relation.php&getSiteRoot='+ dw.getSiteRoot() +'&ConnectionName='+ _ConnectionName.getValue() +'&table='+ _TableName.getValue())">
+          <input type="button" id="phpmyadmin_trigger"       value="Trigger"  onClick="dreamweaver.browseDocument('http://dreamweaver.phpmysource.kom/redirect.php?target=tbl_triggers.php&getSiteRoot='+ dw.getSiteRoot() +'&ConnectionName='+ _ConnectionName.getValue() +'&table='+ _TableName.getValue())">
+       </TD>
+      </TR>
+		<tr><td height="1"></td></tr>
+      <tr>
+        <td align="right" valign="baseline" nowrap><MMString:loadString id="Commands/ServerObject-InsRecPHP/text/After" /></td>
+        <td valign="baseline" colspan="4" nowrap>
+          <input name="GoToURL" type="text" class="largeTField">
+          <input type="button" MMString:value="Commands/ServerObject-InsRecPHP/button/value/Browse" onClick="updateUI('GoToURL','onClick');focus(this)">
+        <input type="submit" value="+ mysql_insert_id()" onClick="document.getElementById('GoToURL'). value = document.getElementById('GoToURL'). value + '_edit.php?'"></td>
+      </tr>
+      <tr>
+        <td align="right" valign="baseline" nowrap colspan="5">
+          <hr>
+        </td>
+      </tr>
+      <tr>
+        <td align="right" valign="baseline" nowrap><MMString:loadString id="Commands/ServerObject-InsRecPHP/text/Form" /></td>
+        <td valign="baseline" colspan="4" nowrap align="left">
+          <input type="image" border="0" MMString:alt="Commands/ServerObject-InsRecPHP/image/alt/Add" name="elemAdd" src="../Shared/MM/Images/btnAdd.gif"  onClick="updateUI('AddRow','onClick')">
+          <input type="image" border="0" MMString:alt="Commands/ServerObject-InsRecPHP/image/alt/Remove" name="elemDel" src="../Shared/MM/Images/btnDel.gif"  onClick="updateUI('DeleteRow','onClick')">
+          <img src="../Shared/MM/Images/transparent.gif" height="8" width="50">
+          <input type="image" name="elemUp" MMString:alt="Commands/ServerObject-InsRecPHP/image/alt/Move" onClick="updateUI('MoveRowUp','onClick')" border="0" src="../Shared/MM/Images/btnUp.gif" >
+          <input type="image" name="elemDown" MMString:alt="Commands/ServerObject-InsRecPHP/image/alt/Move_1" onClick="updateUI('MoveRowDown','onClick')" border="0" src="../Shared/MM/Images/btnDown.gif" >
+          <input type="button" value="Naik" onClick="_ColumnNames.moveRowUp();"> 
+             </td>
+      </tr>
+      <tr>
+        <td>Id untuk tabel tidak perlu ditampilkan, apabila menginsert ke beberapa tabel sekaligus maka field id perlu di hidden.
+          <hr>Field berakhiran tanggaljam dihidden.
+          <hr>Field berakhiran _id menggunakan kontrol menu
+        <hr>Apabila memiliki nilai Default atau tidak Required kontrol bloleh dieliminasi.</td>
+        <td valign="baseline" colspan="4" nowrap>
+          <mm:treecontrol noexpandbuttons name="ColumnNames" style="width:750px;height:300px" onChange="updateUI('ColumnNames','onChange')">
+            <mm:treecolumn width="200">
+            <mm:treecolumn width="100">
+            <mm:treecolumn width="100">
+            <mm:treecolumn width="100">
+            <mm:treecolumn width="50">
+            <mm:treecolumn width="175">
+          </mm:treecontrol>
+        </td>
+      </tr>
+      <tr>
+        <td align="right" valign="baseline" nowrap><MMString:loadString id="Commands/ServerObject-InsRecPHP/text/Label" /></td>
+        <td valign="baseline" nowrap colspan="4"><input type="button" id="SisipkanQuerySropdown" value="Tambahkan Query Dropdown" style="float:right;" onClick="dw.popupServerBehavior('Recordset_Dropdown.htm')">
+          <input style="width:200px;" name="ElementLabel" type="text" class="medTField" onBlur="updateUI('ElementLabel','onBlur')">
+        </td>
+      </tr>
+      <tr><td height=1></td></tr>
+      <tr>
+        <td align="right" valign="baseline" nowrap><MMString:loadString id="Commands/ServerObject-InsRecPHP/text/Display" /></td>
+        <td valign="baseline" nowrap colspan="4">
+          <select name="DisplayAs" class="dataTypeList" onChange="updateUI('DisplayAs','onChange')">
+          <optgroup label="Default">
+            <option value="textField"><MMString:loadString id="Commands/ServerObject-InsRecPHP/option/textField/Text" /></option>
+            <option value="menu"><MMString:loadString id="Commands/ServerObject-InsRecPHP/option/menu/Menu" /></option>
+            <option value="textArea"><MMString:loadString id="Commands/ServerObject-InsRecPHP/option/textArea/Text" /></option>
+            <option value="checkBox"><MMString:loadString id="Commands/ServerObject-InsRecPHP/option/checkBox/Checkbox" /></option>
+            <option value="radioGroup"><MMString:loadString id="Commands/ServerObject-InsRecPHP/option/radioGroup/Radio" /></option>
+          </optgroup>
+          <optgroup label="Advance">
+            <option value="sourceeditorhtml">Source Editor Html</option>
+            <option value="number">Number</option>
+            </optgroup>
+          </select>
+          <mmsubmit>
+          <MMString:loadString id="Commands/ServerObject-InsRecPHP/text/Submit" />
+
+        <select name="SubmitAs" class="dataTypeList" onChange="updateUI('SubmitAs','onChange')">
+
+          <!-- Format values: value="char to wrap with, alt value if not wrapping, default value if empty" -->
+            <option value="',none,none" selected><MMString:loadString id="Commands/ServerObject-InsRecPHP/option/',none,none/Text" /></option>
+            <option value="none,0,NULL"><MMString:loadString id="Commands/ServerObject-InsRecPHP/option/none,0,NULL/Numeric" /></option>
+            <option value="none,.,NULL"><MMString:loadString id="Commands/ServerObject-InsRecPHP/option/none,.,NULL/Double" /></option>
+            <option value="',none,NULL"><MMString:loadString id="Commands/ServerObject-InsRecPHP/option/',none,NULL/Date" /></option>
+            <option value="none,Y,N"   ><MMString:loadString id="Commands/ServerObject-InsRecPHP/option/none,Y,N/Checkbox" /></option>
+            <option value="none,1,0"   ><MMString:loadString id="Commands/ServerObject-InsRecPHP/option/none,1,0/Checkbox" /></option>
+            <option value="none,-1,0"  ><MMString:loadString id="Commands/ServerObject-InsRecPHP/option/none,-1,0/Checkbox" /></option>
+          </select>
+          </mmsubmit>
+        </td>
+      </tr>
+      <tr><td height=1></td></tr>
+      <mmParams>
+      <tr>
+        <td nowrap valign="baseline" align="right">&nbsp;</td>
+        <td nowrap align="left" valign="top"></td>
+      </tr>
+      </mmParams>
+    </table>
+  </form>
+</body>
+</html>
