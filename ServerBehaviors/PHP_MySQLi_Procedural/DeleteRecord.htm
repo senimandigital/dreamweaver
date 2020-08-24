@@ -1,0 +1,82 @@
+<html>
+<head>
+<script src="../../Shared/Common/Scripts/dwscripts.js"></script>
+<script src="../../Shared/Common/Scripts/dwscriptsServer.js"></script>
+<SCRIPT SRC="../../Shared/UltraDev/Scripts/ssCmnElements.js"></SCRIPT>
+
+<!-- Server Behavior Classes -->
+<script src="../../Shared/Common/Scripts/dwScriptsExtData.js"></script>
+<script src="../../Shared/Common/Scripts/ServerBehaviorClass.js"></script>
+<script src="../../Shared/Common/Scripts/TagEditClass.js"></script>
+<script src="../../Shared/Common/Scripts/SQLStatementClass.js"></script>
+
+<!-- Control Classes -->
+<SCRIPT SRC="../../Shared/Common/Scripts/ListControlClass.js"></SCRIPT>
+<SCRIPT SRC="../../Shared/Controls/Scripts/ConnectionTableMenu.js"></SCRIPT>
+<SCRIPT SRC="../../Shared/Controls/Scripts/ListMenu.js"></SCRIPT>
+<SCRIPT SRC="../../Shared/Controls/Scripts/TextField.js"></SCRIPT>
+<SCRIPT SRC="../../Shared/Controls/Scripts/CheckBox.js"></SCRIPT>
+<script src="../../Shared/Controls/Scripts/ConnectionMenu.js"></script>
+<script src="../../Shared/Controls/Scripts/RecordsetMenu.js"></script>
+<script src="FieldTypes.js"></script>
+<script src="DeleteRecord.js"></script>
+<link href="../../fields.css" rel="stylesheet" type="text/css">
+
+<title>PHP MySQLi Procedural - Delete Record</title>
+</head>
+<BODY onLoad="initializeUI();">
+<FORM name="theForm">
+  <TABLE border="0">
+    <tr><td height="1"></td></tr>
+    <tr valign="baseline">
+      <td align="right" nowrap>Connection</td>
+      <td nowrap>
+        <select name="ConnectionName" class="connNameList" onChange="updateUI('ConnectionName','onChange')" wrap="virtual">
+          <option selected></option>
+        </select>
+      </td>
+    </tr>
+    <tr><td height="1"></td></tr>
+    <tr valign="baseline">
+      <td align="right" nowrap>Delete Data From Table</td>
+      <td>
+        <select name="TableName" class="connRSTableList" onChange="updateUI('TableName','onChange')" wrap="virtual">
+        </select>
+      </td>
+    </tr>
+    <tr><td height="1"></td></tr>
+    <tr valign="baseline">
+      <td align="right">Primary Key</td>
+      <td nowrap>
+        <select name="ColumnList" class="columnNameList" onChange="updateUI('ColumnList','onChange')" wrap="virtual">
+        </select>
+        <input type="checkbox" name="IsNumeric" onClick="updateUI('IsNumeric','onClick')" checked> IsNumeric
+      </td>
+    </tr>
+    <tr><td height="1"></td></tr>
+    <tr valign="baseline">
+      <td align="right" nowrap>Primary Key Value</td>
+      <td nowrap>
+        <select name="PrimaryKeyParameter" class="columnNameList" onChange="updateUI('PrimaryKeyParameter', 'onChange')">
+        </select> 
+        <input name="PrimaryKeyParameterValue" type="text" class="medTField" onBlur="updateUI('PrimaryKeyParameterValue', 'onBlur')">
+      </td>
+    </tr>
+    <tr valign="baseline" nowrap>
+      <td align="right" nowrap>Only Delete If Define</td>
+      <td align="left" nowrap>
+        <select name="DeleteIfDefinedParameter" class="paramNameList" onChange="updateUI('DeleteIfDefinedParameter','onChange')">
+         </select>
+        <input name="DeleteIfDefinedParameterValue" type="text" disabled="true" class="medTField" value="yes">
+      </td>
+    </tr>
+    <tr>
+      <td align="right" valign="baseline" nowrap>After Delete Go To</td>
+      <td valign="baseline" nowrap>
+        <input name="Redirect_url" type="text" class="largeTField"> <input type="button" value="Browse" onClick="updateUI('Redirect_url');focus(this)">
+      </td>
+    </tr>
+  </TABLE>
+</FORM>
+</BODY>
+</html>

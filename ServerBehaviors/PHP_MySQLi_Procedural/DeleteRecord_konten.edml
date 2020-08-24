@@ -1,0 +1,7 @@
+<participant version="5.0">
+<insertText location="afterSelection">
+<![CDATA[
+<p align="center">Anda yakin akan menghapus data ini... ? <a href="@@TableName@@_hapus.php?@@TableName@@_id=<?php echo @@PrimaryKeyParameter@@; ?>&yes">Ya</a> / <a href="@@TableName@@.php"> Batal</a></p>
+]]>
+</insertText>
+</participant>

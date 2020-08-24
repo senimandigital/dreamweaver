@@ -1,0 +1,8 @@
+<group name="DeleteRecord" version="6.0" serverBehavior="DeleteRecord.htm" hideFromBuilder="true">
+	<groupParticipants selectParticipant="DeleteRecord_main">
+		<groupParticipant name="Connection_include" partType="member" />
+		<groupParticipant name="DeleteRecord_main" partType="identifier" />
+		<groupParticipant name="DeleteRecord_konten" partType="identifier" />
+	</groupParticipants>
+</group>
+
