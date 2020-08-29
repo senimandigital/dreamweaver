@@ -1,0 +1,7 @@
+<group name="Dropdown Recursive" version="11.0" serverBehavior="Dropdown Recursive.htm">
+	<TITLE>Dropdown Recursive (@@ConnectionName@@, @@FieldId@@, @@FieldUplineId@@, @@Master__Field__Deskripsi@@, @@MasterFieldJudul@@, @@TableName@@)</TITLE>
+	<groupParticipants>
+		<groupParticipant name="Dropdown Recursive SQL" partType="identifier" />
+		<groupParticipant name="Dropdown Recursive HTML" partType="identifier" />
+	</groupParticipants>
+</group>

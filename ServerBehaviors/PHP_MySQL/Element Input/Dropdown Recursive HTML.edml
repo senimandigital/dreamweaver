@@ -1,0 +1,13 @@
+<participant version="11.0">
+	<insertText location="replaceSelection"><![CDATA[<select name="@@FieldUplineId@@" value="<?php echo $row_@@TableName@@['@@FieldUplineId@@'] ? $row_@@TableName@@['@@FieldUplineId@@']  : $_REQUEST['@@FieldUplineId@@']; ?>">
+<option value="0">ROOT</option>
+<?php if (!function_exists('RecursiveSelectMenu')) { function RecursiveSelectMenu($data, $parent, $level, $WEBSITE) { if (isset($data[$parent])) { foreach($data[$parent] as $row_@@TableName@@_recursive) { $space = str_repeat('---', $level); ?>
+<option value="<?php echo $row_@@TableName@@_recursive['@@FieldId@@']; ?>" title="<?php echo $row_@@TableName@@_recursive['@@Master__Field__Deskripsi@@']; ?>"><?php echo $space .' '. $row_@@TableName@@_recursive['@@MasterFieldJudul@@']; ?></option>
+<?php RecursiveSelectMenu($data, $row_@@TableName@@_recursive['@@FieldId@@'], $level+1, $WEBSITE); } return $str; } else return false; }} ?>
+<?php echo RecursiveSelectMenu($data, (isset($_GET['@@FieldId@@'])) ? $_GET['@@FieldId@@'] : '0', null, $WEBSITE); ?>
+</select>]]></insertText>
+	<searchPatterns whereToSearch="tag+SELECT">
+		<searchPattern paramNames="FieldUplineId,TableName,FieldId,Master__Field__Deskripsi,MasterFieldJudul" isOptional="false" limitSearch="all"><![CDATA[/<select name="([^\r\n]*?)" value="\s*<\?php echo \$row_([^\r\n]*?)\['[^\r\n]*?'\] \? \$row_[^\r\n]*?\['[^\r\n]*?'\]  : \$_REQUEST\['[^\r\n]*?'\]; \?>\s*">\s*<option value="0">\s*ROOT\s*<\/option>\s*<\?php if \(!function_exists\('RecursiveSelectMenu'\)\) \{ function RecursiveSelectMenu\(\$data, \$parent, \$level, \$WEBSITE\) \{ if \(isset\(\$data\[\$parent\]\)\) \{ foreach\(\$data\[\$parent\] as \$row_[^\r\n]*?_recursive\) \{ \$space = str_repeat\('---', \$level\); \?>\s*<option value="\s*<\?php echo \$row_[^\r\n]*?_recursive\['([^\r\n]*?)'\]; \?>\s*" title="\s*<\?php echo \$row_[^\r\n]*?_recursive\['([^\r\n]*?)'\]; \?>\s*">\s*<\?php echo \$space \.' '\. \$row_[^\r\n]*?_recursive\['([^\r\n]*?)'\]; \?>\s*<\/option>\s*<\?php RecursiveSelectMenu\(\$data, \$row_[^\r\n]*?_recursive\['[^\r\n]*?'\], \$level\+1, \$WEBSITE\); \} return \$str; \} else return false; \}\} \?>\s*<\?php echo RecursiveSelectMenu\(\$data, \(isset\(\$_GET\['[^\r\n]*?'\]\)\) \? \$_GET\['[^\r\n]*?'\] : '0', null, \$WEBSITE\); \?>\s*<\/select>/i]]></searchPattern>
+	</searchPatterns>
+	<quickSearch>(!function_exists('RecursiveSelectMenu'))</quickSearch>
+</participant>

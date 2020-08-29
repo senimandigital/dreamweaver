@@ -1,0 +1,18 @@
+<participant version="11.0">
+	<insertText location="aboveHTML+51"><![CDATA[<?php
+mysql_select_db($database_@@ConnectionName@@, $@@ConnectionName@@);
+$query_@@TableName@@_recursive = "SELECT * FROM @@TableName@@ ORDER BY @@TableName@@.@@FieldId@@, @@TableName@@.@@FieldUplineId@@";
+$@@TableName@@_recursive = mysql_query($query_@@TableName@@_recursive, $@@ConnectionName@@) or die(mysql_error());
+$row_@@TableName@@_recursive = mysql_fetch_assoc($@@TableName@@_recursive);
+$totalRows_@@TableName@@_recursive = mysql_num_rows($@@TableName@@_recursive);
+$@@TableName@@_recursive = mysql_query($query_@@TableName@@_recursive, $@@ConnectionName@@) or die(mysql_error());
+$data = array();
+while($row_@@TableName@@_recursive = mysql_fetch_assoc($@@TableName@@_recursive)){
+$data[$row_@@TableName@@_recursive['@@FieldUplineId@@']][] = $row_@@TableName@@_recursive;
+}
+?>]]></insertText>
+	<searchPatterns whereToSearch="directive">
+		<searchPattern paramNames="ConnectionName,TableName,FieldId,FieldUplineId" isOptional="false" limitSearch="all"><![CDATA[/mysql_select_db\(\$database_([^\r\n]*?), \$[^\r\n]*?\);(?:\r\n|\r(?!\n)|\n)[ \t]*\$query_([^\r\n]*?)_recursive = "SELECT \* FROM [^\r\n]*? ORDER BY [^\r\n]*?\.([^\r\n]*?), [^\r\n]*?\.([^\r\n]*?)";(?:\r\n|\r(?!\n)|\n)[ \t]*\$[^\r\n]*?_recursive = mysql_query\(\$query_[^\r\n]*?_recursive, \$[^\r\n]*?\) or die\(mysql_error\(\)\);(?:\r\n|\r(?!\n)|\n)[ \t]*\$row_[^\r\n]*?_recursive = mysql_fetch_assoc\(\$[^\r\n]*?_recursive\);(?:\r\n|\r(?!\n)|\n)[ \t]*\$totalRows_[^\r\n]*?_recursive = mysql_num_rows\(\$[^\r\n]*?_recursive\);(?:\r\n|\r(?!\n)|\n)[ \t]*\$[^\r\n]*?_recursive = mysql_query\(\$query_[^\r\n]*?_recursive, \$[^\r\n]*?\) or die\(mysql_error\(\)\);(?:\r\n|\r(?!\n)|\n)[ \t]*\$data = array\(\);(?:\r\n|\r(?!\n)|\n)[ \t]*while\(\$row_[^\r\n]*?_recursive = mysql_fetch_assoc\(\$[^\r\n]*?_recursive\)\)\{(?:\r\n|\r(?!\n)|\n)[ \t]*\$data\[\$row_[^\r\n]*?_recursive\['[^\r\n]*?'\]\]\[\] = \$row_[^\r\n]*?_recursive;(?:\r\n|\r(?!\n)|\n)[ \t]*\}(?=\r\n|\r|\n|\?>)/i]]></searchPattern>
+	</searchPatterns>
+	<quickSearch>mysql_select_db($database_</quickSearch>
+</participant>
