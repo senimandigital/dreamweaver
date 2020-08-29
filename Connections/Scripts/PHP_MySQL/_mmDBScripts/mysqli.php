@@ -3,7 +3,7 @@ $senimandigital = new mysqli("localhost", "senimandigital", "senimandigital", "s
 if ($senimandigital -> connect_errno) { echo "Failed to connect to MySQL: " . $senimandigital -> connect_error; exit(); }
 
 if ($_REQUEST['opCode'] == 'getDataDistinct') {
-$query_distinct = "SELECT DISTINCT `". $_REQUEST['field'] ."` ". $_REQUEST['table'];
+$query_distinct = "SELECT DISTINCT `". $_REQUEST['field'] ."` FROM ". $_REQUEST['table'];
 $distinct = $senimandigital->query($query_distinct);
 $row_distinct = $distinct->fetch_assoc();
 $totalRows_distinct = $senimandigital->affected_rows;
