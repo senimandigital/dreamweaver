@@ -9,9 +9,7 @@ $row_distinct = $distinct->fetch_assoc();
 $totalRows_distinct = $senimandigital->affected_rows;
 do {
 $output[] = $row_distinct[$_REQUEST['field']];
-$tipu[]	= "text";
 } while( $row_distinct = $distinct->fetch_assoc() );
-$output = array_merge($output, $tipu);
 
 } else {
 
