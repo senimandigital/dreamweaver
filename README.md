@@ -2,7 +2,7 @@
 Mutakhirkan Dreamweavermu copy dan paste seluruh folder kedalam directori configuration Dreamweaver. Tidak masalah untuk Versi berapapun. Paket distribusi mungkin tersedia pada http://sourceforge.net/projects/sddw-phpmysql/wiki/browse_tags/ Silahkan kunjungi website untuk mendapatkan dokumentasi dan tutorial.
 
 ## Apa yang baru... ?
-Setelah melakukan update, maka Dreamweaver akan dapat bekerja pada Apache Webserver dengan PHP8.
+Setelah melakukan update, maka Dreamweaver akan dapat bekerja pada Apache Webserver dengan versi PHP8.
 
 # Panduan Installasi
 Cara terbaik untuk melakukan instalasi adalah dengan men-download dan memasang phpMySource, dari phpMySource Anda bisa dengan mudah melakukan update Dreamweaver dan dapat di rolback jika bermasalah. Jika anda nekat, anda bisa saja mendownload seluruh kode disini dan menimpa langsung file Dreamweaver dikomputer anda. itupun harus-nya tidak masalah.
