@@ -5,10 +5,10 @@ Mutakhirkan Dreamweavermu copy dan paste seluruh folder kedalam directori config
 Cara terbaik untuk melakukan instalasi adalah dengan men-download dan memasang phpMySource, dari phpMySource Anda bisa dengan mudah melakukan update Dreamweaver dan dapat di rolback jika bermasalah. Jika anda nekat, anda bisa saja mendownload seluruh kode disini dan menimpa langsung file Dreamweaver dikomputer anda. itupun harus-nya tidak masalah.
 
 # Antisipasi
-Ada baik-nya anda menginstal beberapa beberapa aplikasi Dreamweaver didalam komputer dan versi lama dari Dreamweaver anda jadikan wadah exksperimen untuk melakukan update.
+Ada baik-nya anda menginstal beberapa aplikasi Dreamweaver didalam komputer dan versi lama dari Dreamweaver anda jadikan wadah eksperimen untuk melakukan update.
 
 # Kompetibelitas
-Kode update Dreamweaver yang kami tulis dapat anda gunakan untuk mengupdate Dreamweaver mulai Versi 6 keatas.
+Kode update Dreamweaver yang kami tulis dapat anda gunakan untuk mengupdate Dreamweaver mulai Versi MX keatas.
 
 # Kostumasi
 Anda bisa melakukan kostumasi bahkan kostumasi khusus untuk CMS yang anda tulis dengan tangan anda sendiri, dari pada repot-repot menghabiskan waktu bertahun-tahun tentang bagimana mengupdate Dreamweaver, Kami menyediakan Layanan Teknologi kostumasi CMS dan Dreamweaver dengan 2 Langkah awal:
