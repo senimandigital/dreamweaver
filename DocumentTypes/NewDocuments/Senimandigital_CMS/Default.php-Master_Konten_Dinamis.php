@@ -9,7 +9,7 @@
 </section>
 </td>
 <td role="aside">
-<?php include $WEBSITE['HOSTING']['TEMPLATES'] .'php/menu_samping.php'; ?>
+<?php if (file_exists('_aside.php')) { include "_aside.php"; } elseif (file_exists($WEBSITE['HOSTING']['TEMPLATES'] .'_aside.php')) { include $WEBSITE['HOSTING']['TEMPLATES'] ."_aside.php"; } else { include $WEBSITE['HOSTING']['TEMPLATES'] .'php/menu_samping.php'; } ?>
 </td>
 </tr>
 </table>
