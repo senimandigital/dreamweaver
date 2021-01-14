@@ -15,7 +15,9 @@ Cara terbaik untuk melakukan instalasi adalah dengan men-download dan memasang p
 
 Alternative lain-nya yang anti gagal adalah dengan mendownload paket instalasii yang kami publikasi melalui Marketplace Adobe, disana kami secara berkala akan menyediakan paket installasi. Meski demikian itu masih bukan prioritas kerja kami.
 
-Prioritas kerja kami adalah layanan langsung, remote installasi untuk 40 Native Framework PHP dan pendampingan pengguna untuk 3 Bulan.
+Prioritas kerja kami adalah layanan langsung, remote installasi untuk 40 Native Framework PHP dan pendampingan pengguna untuk 3 Bulan. Jika anda pikir biaya setup dan pendampingan selama 3 bulan itu mahal, silahkan pikirkan kembali karena setelah 3 bulan anda akan menguasai dan dapat membuat aplikasi dengan 40 macam Framework. Jika anda mengikuti Bootcamp anda hanya akan menguasai satu hingga tiga Framework dan baru akan produktif minimal dalam waktu enam bulan setelah mulai belajar.
+
+Beda hal-nya jika anda menggunakan plugins yang kami buat, dalam satu hari anda dapat membuat 40 aplikasi dengan Framework yang berbeda. Plugins dari kami memang berupa kode generator, tapi apa yang kami beri tidak seperti CRUD Generator yang sudah anda kenal yang hanya memberikan 4 hingga 10 fitur dasar seperti: Master, Insert, Update, Delete, View, Search, Menu. Plugin dari kami berisi ratusan Kode Generator dan akan terus bertambah seiring berjalan-nya waktu. Dengan kode generator dari kami anda akan benar-benar terbebas dari yang namanya manual koding, seluruh proses hanya akan terasa sebagai sebuah proses konfigurasi dan Administrasi.
 
 # Antisipasi
 Ada baik-nya anda menginstal beberapa aplikasi Dreamweaver didalam komputer dan versi lama dari Dreamweaver anda jadikan wadah eksperimen untuk melakukan update.
