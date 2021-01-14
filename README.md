@@ -13,6 +13,10 @@ Kami menyediakan jasa kostumasi untuk CMS atau Framework, untuk biaya kostumasi 
 # Panduan Installasi
 Cara terbaik untuk melakukan instalasi adalah dengan men-download dan memasang phpMySource, dari phpMySource Anda bisa dengan mudah melakukan update Dreamweaver dan dapat di roolback jika bermasalah. Jika anda nekat, anda bisa saja mendownload seluruh kode disini dan menimpa langsung file Dreamweaver dikomputer anda. itupun harus-nya tidak masalah.
 
+Alternative lain-nya yang anti gagal adalah dengan mendownload paket instalasii yang kami publikasi melalui Marketplace Adobe, disana kami secara berkala akan menyediakan paket installasi. Meski demikian itu masih bukan prioritas kerja kami.
+
+Prioritas kerja kami adalah layanan langsung, remote installasi untuk 40 Native Framework PHP dan pendampingan pengguna untuk 3 Bulan.
+
 # Antisipasi
 Ada baik-nya anda menginstal beberapa aplikasi Dreamweaver didalam komputer dan versi lama dari Dreamweaver anda jadikan wadah eksperimen untuk melakukan update.
 
