@@ -20,7 +20,7 @@ Prioritas kerja kami adalah layanan langsung, remote installasi untuk 40 Native 
 Beda hal-nya jika anda menggunakan plugins yang kami buat, dalam satu hari anda dapat membuat 40 aplikasi dengan Framework yang berbeda. Plugins dari kami memang berupa kode generator, tapi apa yang kami beri tidak seperti CRUD Generator yang sudah anda kenal yang hanya memberikan 4 hingga 10 fitur dasar seperti: Master, Insert, Update, Delete, View, Search, Menu. Plugin dari kami berisi ratusan Kode Generator dan akan terus bertambah seiring berjalan-nya waktu. Dengan kode generator dari kami anda akan benar-benar terbebas dari yang namanya manual koding, seluruh proses hanya akan terasa sebagai sebuah proses konfigurasi dan Administrasi.
 
 # Antisipasi
-Ada baik-nya anda menginstal beberapa aplikasi Dreamweaver didalam komputer dan versi lama dari Dreamweaver anda jadikan wadah eksperimen untuk melakukan update.
+Ada baik-nya anda menginstal beberapa aplikasi Dreamweaver didalam komputer dan versi lama dari Dreamweaver anda jadikan wadah eksperimen untuk melakukan update. Versi yang cukup nyaman digunakan adalah Dreamweaver CS5 Keatas. Kami juga menggunakan Dreamweaver CS5 untuk melakukan berbagai Experiment.
 
 # Kompetibelitas
 Kode update Dreamweaver yang kami tulis dapat anda gunakan untuk mengupdate Dreamweaver mulai Versi MX keatas.
