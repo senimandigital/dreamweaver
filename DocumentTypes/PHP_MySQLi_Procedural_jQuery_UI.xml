@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<documenttypes xmlns="http://dreamweaver.senimandigital.com/php_mysqli_procedural/jquery_ui">
+  <documenttype id="PHP_MySQLi_Procedural_jQuery_UI" servermodel="PHP MySQLi Procedural jQuery UI" internaltype="Dynamic" winfileextension="php,phtml" macfileextension="php" file="index.php">
+    <TITLE>PHP MySQLi Procedural jQuery UI</TITLE>
+    <description>
+      Deskripsi
+    </description>
+  </documenttype>
+</documenttypes>

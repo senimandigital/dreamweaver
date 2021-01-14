@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<documenttypes xmlns="http://dreamweaver.senimandigital.com/php_mysql/spry">
+  <documenttype id="PHP_MySQL_Spry" servermodel="PHP MySQL Spry" internaltype="Dynamic" winfileextension="php" macfileextension="php" file="index.php">
+    <TITLE>PHP MySQL Spry</TITLE>
+    <description>
+      Spry Framework merupakan cara paling mudah dalam membuat aplikasi PHP dengan XML, Mudah karena pada Dreamweaver sudah tersedia form konfigurasi/form generator yang terintegrasi. 
+    </description>
+  </documenttype>
+</documenttypes>

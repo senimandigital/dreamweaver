@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<documenttypes xmlns="http://dreamweaver.senimandigital.com/php_mysqli_procedural/spry">
+  <documenttype id="PHP_MySQLi_Procedural_Spry" servermodel="PHP MySQLi Procedural Spry" internaltype="Dynamic" winfileextension="php,phtml" macfileextension="php" file="index.php">
+    <TITLE>PHP MySQLi Procedural Spry</TITLE>
+    <description>
+      <MMString:loadString id="ktdocumenttypes_2" />
+    </description>
+  </documenttype>
+</documenttypes>
