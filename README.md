@@ -4,8 +4,14 @@ Mutakhirkan Dreamweavermu copy dan paste seluruh folder kedalam directori config
 ## Apa yang baru... ?
 Setelah melakukan update, maka Dreamweaver akan dapat bekerja pada Apache Webserver dengan versi PHP8.
 
+### Adakah Layanan Premium Installasi... ?
+Mengkostumasi Dreamweaver secara penuh sangatlah tidak mudah dan tidak ada tutorial sama sekali untuk itu. Kami menyediakan jasa kostumasi untuk dukungan hingga 40 Native Framework PHP. Biaya untuk setup ke 40 Native Framework adalah senilai Rp 10.000.000,00.
+
+### Adakah Layanan Premium Kostumasi... ?
+Kami menyediakan jasa kostumasi untuk CMS atau Framework, untuk biaya kostumasi Dreamweaver agar mendukung pengembangan CMS secara Visual kami menawarkan jasa dengan nilai Rp 7.500.000,00 dengan waktu kerja 1 Minggu hingga 3 Bulan pendampingan.
+
 # Panduan Installasi
-Cara terbaik untuk melakukan instalasi adalah dengan men-download dan memasang phpMySource, dari phpMySource Anda bisa dengan mudah melakukan update Dreamweaver dan dapat di rolback jika bermasalah. Jika anda nekat, anda bisa saja mendownload seluruh kode disini dan menimpa langsung file Dreamweaver dikomputer anda. itupun harus-nya tidak masalah.
+Cara terbaik untuk melakukan instalasi adalah dengan men-download dan memasang phpMySource, dari phpMySource Anda bisa dengan mudah melakukan update Dreamweaver dan dapat di roolback jika bermasalah. Jika anda nekat, anda bisa saja mendownload seluruh kode disini dan menimpa langsung file Dreamweaver dikomputer anda. itupun harus-nya tidak masalah.
 
 # Antisipasi
 Ada baik-nya anda menginstal beberapa aplikasi Dreamweaver didalam komputer dan versi lama dari Dreamweaver anda jadikan wadah eksperimen untuk melakukan update.
