@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<documenttypes>
+  <documenttype id="PHP_MySQLi_Procedural_Bootstrap_Svelte" servermodel="PHP MySQLi Procedural Bootstrap Svelte" internaltype="Dynamic" winfileextension="php,phtml" macfileextension="php" file="index.php">
+    <TITLE>PHP MySQLi Procedural Bootstrap Svelte</TITLE>
+    <description>
+      Dreamweaver sudah menyediakan beberapa Frontend Framework diantara-nya Bootstrap, jQuery dan Spry setiap Frontend Framework memiliki sfesifikasi masing-masing walaupun kebanyakan Frontend Framework berusaha menyediakan semua-nya namun akhirnya Framework yang lebih Fokus pada satu konsep jualah yang akan terus berkembang. Spry ini adalah Frontend Framework yang disediakan Adobe, meski tidak berkembang Spry tetap memiliki keunggulan dalam pengolahan data dengan Format XML. 
+    </description>
+  </documenttype>
+</documenttypes>
