@@ -1,0 +1,79 @@
+<TAG name="A" BIND="HREF" endtag="yes">
+<tagformat nlbeforetag="0" nlbeforecontents="0" nlaftercontents="0" nlaftertag="0"/>
+<tagdialog file="a.htm" />
+  <attributes>
+    <attrib name="HREF" type="Relativepath"/>
+    <attrib name="NAME"/>
+    <attrib name="TITLE"/>
+    <attrib name="TARGET" type="Enumerated">
+      <attriboption value="_top" caption="_top"/>
+      <attriboption value="_parent" caption="_parent"/>
+      <attriboption value="_self" caption="_self"/>
+      <attriboption value="_new" caption="_new"/>
+      <attriboption value="_blank" caption="_blank"/>
+    </attrib>
+    <attrib name="CLASS" type="cssStyle"/>
+    <attrib name="ID" type="cssId"/>
+    <attrib name="STYLE" type="Style"/>
+    <attrib name="HREFLANG"/>
+    <attrib name="ACCESSKEY"/>
+    <attrib name="TABINDEX"/>
+    <attrib name="REL"/>
+    <attrib name="REV"/>
+    <attrib name="SHAPE"/>
+    <attrib name="COORDS"/>
+    <attrib name="DIR" type="Enumerated">
+      <attriboption value="ltr" caption="left-to-right"/>
+      <attriboption value="rtl" caption="right-to-left"/>
+    </attrib>
+    <attrib name="onFocus" casesensitive="yes"/>
+    <attrib name="onBlur" casesensitive="yes"/>
+    <attrib name="onClick" casesensitive="yes"/>
+    <attrib name="onDblClick" casesensitive="yes"/>
+    <attrib name="onMouseDown" casesensitive="yes"/>
+    <attrib name="onMouseUp" casesensitive="yes"/>
+    <attrib name="onMouseOver" casesensitive="yes"/>
+    <attrib name="onMouseMove" casesensitive="yes"/>
+    <attrib name="onMouseOut" casesensitive="yes"/>
+    <attrib name="onKeyPress" casesensitive="yes"/>
+    <attrib name="onKeyDown" casesensitive="yes"/>
+    <attrib name="onKeyUp" casesensitive="yes"/>
+    <event name="onFocus"/>
+    <event name="onBlur"/>
+    <event name="onClick"/>
+    <event name="onDblClick"/>
+    <event name="onMouseDown"/>
+    <event name="onMouseUp"/>
+    <event name="onMouseOver"/>
+    <event name="onMouseMove"/>
+    <event name="onMouseOut"/>
+    <event name="onKeyPress"/>
+    <event name="onKeyDown"/>
+    <event name="onKeyUp"/>
+    <attrib name="data-icon" type="enumerated">
+      <attriboption value="naik" />
+      <attriboption value="turun" />
+      <attriboption value="naik-ke-puncak" />
+      <attriboption value="turun-ke-lembah" />
+    </attrib>
+    <attrib name="href-dialog"/>
+    <attrib name="href-popup"/>
+    <attrib name="href-dialog-on-dblclick"/>
+    <attrib name="href-popup-on-dblclick"/>
+    <attrib name="title-jquery" type="enumerated">
+      <attriboption value="tooltip" />
+      <attriboption value="tooltip-top" />
+    </attrib>
+    <attrib name="change-url-parameter" type="enumerated">
+      <attriboption value="databaas" />
+      <attriboption value="table" />
+      <attriboption value="field" />
+      <attriboption value="modul_proyek_id" />
+    </attrib>
+  </attributes>
+  <attribcategories>
+    <attribgroup name="General" elements="href,target" />
+    <attribgroup name="CSS/Accessibility" elements="name,class,id,style,title,hreflang,accesskey,tabindex" />
+    <attribgroup name="Language" elements="dir" />
+  </attribcategories>
+</tag>
