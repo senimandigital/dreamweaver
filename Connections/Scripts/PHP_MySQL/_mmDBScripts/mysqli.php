@@ -1,8 +1,8 @@
 <?php // online update: https://github.com/senimandigital/dreamweaver/blob/master/Connections/Scripts/PHP_MySQL/_mmDBScripts/mysqli.php
 $source = file_get_contents('../Connections/senimandigital.php');
-preg_match('%[$]username_[a-z]+ = "(.*?)";%s', $source, $username); //print_r($username);
-preg_match('%[$]password_[a-z]+ = "(.*?)";%s', $source, $password); //print_r($password);
-preg_match('%[$]database_[a-z]+ = "(.*?)";%s', $source, $database); //print_r($database);
+preg_match('%[$]username_.*? = "(.*?)";%s', $source, $username); //print_r($username);
+preg_match('%[$]password_.*? = "(.*?)";%s', $source, $password); //print_r($password);
+preg_match('%[$]database_.*? = "(.*?)";%s', $source, $database); //print_r($database);
 
     $senimandigital = new mysqli("localhost", $username[1], $password[1], $database[1]);
 if ($senimandigital -> connect_errno) { echo "Failed to connect to MySQL: " . $senimandigital -> connect_error; exit(); }
